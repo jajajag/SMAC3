@@ -1,5 +1,8 @@
 # SMAC v3 Project
 
+This is forked from automl/SMAC3 for study and development purpose. 
+See Modification section for more details.
+
 Copyright (C) 2016-2018  [ML4AAD Group](http://www.ml4aad.org/)
 
 __Attention__: This package is a re-implementation of the original SMAC tool
@@ -106,3 +109,49 @@ See examples/
 SMAC3 is developed by the [ML4AAD Group of the University of Freiburg](http://www.ml4aad.org/).
 
 If you found a bug, please report to https://github.com/automl/SMAC3
+
+# Modification
+
+This is a branch of SMAC3 for study and development purpose. 
+The ideas are provided by Dr. Tom Cheng and implemented by myself.
+Only raw results will be shown until the paper come out.
+
+Following files have been modified:
+
+### data/ <br>
+* dataset_1049_pc4.csv <br>
+We use pc4, real-sim and rcv1 for testing.
+
+### results/
+* fitting_loss_in_smbo <br>
+Loss curves predicted by gradient-based GPR in each iteration.
+* gpr_fitting_graph
+Comparison of hyperboloid fitting of normal GPR and gradient-based GPR.
+* smac_comparison <br>
+A simple comparison between normal SMAC with RF and our gradient-based GPR.
+
+### smac/epm/
+
+### smac/facade/
+
+### smac/optimizer/
+
+### smac/pssmac
+
+### others
+
+* smac/runhistory/runhistory
+* smac/stats/stats
+* smac/tae/execute_ta_customized
+* smac/utils/libsvm2sparse
+* smac/utils/util_funcs
+
+smac/epm/bayes_opt
+smac/epm/gaussian_gradient_epm
+smac/epm/gaussian_process
+smac/epm/hoag
+smac/facade/oursmac_facade
+smac/facade/smac_facade
+smac/optimizer/bayesian_optimization
+smac/optimizer/smbo
+smac/pssmac
