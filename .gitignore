@@ -31,3 +31,4 @@ target_algo_runs.json
 doc/main_options.rst
 doc/scenario_options.rst
 doc/smac_options.rst
+*.psd
