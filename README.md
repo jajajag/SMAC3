@@ -125,8 +125,10 @@ We use pc4, real-sim and rcv1 for testing.
 ### results/
 * fitting_loss_in_smbo <br>
 Loss curves predicted by gradient-based GPR in each iteration.
+
 * gpr_fitting_graph
 Comparison of hyperboloid fitting of normal GPR and gradient-based GPR.
+
 * smac_comparison <br>
 A simple comparison between normal SMAC with RF and our gradient-based GPR.
 
