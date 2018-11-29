@@ -123,78 +123,78 @@ Following files have been modified:
 We use pc4, real-sim and rcv1 for testing.
 
 ### results/
-* fitting_loss_in_smbo <br>
+* fitting_loss_in_smbo/ <br>
 Loss curves predicted by gradient-based GPR in each iteration.
 
-* gpr_fitting_graph <br>
+* gpr_fitting_graph/ <br>
 Comparison of hyperboloid fitting of normal GPR and gradient-based GPR.
 
-* smac_comparison <br>
+* smac_comparison/ <br>
 A simple comparison between normal SMAC with RF and our gradient-based GPR.
 
 ### smac/epm/
-* bayes_opt <br>
+* bayes_opt/ <br>
 Forked from fmfn/BayesianOptimization. Used for GP based SMAC.
 
 * gaussian_gradient_epm.py <br>
 EPM for gradient-based Gaussian Process Regressor.
 
-* gaussian_process <br>
+* gaussian_process/ <br>
 Including self-implemented Gaussian Kernels and the gradient-based Gaussian 
 Process Regressor.
 
-* hoag <br>
+* hoag/ <br>
 Forked from fabianp/hoag. Used to calculate gradients of the loss.
 
 ### smac/facade/
-* oursmac_facade <br>
+* oursmac_facade.py <br>
 A simple class to initialize our modified SMAC.
 
-* smac_facade <br>
+* smac_facade.py <br>
 Add parameters hoag, server and bayesian_optimization 
 to SMAC class.
 
 ### smac/optimizer/
-* smac/optimizer/smbo <br>
+* smbo.py <br>
 The main loop of SMBO process. Add PS-Lite server in the main BO loop and 
 hoag, gradient-based GPR and bayesian_optimization in the choose_next function.
 
 ### smac/pssmac/
-* facade <br>
+* facade/ <br>
 Facades of the PS-Lite nodes, including the abstract_facade and related 
 scheduler_facade, server_facade and worker_facade. Used to create complete
 scheduler/server/worker process.
 
-* ps <br>
+* ps/ <br>
 Implementations of parallel SMAC based on PS-Lite, which is an asynchronous 
 parallel process based on Parameter Server architect. <br>
 ps_smac.cc is a C++ implementation of server/worker nodes. abstract_ps and 
 its subclasses server.py and worker.py define the python nodes which pass the
  hyperparameters and runhistory to the PS-Lite using pipes.
 
-* tae <br>
+* tae/ <br>
 An abstract class for ta functions (model) and an instance for 
 LogisticRegression.
 
 ### smac/runhistory/
-* runhistory <br>
+* runhistory.py <br>
 Add a util function get_history_for_config to the runhistory class.
 
 ### smac/stats/
-* stats <br>
+* stats.py <br>
 Modify the cutoff inside the class to avoid running forever.
 
 ### smac/tae/
-* smac/tae/execute_ta_customized <br>
+* execute_ta_customized.py <br>
 Temporary ta function for LogisticRegression.
 
 ### smac/utils/
-* libsvm2sparse <br>
+* libsvm2sparse.py <br>
 A util function to parse libsvm format data to sparse matrix.
 
-* util_funcs <br>
-Add a util function remove_same_values in order to removed same lines in the 
-runhistory passed from the main BO loop to choose_next.
+* util_funcs.py <br>
+Add a util function remove_same_values in order to removed repeated lines in 
+the runhistory passed from the main BO loop to choose_next.
 
 
 
