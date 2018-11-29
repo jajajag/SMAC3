@@ -13,7 +13,7 @@ def get_types(config_space, instance_features=None):
     # Extract types vector for rf from config space and the bounds
     types = np.zeros(len(config_space.get_hyperparameters()),
                      dtype=np.uint)
-    bounds = [(np.nan, np.nan)]*types.shape[0]
+    bounds = [(np.nan, np.nan)] * types.shape[0]
 
     for i, param in enumerate(config_space.get_hyperparameters()):
         if isinstance(param, (CategoricalHyperparameter)):
@@ -32,7 +32,8 @@ def get_types(config_space, instance_features=None):
             types[i] = 0
             bounds[i] = (0, np.nan)
             # and we leave the bounds to be 0 for now
-        elif isinstance(param, UniformFloatHyperparameter):         # Are sampled on the unit hypercube thus the bounds
+        elif isinstance(param,
+                        UniformFloatHyperparameter):  # Are sampled on the unit hypercube thus the bounds
             # bounds[i] = (float(param.lower), float(param.upper))  # are always 0.0, 1.0
             bounds[i] = (0.0, 1.0)
         elif isinstance(param, UniformIntegerHyperparameter):
@@ -82,19 +83,23 @@ def get_rng(
         logger = logging.getLogger('GetRNG')
     # initialize random number generator
     if rng is not None and not isinstance(rng, (int, np.random.RandomState)):
-        raise TypeError('Argument rng accepts only arguments of type None, int or np.random.RandomState, '
-                        'you provided %s.' % str(type(rng)))
+        raise TypeError(
+            'Argument rng accepts only arguments of type None, int or np.random.RandomState, '
+            'you provided %s.' % str(type(rng)))
     if run_id is not None and not isinstance(run_id, int):
-        raise TypeError('Argument run_id accepts only arguments of type None, int or np.random.RandomState, '
-                        'you provided %s.' % str(type(run_id)))
+        raise TypeError(
+            'Argument run_id accepts only arguments of type None, int or np.random.RandomState, '
+            'you provided %s.' % str(type(run_id)))
 
     if rng is None and run_id is None:
         # Case that both are None
-        logger.debug('No rng and no run_id given: using a random value to initialize run_id.')
+        logger.debug(
+            'No rng and no run_id given: using a random value to initialize run_id.')
         rng = np.random.RandomState()
         run_id = rng.randint(MAXINT)
     elif rng is None and isinstance(run_id, int):
-        logger.debug('No rng and no run_id given: using run_id %d as seed.', run_id)
+        logger.debug('No rng and no run_id given: using run_id %d as seed.',
+                     run_id)
         rng = np.random.RandomState(seed=run_id)
     elif isinstance(rng, int):
         if run_id is None:
@@ -108,6 +113,37 @@ def get_rng(
         else:
             pass
     else:
-        raise ValueError('This should not happen! Please contact the developers! Arguments: rng=%s of type %s and '
-                         'run_id=% of type %s' % (rng, type(rng), run_id, type(run_id)))
+        raise ValueError(
+            'This should not happen! Please contact the developers! Arguments: rng=%s of type %s and '
+            'run_id=% of type %s' % (rng, type(rng), run_id, type(run_id)))
     return run_id, rng
+
+
+def remove_same_values(X: np.ndarray, Y: np.ndarray):
+    """Remove repeated lines form X and Y. This function can be used in the
+    choose_next function in the main BO loop.
+
+    Parameters
+    ----------
+    X : np.ndarray
+        Data that contains repeated values.
+    Y : np.ndarray
+
+    Returns
+    -------
+    X : np.ndarray
+    Y : np.ndarray
+        Values that remove repeated values.
+    """
+    # 消去完全相同的行
+    cnt = 0
+    while cnt < X.shape[0]:
+        for i in range(cnt):
+            if np.asarray(X[cnt] == X[i]).all():
+                # 删除X，Y中的行
+                X = np.delete(X, cnt, 0)
+                Y = np.delete(Y, cnt, 0)
+                cnt -= 1
+                break
+        cnt += 1
+    return X, Y

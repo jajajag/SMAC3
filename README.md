@@ -1,6 +1,6 @@
 # SMAC v3 Project
 
-This is forked from automl/SMAC3 for study and development purpose. 
+This is forked from automl/SMAC3 of v0.8.0 for study and development purpose. 
 See Modification section for more details.
 
 Copyright (C) 2016-2018  [ML4AAD Group](http://www.ml4aad.org/)

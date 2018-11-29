@@ -52,6 +52,8 @@ class Stats(object):
         self._EMA_ALPHA = 0.2
 
         self._start_time = None
+        # 覆盖掉这个None
+        self._start_time = time.time() - self.wallclock_time_used
         self._logger = logging.getLogger(self.__module__ + "." + self.__class__.__name__)
 
     def save(self):
@@ -190,7 +192,7 @@ class Stats(object):
         log_func("Statistics:")
         log_func("#Incumbent changed: %d" %(self.inc_changed - 1)) # first change is default conf
         log_func("#Target algorithm runs: %d / %s" %(self.ta_runs, str(self.__scenario.ta_run_limit)))
-        log_func("#Configurations: %d" %(self.n_configs))
+        log_func("#Configurations: %d" % (self.n_configs))
         log_func("Used wallclock time: %.2f / %.2f sec " %(time.time() - self._start_time, self.__scenario.wallclock_limit))
         log_func("Used target algorithm runtime: %.2f / %.2f sec" %(self.ta_time_used, self.__scenario.algo_runs_timelimit))
         self._logger.debug("Debug Statistics:")

@@ -36,6 +36,8 @@ from smac.utils.constants import MAXINT
 from smac.utils.util_funcs import get_rng
 from smac.utils.io.output_directory import create_output_directory
 from smac.configspace import Configuration
+from smac.epm.hoag.lr_hoag import AbstractHOAG
+from smac.pssmac.ps.server_ps import Server
 
 
 __author__ = "Marius Lindauer"
@@ -75,7 +77,11 @@ class SMAC(object):
                  rng: typing.Optional[typing.Union[np.random.RandomState, int]]=None,
                  smbo_class: typing.Optional[SMBO]=None,
                  run_id: typing.Optional[int]=None,
-                 random_configuration_chooser: typing.Optional[RandomConfigurationChooser]=None):
+                 random_configuration_chooser: typing.Optional[
+                     RandomConfigurationChooser]=None,
+                 hoag: typing.Optional[AbstractHOAG] = None,
+                 server: typing.Optional[Server] = None,
+                 bayesian_optimization: typing.Optional[bool] = False):
         """
         Constructor
 
@@ -129,7 +135,14 @@ class SMAC(object):
             chosen.
         random_configuration_chooser : ~smac.optimizer.random_configuration_chooser.RandomConfigurationChooser
             How often to choose a random configuration during the intensification procedure.
-
+        hoag : AbstractHOAG, defualt_value = None,
+            An AbstractHOAG class. Use this value to calculate gradients of
+            the loss function.
+        server: Server, default_value = None
+            Server node for PS-Lite. Set this value to None if you do not
+            want to use PS_SMAC. Otherwise, it should be set to a Server object.
+        bayesian_optimization : bool, default_value = False
+            Flag to determine whether to use bayesian optimization (GPR).
         """
         self.logger = logging.getLogger(
             self.__module__ + "." + self.__class__.__name__)
@@ -400,7 +413,10 @@ class SMAC(object):
             'acquisition_func': acquisition_function,
             'rng': rng,
             'restore_incumbent': restore_incumbent,
-            'random_configuration_chooser': random_configuration_chooser
+            'random_configuration_chooser': random_configuration_chooser,
+            'hoag': hoag,
+            'server': server,
+            'bayesian_optimization': bayesian_optimization
         }
         if smbo_class is None:
             self.solver = SMBO(**smbo_args)

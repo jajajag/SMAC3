@@ -461,3 +461,27 @@ class RunHistory(object):
                      status=status, instance_id=instance_id,
                      seed=seed, additional_info=additional_info,
                      origin=origin)
+
+
+    # 返回某个config的所有历史记录
+    def get_history_for_config(self, config: Configuration) -> typing.List[
+        typing.List]:
+        """Find all history for a specific Configuration.
+
+        Parameters
+        ----------
+        config : Configuration
+            A Configuration for the runhistory.
+        Returns
+        -------
+        Return
+            Return [[cost, time, seed]]
+        """
+        # 如果没有发现incumbent，返回空列表
+        if config not in self.config_ids:
+            return []
+
+        # 返回这个config对应的全部结果
+        return [[v.cost, v.time, k.seed] for k, v in self.data.items() if
+                k.config_id == self.config_ids[
+                    config] and v.status == StatusType.SUCCESS]

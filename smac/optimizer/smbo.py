@@ -5,6 +5,9 @@ import time
 import typing
 
 from smac.configspace import Configuration
+from smac.epm.base_epm import AbstractEPM
+from smac.epm.bayes_opt.bayesian_optimization import BayesianOptimization
+from smac.epm.hoag.lr_hoag import AbstractHOAG
 from smac.epm.rf_with_instances import RandomForestWithInstances
 from smac.initial_design.initial_design import InitialDesign
 from smac.intensification.intensification import Intensifier
@@ -14,12 +17,14 @@ from smac.optimizer.random_configuration_chooser import ChooserNoCoolDown, \
     ChooserLinearCoolDown
 from smac.optimizer.ei_optimization import AcquisitionFunctionMaximizer, \
     RandomSearch
+from smac.pssmac.ps.server_ps import Server
 from smac.runhistory.runhistory import RunHistory
 from smac.runhistory.runhistory2epm import AbstractRunHistory2EPM
 from smac.scenario.scenario import Scenario
 from smac.stats.stats import Stats
 from smac.tae.execute_ta_run import FirstRunCrashedException
 from smac.utils.io.traj_logging import TrajLogger
+from smac.utils.util_funcs import remove_same_values
 from smac.utils.validate import Validator
 
 
@@ -62,13 +67,19 @@ class SMBO(object):
                  intensifier: Intensifier,
                  aggregate_func: callable,
                  num_run: int,
-                 model: RandomForestWithInstances,
+                 model: AbstractEPM,
                  acq_optimizer: AcquisitionFunctionMaximizer,
                  acquisition_func: AbstractAcquisitionFunction,
                  rng: np.random.RandomState,
                  restore_incumbent: Configuration=None,
                  random_configuration_chooser: typing.Union[
-                     ChooserNoCoolDown, ChooserLinearCoolDown]=ChooserNoCoolDown(2.0)):
+                     ChooserNoCoolDown,
+                     ChooserLinearCoolDown]=ChooserNoCoolDown(2.0),
+                 # 强行在smbo中加入训练集和验证集
+                 hoag: AbstractHOAG = None,
+                 # 参数服务器Server的class
+                 server: Server = None,
+                 bayesian_optimization: bool = False):
         """
         Interface that contains the main Bayesian optimization loop
 
@@ -93,9 +104,8 @@ class SMBO(object):
              configuration
         num_run: int
             id of this run (used for pSMAC)
-        model: RandomForestWithInstances
-            empirical performance model (right now, we support only
-            RandomForestWithInstances)
+        model: AbstractEPM
+            empirical performance model (right now, we support only AbstractEPM)
         acq_optimizer: AcquisitionFunctionMaximizer
             Optimizer of acquisition function.
         acquisition_function : AcquisitionFunction
@@ -109,6 +119,14 @@ class SMBO(object):
             Chooser for random configuration -- one of
             * ChooserNoCoolDown(modulus)
             * ChooserLinearCoolDown(start_modulus, modulus_increment, end_modulus)
+        hoag : AbstractHOAG, defualt_value = None,
+            An AbstractHOAG class. Use this value to calculate gradients of
+            the loss function.
+        server: Server, default_value = None
+            Server node for PS-Lite. Set this value to None if you do not
+            want to use PS_SMAC. Otherwise, it should be set to a Server object.
+        bayesian_optimization : bool, default_value = False
+            Flag to determine whether to use bayesian optimization (GPR).
         """
 
         self.logger = logging.getLogger(
@@ -129,6 +147,11 @@ class SMBO(object):
         self.acquisition_func = acquisition_func
         self.rng = rng
         self.random_configuration_chooser = random_configuration_chooser
+        # hoag的类，直接使用hoag的fit，predict等
+        self.hoag = hoag
+        # 保存server端进程
+        self.server = server
+        self.bayesian_optimization = bayesian_optimization
 
         self._random_search = RandomSearch(
             acquisition_func, self.config_space, rng
@@ -141,7 +164,12 @@ class SMBO(object):
         self.stats.start_timing()
         # Initialization, depends on input
         if self.stats.ta_runs == 0 and self.incumbent is None:
-            self.incumbent = self.initial_design.run()
+            if self.server is None:
+                self.incumbent = self.initial_design.run()
+            else:
+                # 由worker自己产生第一个incumbent，然后由server接收其中的一个
+                self.incumbent, new_runhistory = self.server.pull()
+                self.runhistory.update(new_runhistory)
 
         elif self.stats.ta_runs > 0 and self.incumbent is None:
             raise ValueError("According to stats there have been runs performed, "
@@ -171,9 +199,15 @@ class SMBO(object):
             The best found configuration
         """
         self.start()
-
+        # 设置一个counter
+        counter = 0
         # Main BO loop
         while True:
+            # 打印每轮SMBO的最优结果(包括首轮SMBO 0)
+            print('SMBO ' + str(counter) + ': ' + str(
+                self.runhistory.get_cost(self.incumbent)))
+            counter += 1
+
             if self.scenario.shared_model:
                 pSMAC.read(run_history=self.runhistory,
                            output_dirs=self.scenario.input_psmac_dirs,
@@ -192,12 +226,41 @@ class SMBO(object):
 
             self.logger.debug("Intensify")
 
-            self.incumbent, inc_perf = self.intensifier.intensify(
-                challengers=challengers,
-                incumbent=self.incumbent,
-                run_history=self.runhistory,
-                aggregate_func=self.aggregate_func,
-                time_bound=max(self.intensifier._min_time, time_left))
+            if self.server is None:
+                self.incumbent, inc_perf = self.intensifier.intensify(
+                    challengers=challengers,
+                    incumbent=self.incumbent,
+                    run_history=self.runhistory,
+                    aggregate_func=self.aggregate_func,
+                    time_bound=max(self.intensifier._min_time, time_left))
+            else:
+                # 从worker读取loss，加入history再运行新的challengers
+                self.server.push(incumbent=self.incumbent,
+                                 runhistory=self.runhistory,
+                                 challengers=challengers.challengers,
+                                 time_left=time_left)
+                # 从worker读取runhistory，并merge到self.runhistory
+                incumbent, new_runhistory = self.server.pull()
+                self.runhistory.update(new_runhistory)
+                # 更新了runhistory之后，应该找寻是否存在新的incumbent
+                # 因为worker没有完整的
+                runhistory_old = self.runhistory.get_history_for_config(
+                    self.incumbent)
+                runhistory_new = self.runhistory.get_history_for_config(
+                    incumbent)
+                # 找寻cost最小值
+                lowest_cost_old = min([cost[0] for cost in runhistory_old])
+                lowest_cost_new = min([cost[0] for cost in runhistory_new])
+                if lowest_cost_new < lowest_cost_old:
+                    # 替换为新的incumbent
+                    self.incumbent = incumbent
+                """可以考虑用这个函数
+                new_incumbent = self._compare_configs(
+                    incumbent=incumbent, challenger=challenger,
+                    run_history=run_history,
+                    aggregate_func=aggregate_func,
+                    log_traj=log_traj)
+                """
 
             if self.scenario.shared_model:
                 pSMAC.write(run_history=self.runhistory,
@@ -217,7 +280,7 @@ class SMBO(object):
         return self.incumbent
 
     def choose_next(self, X: np.ndarray, Y: np.ndarray,
-                    incumbent_value: float=None):
+                    incumbent_value: float = None):
         """Choose next candidate solution with Bayesian optimization. The 
         suggested configurations depend on the argument ``acq_optimizer`` to
         the ``SMBO`` class.
@@ -247,7 +310,53 @@ class SMBO(object):
                 runhistory=self.runhistory, stats=self.stats, num_points=1
             )
 
-        self.model.train(X, Y)
+        # 消去完全相同的行
+        X, Y = remove_same_values(X, Y)
+        print(X.shape)
+
+        # 如果指定了hoag函数，则进行调用
+        if self.hoag is not None:
+
+            # 初始化梯度数组
+            gradient = np.zeros(X.shape)
+            # 对每组X，计算对应的梯度(此处有大量重复计算)
+            for i in range(X.shape[0]):
+                self.hoag.fit(X[i, :])
+                gradient[i, :] = self.hoag.predict_gradient()
+
+            X = X.flatten()
+            ind = np.argsort(X)
+            gradient = gradient.flatten()[ind].reshape(-1, 1)
+            X = X[ind].reshape(-1, 1)
+            Y = Y.flatten()[ind].reshape(-1, 1)
+            self.model.train(X, Y, gradient=gradient)
+
+        elif self.bayesian_optimization:
+            # gpr使用的参数
+            gp_params = {"alpha": 1e-5, "n_restarts_optimizer": 2}
+            # 从configspace读取超参的范围
+            pbounds = {}
+            for key in self.scenario.cs._hyperparameters.keys():
+                # 只处理float类型的超参
+                hyperparamter = self.scenario.cs._hyperparameters[key],
+                if isinstance(hyperparamter.default_value, float):
+                    pbounds[key] = (hyperparamter.lower, hyperparamter.upper)
+            # 初始化bayesian_optimization
+            bo = BayesianOptimization(X, Y, pbounds=pbounds, verbose=False)
+            # 预测下一个ei取得点
+            newX = bo.maximize(acq="ei", **gp_params)
+            # 将超参数组再转化为Configuration
+            challengers = [Configuration(self.scenario.cs, x) for x in newX]
+            return challengers
+
+        else:
+            self.model.train(X, Y)
+        # 打印X和Y的值
+        # print("X: ", X.flatten())
+        # print("Y: ", Y.flatten())
+        # print("Y_pred: ", self.model.predict(X))
+        # if self.hoag is not None:
+        #    print("G: ", gradient)
 
         if incumbent_value is None:
             if self.runhistory.empty():
@@ -259,8 +368,9 @@ class SMBO(object):
 
         challengers = self.acq_optimizer.maximize(
             runhistory=self.runhistory, 
-            stats=self.stats, 
-            num_points=5000, 
+            stats=self.stats,
+            # 初始为5000，提升速度调成500
+            num_points=500,
             random_configuration_chooser=self.random_configuration_chooser
         )
         return challengers
