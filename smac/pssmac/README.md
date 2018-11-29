@@ -1,0 +1,107 @@
+# pssmac模块
+
+pssmac使用PS-Lite作为参数服务器对SMAC算法进行扩展，使SMAC可以在异步并行的环境中运行，从而对串行算法进行加速。
+
+## 概述
+
+SMBO全称为Sequential Model-Based 
+Optimization，是一个串行算法。但对于大数据集，模型的训练为速控步，会导致串行算法的时间代价较大。如果我们引入并行性，可以一定程度上的提升算法的效率。因此我们使用参数服务器的架构，在Server
+端仅运行SMBO循环并保存runhistory，将计算密集的部分放在Worker端进行实现，Worker通过随机产生不同的初始点，由各个方向逼近最优值点，从而实现异步并行。
+
+我们使用PS-Lite作为参数服务器，处理Server端和Worker端的通讯。SMBO和模型在Python端运行，通讯则由以C++
+为基础的PS-Lite处理。其中Server端由SMBO调用，Worker端维护一个loop来接受超参和返回模型运行后的结果。
+
+其中，每个Worker和Server，Scheduler先创建连接。然后由每个Worker端以work_id随机生成一组超参Configuration
+，运行之后返回loss给SMBO循环中的Server。Server接收超参的Configuration和loss之后，构建经验模型EMP，再由SMBO
+算法选出新的备选超参Challengers给Worker。每个Worker收到之后立即开始训练模型。因为SMBO是不等待所有Worker
+运行完毕的，因此该算法是异步并行的。
+
+分
+
+代码主体由四部分组成：
+
+* Server(Python)
+* Server(PS-Lite)
+* Worker(PS-Lite)
+* Worker(Python)
+
+具体的调用流程为：
+
+SMBO -> Server(Python) -> Server(PS-Lite) -> Worker(PS-Lite) ->
+Worker(Python) -> Intensification -> tae_runner
+
+Server和Worker的交互方式为：
+
+Worker1 -> Server -> Worker1
+Worker2 -> Server -> Worker2
+
+
+## 结构
+
+pssmac模块主要包含三个目录，facade，ps和tae。
+
+### facade/
+
+facade目录包含一个abstract_facade.py文件用于储存facade的基类，它派生的三个类分别存储于
+scheduler_facade.py，server_facade.py和worker_facade.py中。这三个类分别用于处理PS-Lite
+的三种结点。
+
+* abstract_facade.py <br>
+存储了facade的基类AbstractFacade，在AbstractFacade中定义了三种PS-Lite类公有的init和run
+方法。派生出三个子类。
+
+* scheduler_facade.py <br>
+定义了scheduler的SchedulerFacade，在这个类中，使用Popen打开一个sheduler进程，进行等待。
+scheduler负责协调server和worker之间的通讯。
+
+* server_facade.py <br>
+定义了server的ServerFacade，Server的实例、SMAC的参数及SMAC的主要过程都在这个类中运行。
+ServerFacade负责处理SMBO的主要过程，包括构建经验模型EPM，预测最优点出现的位置和选点。
+
+* worker_facade.py <br>
+定义了worker的WorkerFacade，实例化了Intensification类并调用了Worker的子进程，同时定义了，
+临时目录，stats，traj_logger等乱七八糟的东西。
+
+### ps/
+
+ps目录下的代码主要用于创建PS-Lite的C++进程，并使用管道在PS-Lite的程序和Python端程序之间进行
+通讯和交互。PS-Lite主要用于Server和Worker之间信息的传递，具体的算法由Python端进行处理。
+
+* abstract_ps.py <br>
+定义了AbstractPS和ConfigHistory两个类。 <br>
+前者是Server和Worker的基类，定义了push和pull两个
+方法和push_parser，pull_parser两个虚方法用于覆写。其中push和pull广义地看做发送和拉取，和
+PS-Lite中的定义有微妙的不同。 <br>
+后者是存储一个超参组及其对应的历史记录的类，用于数据的存储和转化。
+
+* compile.sh <br>
+ps_smac.cc的编译命令，需要事先把wormhole中的PS-Lite进行安装，然后把PS-Lite的目录保存到环境
+变量PS_LITE中(结尾不带/)，使用compile.sh ps_smac.cc进行编译。
+
+* ps_smac.cc <br>
+PS-Lite的C++端实现，主要负责处理由标准输入输出接受Python端父进程，由管道传来的信息，并格式化为
+vector形式，再传到Server/Worker端。
+
+* server_ps.py <br>
+
+* worker_ps.py <br>
+
+### tae/
+
+* abstract_tae.py
+
+### 其他文件
+
+
+## 使用
+
+
+
+
+# pssmac module
+
+## Overview
+
+## Structure
+
+## Usage

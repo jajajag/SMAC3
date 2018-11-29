@@ -6,7 +6,7 @@ class AbstractFacade(Process):
     def __init__(self,
                  ps_args: typing.List[str]):
         """Abstract facade class for PS-SMAC.
-        其实没必要用PS-Lite，可以考虑py的轻量级ps，但用了也要弄好。
+        其实倒没必要用PS-Lite，可以考虑py的轻量级ps。
 
         Parameters
         ----------

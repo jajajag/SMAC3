@@ -1,0 +1,8 @@
+@inproceedings{PedregosaHyperparameter16,
+  author    = {Fabian Pedregosa},
+  title     = {Hyperparameter optimization with approximate gradient},
+  booktitle = {Proceedings of the 33nd International Conference on Machine Learning,
+               {ICML}},
+  year      = {2016},
+  url       = {http://jmlr.org/proceedings/papers/v48/pedregosa16.html},
+}

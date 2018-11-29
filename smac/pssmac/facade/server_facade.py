@@ -15,7 +15,6 @@ import time
 import typing
 
 
-
 class ServerFacade(AbstractFacade):
     def __init__(self,
                  ps_args: typing.List[str],

@@ -119,10 +119,12 @@ Only raw results will be shown until the paper come out.
 Following files have been modified:
 
 ### data/
+
 * dataset_1049_pc4.csv <br>
 We use pc4, real-sim and rcv1 for testing.
 
 ### results/
+
 * fitting_loss_in_smbo/ <br>
 Loss curves predicted by gradient-based GPR in each iteration.
 
@@ -133,6 +135,7 @@ Comparison of hyperboloid fitting of normal GPR and gradient-based GPR.
 A simple comparison between normal SMAC with RF and our gradient-based GPR.
 
 ### smac/epm/
+
 * bayes_opt/ <br>
 Forked from fmfn/BayesianOptimization. Used for GP based SMAC.
 
@@ -147,19 +150,32 @@ Process Regressor.
 Forked from fabianp/hoag. Used to calculate gradients of the loss.
 
 ### smac/facade/
+
 * oursmac_facade.py <br>
 A simple class to initialize our modified SMAC.
 
 * smac_facade.py <br>
 Add parameters hoag, server and bayesian_optimization 
-to SMAC class.
+to SMAC class. <br>
+Usage: <br>
+hoag: Default value is None. It should be set to a subclass that 
+inherit AbstractHOAG. The gradient-based GPR will be invoked if this value is
+ not None. <br>
+server: Default value is None. It should be set to a PS_SMAC Server 
+instance. The PS_SMAC will be invoked if this value is not None. <br>
+bayesian_optimization: Default value is False. If this flag is set to True, 
+we will use bayesian_optimization instead of original RF based SMAC; However,
+ if the hoag parameter is not None, this flag will be ignored.
 
 ### smac/optimizer/
+
 * smbo.py <br>
 The main loop of SMBO process. Add PS-Lite server in the main BO loop and 
 hoag, gradient-based GPR and bayesian_optimization in the choose_next function.
 
 ### smac/pssmac/
+
+See README.md in smac/pssmac/ for usage.
 * facade/ <br>
 Facades of the PS-Lite nodes, including the abstract_facade and related 
 scheduler_facade, server_facade and worker_facade. Used to create complete
@@ -177,25 +193,25 @@ An abstract class for ta functions (model) and an instance for
 LogisticRegression.
 
 ### smac/runhistory/
+
 * runhistory.py <br>
 Add a util function get_history_for_config to the runhistory class.
 
 ### smac/stats/
+
 * stats.py <br>
 Modify the cutoff inside the class to avoid running forever.
 
 ### smac/tae/
+
 * execute_ta_customized.py <br>
 Temporary ta function for LogisticRegression.
 
 ### smac/utils/
+
 * libsvm2sparse.py <br>
 A util function to parse libsvm format data to sparse matrix.
 
 * util_funcs.py <br>
 Add a util function remove_same_values in order to removed repeated lines in 
 the runhistory passed from the main BO loop to choose_next.
-
-
-
-
