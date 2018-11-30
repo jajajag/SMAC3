@@ -9,32 +9,23 @@ Optimization，是一个串行算法。但对于大数据集，模型的训练�
 端仅运行SMBO循环并保存runhistory，将计算密集的部分放在Worker端进行实现，Worker通过随机产生不同的初始点，由各个方向逼近最优值点，从而实现异步并行。
 
 我们使用PS-Lite作为参数服务器，处理Server端和Worker端的通讯。SMBO和模型在Python端运行，通讯则由以C++
-为基础的PS-Lite处理。其中Server端由SMBO调用，Worker端维护一个loop来接受超参和返回模型运行后的结果。
+为基础的PS-Lite处理，Python端和PS-Lite端之间使用PIPE进行通信。
 
 其中，每个Worker和Server，Scheduler先创建连接。然后由每个Worker端以work_id随机生成一组超参Configuration
 ，运行之后返回loss给SMBO循环中的Server。Server接收超参的Configuration和loss之后，构建经验模型EMP，再由SMBO
 算法选出新的备选超参Challengers给Worker。每个Worker收到之后立即开始训练模型。因为SMBO是不等待所有Worker
 运行完毕的，因此该算法是异步并行的。
 
-分
-
 代码主体由四部分组成：
 
-* Server(Python)
-* Server(PS-Lite)
-* Worker(PS-Lite)
-* Worker(Python)
+* Server(Python)<br>
+* Server(PS-Lite)<br>
+* Worker(PS-Lite)<br>
+* Worker(Python)<br>
 
 具体的调用流程为：
 
-SMBO -> Server(Python) -> Server(PS-Lite) -> Worker(PS-Lite) ->
-Worker(Python) -> Intensification -> tae_runner
-
-Server和Worker的交互方式为：
-
-Worker1 -> Server -> Worker1
-Worker2 -> Server -> Worker2
-
+![Flow Diagram](utils/Flow%20Diagram.png)
 
 ## 结构
 
@@ -90,12 +81,19 @@ vector形式，再传到Server/Worker端。
 
 * abstract_tae.py
 
-### 其他文件
-
 
 ## 使用
 
+1. 首先安装必要的环境，包括smac的所有依赖，包括swig，ConfigSpace，使用pip等Python
+包管理器进行安装。以及[wormhole](https://github.com/dmlc/wormhole)中的PS-Lite，
+需要注意的是，PS-Lite需要单独make，并将编译后的路径存入环境变量PS_LITE中(结尾不带/)。
 
+2. 使用ps目录下的compile.sh文件，对ps_smac.cc进行编译，获得ps_samc二进制文件。
+使用诸如./compile.sh ps_smac.cc的命令。
+
+3. 如有需要，可对tae目录下的abstract_tae.py中的AbstractTAE基类进行扩展，对其中的set_model
+和set_config_space方法进行覆写，分别设置模型和搜索用的ConfigurationSpace。调用方法已经在AbstractTAE
+中的__call__方法进行实现，如有需要可做进一步修改。可以参考tae目录下的logistic_regression文件。
 
 
 # pssmac module
