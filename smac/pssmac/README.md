@@ -25,7 +25,7 @@ Optimization，是一个串行算法。但对于大数据集，模型的训练�
 
 具体的调用流程为：
 
-![Flow Diagram](utils/Flow%20Diagram.png)
+![Flow Diagram](utils/Flow Diagram.png)
 
 ## 结构
 
