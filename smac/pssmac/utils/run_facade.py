@@ -1,7 +1,7 @@
 from absl import app
 from absl import flags
 from smac.pssmac.facade import WorkerFacade, SchedulerFacade, ServerFacade
-from smac.pssmac.tae.LogisticRegression import LogisticRegression
+from smac.pssmac.tae.logistic_regression import LogisticRegression
 from smac.utils.libsvm2sparse import libsvm2sparse
 import re
 import numpy as np

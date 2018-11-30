@@ -32,3 +32,4 @@ doc/main_options.rst
 doc/scenario_options.rst
 doc/smac_options.rst
 *.psd
+*.py___jb_tmp___

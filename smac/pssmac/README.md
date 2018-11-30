@@ -89,7 +89,7 @@ vector形式，再传到Server/Worker端。
 需要注意的是，PS-Lite需要单独make，并将编译后的路径存入环境变量PS_LITE中(结尾不带/)。
 
 2. 使用ps目录下的compile.sh文件，对ps_smac.cc进行编译，获得ps_samc二进制文件。
-使用诸如./compile.sh ps_smac.cc的命令。
+使用如./compile.sh ps_smac.cc的命令。
 
 3. 如有需要，可对tae目录下的abstract_tae.py中的AbstractTAE基类进行扩展，对其中的set_model
 和set_config_space方法进行覆写，分别设置模型和搜索用的ConfigurationSpace。调用方法已经在AbstractTAE
