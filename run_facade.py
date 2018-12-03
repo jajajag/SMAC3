@@ -32,7 +32,8 @@ flags.DEFINE_integer("cutoff", 3600, "Total time of the whole smbo process.")
 # 还可以将模型作为参数引入，mark下
 
 def main(argv):
-    """Test for the whole ps-smac process.
+    """A fake-executable file in order to run the pssmac facade in a humanized
+    way.
 
     Parameters
     ----------

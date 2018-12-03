@@ -4,12 +4,16 @@ from absl import app
 # 配置文件放在这里
 nodes = [{
     'ssh_host': '52.80.187.152',
+    # 这个文件就不上传了
     'ssh_key': 'smac/pssmac/utils/id_rsa_zhanghanping',
     'ssh_user': 'zhanghanping',
     'ssh_port': 22,
     'smac_dir': '$HOME/SMAC3/',
     'data_dir': '$HOME/SMAC3/data/libsvm_real-sim',
     'temp_dir': '$HOME/SMAC3/tmp/',
+    # 说出来你可能不信，直接调用python3，fabric没法识别
+    'python': '/opt/python3/bin/python3',
+    # 需要把这个目录创建出来
     'output_dir': '$HOME/SMAC3/output/',
     'node_host': '172.31.29.227',
     'node_port': [6666, 23333],
@@ -24,6 +28,7 @@ nodes = [{
     'smac_dir': '$HOME/SMAC3/',
     'data_dir': '$HOME/SMAC3/data/libsvm_real-sim',
     'temp_dir': '$HOME/SMAC3/tmp/',
+    'python': '/opt/python3/bin/python3',
     'output_dir': '$HOME/SMAC3/output/',
     'node_host': '172.31.21.27',
     'node_port': [6666, 23333],
@@ -38,6 +43,7 @@ nodes = [{
     'smac_dir': '$HOME/SMAC3/',
     'data_dir': '$HOME/SMAC3/data/libsvm_real-sim',
     'temp_dir': '$HOME/SMAC3/tmp/',
+    'python': '/opt/python3/bin/python3',
     'output_dir': '$HOME/SMAC3/output/',
     'node_host': '172.31.28.149',
     'node_port': [23333],
@@ -48,6 +54,13 @@ nodes = [{
 
 
 def main(argv):
+    """Main test process for pssmac.
+
+    Parameters
+    ----------
+    argv : Useless
+
+    """
     # 统计server和worker数量
     num_servers, num_workers = 0, 0
     for node in nodes:
@@ -69,7 +82,6 @@ def main(argv):
                                     'key_filename': node['ssh_key']},
                                 user=node['ssh_user'],
                                 port=node['ssh_port'])
-        connection.run("cd " + node['smac_dir'])
         # 所有flags大集合
         flags_dict = {}
         execute = node['smac_dir'] + 'run_facade.py'
@@ -90,11 +102,18 @@ def main(argv):
             flags_dict['cutoff'] = node['cutoff'][i]
             flags = ' '.join([('--' + key + '=' + str(val)) for (key, val) in
                               flags_dict.items()])
-            flags = "nohup python3 " + execute + " " + flags + ' 1 > ' + node[
-                'output_dir'] + node['job'][i] + str(node['id'][i]) + '.txt &'
-            print(flags)
+            # 创建output文件
+            output_file = node['output_dir'] + node['job'][i] + str(
+                node['id'][i]) + '.txt'
+            connection.run('touch ' + output_file)
+            # 如果nohup挂不上的话，可以考虑在结尾加上 sleep 1
+            # 因为session可能会提前关闭
+            flags = 'nohup ' + node['python'] + ' ' + execute + ' ' + flags \
+                    + ' >& ' + output_file + ' &'
+            # print(flags)
             # 运行
             connection.run(flags)
+            # print(connection.run('hostname'))
 
 
 if __name__ == '__main__':
