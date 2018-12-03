@@ -81,6 +81,8 @@ vector形式，再传到Server/Worker端。
 
 * abstract_tae.py
 
+### others
+
 
 ## 使用
 
@@ -95,6 +97,13 @@ vector形式，再传到Server/Worker端。
 和set_config_space方法进行覆写，分别设置模型和搜索用的ConfigurationSpace。调用方法已经在AbstractTAE
 中的__call__方法进行实现，如有需要可做进一步修改。可以参考tae目录下的logistic_regression文件。
 
+4. 最适合修改的是test_ps.py文件，这是个基于fabric的脚本文件，将服务器信息修改即可在任何机子上调用。
+里面包含了服务器的配置信息，包括ssh连接方式，输入输出文件目录，各个节点的信息。这个脚本会打开复数个ssh
+连接，然后执行pssmac并由nohup挂载，实际上是将指令格式化，传输给服务器端的run_facade.py文件。
+
+5. 如果需要对pssmac的facade进行操作，或者修改读写数据的方式，可以编辑run_facade.py文件。
+我默认对.csv结尾的文件按照csv方式读取，其他文件则全部按照libsvm格式读取。数据按照seed
+为1的情况分为2：1形式。如果需要修改，可以对这个文件进行编辑。
 
 # pssmac module
 
