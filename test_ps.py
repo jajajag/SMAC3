@@ -3,7 +3,7 @@ from absl import app
 
 # 配置文件放在这里
 nodes = [{
-    'ssh_host': '54.80.187.152',
+    'ssh_host': '52.80.187.152',
     'ssh_key': 'smac/pssmac/utils/id_rsa_zhanghanping',
     'ssh_user': 'zhanghanping',
     'ssh_port': 22,
