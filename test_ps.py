@@ -69,6 +69,7 @@ def main(argv):
                                     'key_filename': node['ssh_key']},
                                 user=node['ssh_user'],
                                 port=node['ssh_port'])
+        connection.run("cd " + node['smac_dir'])
         # 所有flags大集合
         flags_dict = {}
         execute = node['smac_dir'] + 'smac/pssmac/utils/run_facade.py'
@@ -91,6 +92,7 @@ def main(argv):
                               flags_dict.items()])
             flags = "nohup python3 " + execute + " " + flags + ' > ' + node[
                 'output_dir'] + node['job'][i] + str(node['id'][i]) + '.txt &'
+            print(flags)
             # 运行
             connection.run(flags)
 
