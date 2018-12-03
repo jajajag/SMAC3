@@ -72,7 +72,7 @@ def main(argv):
         connection.run("cd " + node['smac_dir'])
         # 所有flags大集合
         flags_dict = {}
-        execute = node['smac_dir'] + 'smac/pssmac/utils/run_facade.py'
+        execute = node['smac_dir'] + 'run_facade.py'
         flags_dict['ps'] = node['smac_dir'] + 'smac/pssmac/ps/ps_smac'
         flags_dict['data_dir'] = node['data_dir']
         flags_dict['temp_dir'] = node['temp_dir']
@@ -90,7 +90,7 @@ def main(argv):
             flags_dict['cutoff'] = node['cutoff'][i]
             flags = ' '.join([('--' + key + '=' + str(val)) for (key, val) in
                               flags_dict.items()])
-            flags = "nohup python3 " + execute + " " + flags + ' > ' + node[
+            flags = "nohup python3 " + execute + " " + flags + ' 1 > ' + node[
                 'output_dir'] + node['job'][i] + str(node['id'][i]) + '.txt &'
             print(flags)
             # 运行
