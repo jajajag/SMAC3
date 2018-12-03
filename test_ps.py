@@ -7,10 +7,10 @@ nodes = [{
     'ssh_key': 'smac/pssmac/utils/id_rsa_zhanghanping',
     'ssh_user': 'zhanghanping',
     'ssh_port': 22,
-    'smac_dir': '$HOME/smac/',
-    'data_dir': '$HOME/smac/data/libsvm_real-sim',
-    'temp_dir': '$HOME/smac/tmp/',
-    'output_dir': '$HOME/smac/output/',
+    'smac_dir': '$HOME/SMAC3/',
+    'data_dir': '$HOME/SMAC3/data/libsvm_real-sim',
+    'temp_dir': '$HOME/SMAC3/tmp/',
+    'output_dir': '$HOME/SMAC3/output/',
     'node_host': '172.31.29.227',
     'node_port': [6666, 23333],
     'job': ['server', 'worker'],
@@ -21,10 +21,10 @@ nodes = [{
     'ssh_key': 'smac/pssmac/utils/id_rsa_zhanghanping',
     'ssh_user': 'zhanghanping',
     'ssh_port': 22,
-    'smac_dir': '$HOME/smac/',
-    'data_dir': '$HOME/smac/data/libsvm_real-sim',
-    'temp_dir': '$HOME/smac/tmp/',
-    'output_dir': '$HOME/smac/output/',
+    'smac_dir': '$HOME/SMAC3/',
+    'data_dir': '$HOME/SMAC3/data/libsvm_real-sim',
+    'temp_dir': '$HOME/SMAC3/tmp/',
+    'output_dir': '$HOME/SMAC3/output/',
     'node_host': '172.31.21.27',
     'node_port': [6666, 23333],
     'job': ['scheduler', 'worker'],
@@ -35,10 +35,10 @@ nodes = [{
     'ssh_key': 'smac/pssmac/utils/id_rsa_zhanghanping',
     'ssh_user': 'zhanghanping',
     'ssh_port': 22,
-    'smac_dir': '$HOME/smac/',
-    'data_dir': '$HOME/smac/data/libsvm_real-sim',
-    'temp_dir': '$HOME/smac/tmp/',
-    'output_dir': '$HOME/smac/output/',
+    'smac_dir': '$HOME/SMAC3/',
+    'data_dir': '$HOME/SMAC3/data/libsvm_real-sim',
+    'temp_dir': '$HOME/SMAC3/tmp/',
+    'output_dir': '$HOME/SMAC3/output/',
     'node_host': '172.31.28.149',
     'node_port': [23333],
     'job': ['worker'],
@@ -71,8 +71,8 @@ def main(argv):
                                 port=node['ssh_port'])
         # 所有flags大集合
         flags_dict = {}
-        execute = node['smac_dir'] + 'pssmac/utils/run_facade.py'
-        flags_dict['ps'] = node['smac_dir'] + 'pssmac/ps/ps_smac'
+        execute = node['smac_dir'] + 'smac/pssmac/utils/run_facade.py'
+        flags_dict['ps'] = node['smac_dir'] + 'smac/pssmac/ps/ps_smac'
         flags_dict['data_dir'] = node['data_dir']
         flags_dict['temp_dir'] = node['temp_dir']
         flags_dict['num_servers'] = num_servers
