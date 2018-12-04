@@ -273,6 +273,7 @@ class SMBO(object):
                 self.stats.get_remaining_ta_runs()))
 
             if self.stats.is_budget_exhausted():
+                # 让它自己结束
                 break
 
             self.stats.print_stats(debug_out=True)

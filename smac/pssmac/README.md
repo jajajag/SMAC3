@@ -31,6 +31,10 @@ Optimization，是一个串行算法。但对于大数据集，模型的训练�
 
 pssmac模块主要包含三个目录，facade，ps和tae。
 
+### 类继承关系
+
+![Flow Diagram](utils/UML%20Graph.png)
+
 ### facade/
 
 facade目录包含一个abstract_facade.py文件用于储存facade的基类，它派生的三个类分别存储于
@@ -74,15 +78,24 @@ PS-Lite的C++端实现，主要负责处理由标准输入输出接受Python端�
 vector形式，再传到Server/Worker端。
 
 * server_ps.py <br>
+Server的类，主要覆写了AbstractPS中的push_parser和pull_parser两个函数，用来处理SMBO
+传来数据，序列化后传到Worker端。这个Server使用Popen打开了对应的PS-Lite的Server端。
 
 * worker_ps.py <br>
+同理，是Worker类，内部维护一个loop用来接收超参数/训练模型/传回给Server。
 
 ### tae/
 
 * abstract_tae.py
+ta的基类，需要继承这个AbstractTAE类来写新的ta函数。__call__已经写好，需要覆写两个set
+函数来设置ConfigurationSpace(超参空间)和model的创建。如有需要，可以对___call__
+函数也进行覆写。
 
-### others
+### smbo
 
+* smac/optimizer/smbo.py<br>
+SMBO的主过程，负责创建initial_design，然后调用Server并将超参数传到Worker端，之后从
+Worker端接收计算出的loss，构建EPM，计算出新的Challengers，再次传给Worker端，循环直到找到最优解。
 
 ## 使用
 
@@ -104,11 +117,3 @@ vector形式，再传到Server/Worker端。
 5. 如果需要对pssmac的facade进行操作，或者修改读写数据的方式，可以编辑run_facade.py文件。
 我默认对.csv结尾的文件按照csv方式读取，其他文件则全部按照libsvm格式读取。数据按照seed
 为1的情况分为2：1形式。如果需要修改，可以对这个文件进行编辑。
-
-# pssmac module
-
-## Overview
-
-## Structure
-
-## Usage
