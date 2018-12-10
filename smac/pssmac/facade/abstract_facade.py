@@ -18,7 +18,7 @@ class AbstractFacade(Process):
         # 保存Node对应的内容，初始化为None，在init方法中进行初始化
         self.facade = None
 
-    def init(self):
+    def init(self, **kwargs):
         """Virtual method for initialization.
 
         Returns

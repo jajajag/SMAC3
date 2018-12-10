@@ -17,41 +17,53 @@ import typing
 
 class ServerFacade(AbstractFacade):
     def __init__(self,
-                 ps_args: typing.List[str],
-                 tae_runner: AbstractTAE,
-                 temp_folder: str = "./tmp/",
-                 our_work: str = None,
-                 total_time_limit: int = 24 * 3600):
+                 ps_args: typing.List[str]):
         """The whole process for a SMAC server based on ps-lite.
 
         Parameters
         ----------
-        worker_args : typing.List[str]
+        ps_args : typing.List[str]
             Arguments of workers for ps-lite. It should be a list of args.
-        cs : ConfigurationSpace
-            The configuration space for the hyper-parameters.
-        temp_folder : str, default_value = "./tmp/"
-            Folder that save the histories.
-        our_work : str, default_value = None
-            The path to the loss file in order to calculate the gradient for the
-            DummyHOAG.
-        total_time_limit : int, default_value = 24 * 3600
-            Maximum runtime, after which the target algorithm is cancelled.
         """
         AbstractFacade.__init__(self, ps_args)
-        self.tae_runner = tae_runner
-        self.temp_folder = temp_folder
-        self.our_work = our_work
-        self.total_time_limit = total_time_limit
+        # 提前创建server对象
+        self.server = Server(self.ps_args)
+        self.tae_runner = None
+        self.temp_folder = "./tmp/"
+        self.our_work = None
+        self.total_time_limit = 24 * 3600
 
-    def init(self) -> AbstractFacade:
+    def init(self, **kwargs) -> AbstractFacade:
         """Function to create the server.
+
+        Parameters
+        ----------
+        kwargs["tae_runner"]: AbstractTAE
+            The ta function to train and fit the models.
+        kwargs["temp_folder"] : str, default_value = "./tmp/"
+            Folder that save the histories.
+        kwargs["our_work"] : str, default_value = None
+            The path to the loss file in order to calculate the gradient for the
+            DummyHOAG.
+        kwargs["total_time_limit"] : int, default_value = 24 * 3600
+            Maximum runtime, after which the target algorithm is cancelled.
 
         Returns
         -------
         self : AbstractFacade
             Return the class itself.
         """
+        # 初始化各个参数
+        if "tae_runner" not in kwargs:
+            raise AttributeError("Please specify a tae_runner for the facade.")
+        self.tae_runner = kwargs["tae_runner"]
+        if "temp_folder" in kwargs:
+            self.temp_folder = kwargs["temp_folder"]
+        if "our_work" in kwargs:
+            self.our_work = kwargs["our_work"]
+        if "total_time_limit" in kwargs:
+            self.total_time_limit = kwargs["total_time_limit"]
+
         # 首先创建输出文件夹
         output_dir = self.temp_folder + "server-output_%s" % (
             datetime.datetime.fromtimestamp(time.time()).strftime(
@@ -78,8 +90,8 @@ class ServerFacade(AbstractFacade):
                                              impute_censored_data=False,
                                              impute_state=None)
 
-        # 创建server对象
-        server = Server(self.ps_args, self.tae_runner.get_config_space())
+        # 初始化server
+        self.server.init(self.tae_runner.get_config_space())
 
         # 创建smac
         if self.our_work is not None:
@@ -94,14 +106,14 @@ class ServerFacade(AbstractFacade):
                 hoag=hoag,
                 runhistory2epm=runhistory2epm,
                 runhistory=runhistory,
-                server=server
+                server=self.server
             )
         else:
             # 创建smac对象
             self.facade = SMAC(scenario=scenario, tae_runner=self.tae_runner,
                                runhistory2epm=runhistory2epm,
                                runhistory=runhistory,
-                               server=server)
+                               server=self.server)
 
         # 返回smac对象
         return self
@@ -119,6 +131,12 @@ class ServerFacade(AbstractFacade):
 
     def _cal_hoag(self) -> AbstractHOAG:
         """Calculate the dummy hoag.
+
+        Parameters
+        ----------
+        our_work : str, default_value = None
+            The path to the loss file in order to calculate the gradient for the
+            DummyHOAG.
 
         Returns
         -------

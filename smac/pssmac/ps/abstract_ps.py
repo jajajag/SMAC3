@@ -10,9 +10,7 @@ import typing
 
 class AbstractPS(object):
     def __init__(self,
-                 ps_args: typing.List[str],
-                 cs: ConfigurationSpace,
-                 aggregate_func: callable = average_cost) -> None:
+                 ps_args: typing.List[str]) -> None:
         """Initialize AbstractPS.
 
         Parameters
@@ -20,15 +18,28 @@ class AbstractPS(object):
         ps_args : typing.List[str]
             List of strings that are used to open a PS-Lite
             server/worker/scheduler.
+        """
+        # 初始化只创建ps，这样保证先建立连接，防止等待时间过长导致连接断掉
+        self.ps = subprocess.Popen(ps_args, stdin=subprocess.PIPE,
+                                   stdout=subprocess.PIPE)
+        self.initialized = False
+
+    def init(self,
+             cs: ConfigurationSpace,
+             aggregate_func: callable = average_cost,
+             **kwargs):
+        """Initialize the parameters.
+
+        Parameters
+        ----------
         cs : ConfigurationSpace, default_value = None
             ConfigurationSpace of the hyperparameters.
         aggregate_func : callable
             Aggregate function for RunHistory.
         """
-        self.ps = subprocess.Popen(ps_args, stdin=subprocess.PIPE,
-                                   stdout=subprocess.PIPE)
         self.cs = cs
         self.aggregate_func = aggregate_func
+        self.initialized = True
 
     def push(self, **kwargs) -> None:
         """Push the string parsed from push_parser to the other side.
@@ -41,6 +52,8 @@ class AbstractPS(object):
         Returns
         -------
         """
+        if not self.initialized:
+            raise AttributeError("Call init to initialize the PS first!")
         # 按行读写，防止缓冲区爆炸
         time_left, lines = self.push_parser(**kwargs)
         # 每行结尾加上\n，表示换行
@@ -66,6 +79,8 @@ class AbstractPS(object):
         Returns
         -------
         """
+        if not self.initialized:
+            raise AttributeError("Call init to initialize the PS first!")
         line = ""
         # 略去空行
         while line == "":

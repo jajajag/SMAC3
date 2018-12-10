@@ -7,9 +7,7 @@ import typing
 
 class Server(AbstractPS):
     def __init__(self,
-                 ps_args: typing.List[str],
-                 cs: ConfigurationSpace,
-                 aggregate_func: callable = average_cost) -> None:
+                 ps_args: typing.List[str]) -> None:
         """Initialize Server.
 
         Parameters
@@ -17,13 +15,24 @@ class Server(AbstractPS):
         ps_args : typing.List[str]
             List of strings that are used to open a PS-Lite
             server/worker/scheduler.
+        """
+        # 显式调用初始化self.ps
+        AbstractPS.__init__(self, ps_args)
+
+    def init(self,
+             cs: ConfigurationSpace,
+             aggregate_func: callable = average_cost,
+             **kwargs) -> None:
+        """Initialize the server ps.
+
+        Parameters
+        ----------
         cs : ConfigurationSpace, default_value = None
             ConfigurationSpace of the hyperparameters.
         aggregate_func : callable
             Aggregate function for RunHistory.
         """
-        # 显式调用初始化self.ps
-        AbstractPS.__init__(self, ps_args, cs, aggregate_func=aggregate_func)
+        AbstractPS.init(self, cs, aggregate_func=aggregate_func)
 
     def push_parser(self, **kwargs) -> typing.Tuple[float, typing.List[str]]:
         """Parse incumbent, its runhistory and challengers to a string.

@@ -72,25 +72,34 @@ def main(argv):
     # 按类型进行分类调用，首先是scheduler
     if FLAGS.node.upper() == "SCHEDULER":
         # scheduler不需要改变ps_args的内容
-        node = SchedulerFacade(ps_args,
-                               total_time_limit=FLAGS.total_time_limit)
+        node = SchedulerFacade(ps_args)
+        node.init(total_time_limit=FLAGS.total_time_limit)
     # 其次是server对应的分支
     elif FLAGS.node.upper() == "SERVER":
         # 提供给ps_args的参数
         server_args = "role:SERVER,hostname:'" + FLAGS.node_host + "'," \
                       + "port:" + str(FLAGS.node_port) + "," \
                       + "id:'S" + str(FLAGS.id) + "'"
+        ps_args[2] = server_args
+        # 先创建ServerFacade类
+        node = ServerFacade(ps_args=ps_args)
+
         ta = LogisticRegression(np.array(0), np.array(0), np.array(0),
                                 np.array(0))
-        ps_args[2] = server_args
-        # 生成ServerFacade
-        node = ServerFacade(ps_args=ps_args,
-                            tae_runner=ta,
-                            temp_folder=FLAGS.temp_dir,
-                            our_work=None,
-                            total_time_limit=FLAGS.total_time_limit)
+        node.init(tae_runner=ta,
+                  temp_folder=FLAGS.temp_dir,
+                  our_work=None,
+                  total_time_limit=FLAGS.total_time_limit)
     # 最后是worker对应的分支
     elif FLAGS.node.upper() == "WORKER":
+        # worker剩下的参数
+        worker_args = "role:WORKER,hostname:'" + FLAGS.node_host + "'," \
+                      + "port:" + str(FLAGS.node_port) + "," \
+                      + "id:'W" + str(FLAGS.id) + "'"
+        ps_args[2] = worker_args
+        # 先调用worker对应的facade
+        node = WorkerFacade(ps_args=ps_args)
+
         # 读取输入文件
         if FLAGS.data_dir.endswith(".csv"):
             # 如果后缀名为csv则按csv读取
@@ -106,23 +115,15 @@ def main(argv):
         # 分离数据集
         X_train, X_valid, y_train, y_valid = train_test_split(
             X, y, test_size=0.33, random_state=1)
-        # worker剩下的参数
-        worker_args = "role:WORKER,hostname:'" + FLAGS.node_host + "'," \
-                      + "port:" + str(FLAGS.node_port) + "," \
-                      + "id:'W" + str(FLAGS.id) + "'"
-        ps_args[2] = worker_args
         ta = LogisticRegression(X_train, y_train, X_valid, y_valid)
-        # 最终调用worker对应的facade
-        node = WorkerFacade(ps_args=ps_args,
-                            tae_runner=ta,
-                            temp_folder=FLAGS.temp_dir,
-                            worker_id=FLAGS.id,
-                            per_run_time_limit=FLAGS.per_run_time_limit)
+        node.init(tae_runner=ta,
+                  temp_folder=FLAGS.temp_dir,
+                  worker_id=FLAGS.id,
+                  per_run_time_limit=FLAGS.per_run_time_limit)
     else:
         raise ValueError("Please specify the node type.")
 
-    # 初始化node，并进行调用
-    node.init()
+    # 调用node
     node.run()
 
 

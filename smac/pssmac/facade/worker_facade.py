@@ -16,42 +16,53 @@ import typing
 
 class WorkerFacade(AbstractFacade):
     def __init__(self,
-                 ps_args: typing.List[str],
-                 tae_runner: AbstractTAE,
-                 temp_folder: str = "./tmp/",
-                 worker_id: int = 0,
-                 per_run_time_limit: int = 3600
-                 ):
+                 ps_args: typing.List[str]):
         """Create a PS-Lite worker node.
 
         Parameters
         ----------
         ps_args : typing.List[str]
             Arguments passed to the PS-Lite worker node.
-        tae_runner : AbstractTAE
-            The runner of the model to be optimized.
-        temp_folder : str, default_value = "./tmp/"
-            Folder to save temporary files.
-        worker_id : int, default_value = 0
-            Id of each worker. This value is used as seed of initial design,
-            which should be unique.
-        cutoff : int, default_value = 3600
-            Time limit of the whole smbo process.
         """
         AbstractFacade.__init__(self, ps_args)
-        self.tae_runner = tae_runner
-        self.temp_folder = temp_folder
-        self.worker_id = worker_id
-        self.per_run_time_limit = per_run_time_limit
+        # 提前创建worker
+        self.facade = Worker(self.ps_args)
+        self.tae_runner = None
+        self.temp_folder = "./tmp/"
+        self.worker_id = 0
+        self.per_run_time_limit = 3600
 
-    def init(self) -> AbstractFacade:
+    def init(self, **kwargs) -> AbstractFacade:
         """Function to create a worker.
+
+        Parameters
+        ----------
+        kwargs["tae_runner"]: AbstractTAE
+            The ta function to train and fit the models.
+        kwargs["temp_folder"] : str, default_value = "./tmp/"
+            Folder that save the histories.
+        kwargs["worker_id"] : int, default_value = 0
+            Id of each worker. This value is used as seed of initial design,
+            which should be unique.
+        kwargs["per_run_time_limit"] : int, default_value = 3600
+            Time limit of a single run of ta.
 
         Returns
         -------
         self : AbstractFacade
             Return the class itself.
         """
+        # 初始化各个参数
+        if "tae_runner" not in kwargs:
+            raise AttributeError("Please specify a tae_runner for the facade.")
+        self.tae_runner = kwargs["tae_runner"]
+        if "temp_folder" in kwargs:
+            self.temp_folder = kwargs["temp_folder"]
+        if "worker_id" in kwargs:
+            self.worker_id = kwargs["worker_id"]
+        if "per_run_time_limit" in kwargs:
+            self.per_run_time_limit = kwargs["per_run_time_limit"]
+
         # 首先指定输出目录
         output_dir = self.temp_folder + "worker-output_%s" % (
             datetime.datetime.fromtimestamp(time.time()).strftime(
@@ -88,9 +99,11 @@ class WorkerFacade(AbstractFacade):
                                   rng=rng,
                                   instances=scenario.train_insts)
 
-        # 最终目的，创建worker并返回
-        self.facade = Worker(self.ps_args, self.tae_runner.get_config_space(),
-                             intensifier, worker_id=self.worker_id)
+        # 对worker进行初始化
+        self.facade.init(self.tae_runner.get_config_space(),
+                         intensifier=intensifier,
+                         worker_id=self.worker_id)
+
         return self
 
     def run(self):

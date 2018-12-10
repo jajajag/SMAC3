@@ -10,11 +10,7 @@ import time
 
 class Worker(AbstractPS, Process):
     def __init__(self,
-                 ps_args: typing.List[str],
-                 cs: ConfigurationSpace,
-                 intensifier: Intensifier,
-                 aggregate_func: callable = average_cost,
-                 worker_id: int = 0):
+                 ps_args: typing.List[str]):
         """Initialize worker.
 
         Parameters
@@ -22,20 +18,43 @@ class Worker(AbstractPS, Process):
         ps_args : typing.List[str]
             List of strings that are used to open a PS-Lite
             server/worker/scheduler.
-        cs : ConfigurationSpace, default_value = None
-            ConfigurationSpace of the hyperparameters.
-        intensifier : Intensifier
-            The intensifier of the SMBO process. It may pick a better
-            configuration from the challengers comparing to the incumbent.
-        aggregate_func : callable
-            Aggregate function for RunHistory.
         """
         # 显式调用初始化self.ps
-        AbstractPS.__init__(self, ps_args, cs, aggregate_func=aggregate_func)
+        AbstractPS.__init__(self, ps_args)
         # 非常重要，不然不能调用多进程类
         Process.__init__(self)
-        self.intensifier = intensifier
-        self.worker_id = worker_id
+        self.intensifier = None
+        self.worker_id = 0
+
+    def init(self,
+             cs: ConfigurationSpace,
+             aggregate_func: callable = average_cost,
+             **kwargs):
+        """Initialize the worker ps.
+
+        Parameters
+        ----------
+        cs : ConfigurationSpace, default_value = None
+            ConfigurationSpace of the hyperparameters.
+        aggregate_func : callable
+            Aggregate function for RunHistory.
+        kwargs["intensifier"] : Intensifier
+            The intensifier of the SMBO algorithm. It runs ta function and find
+            the best n losses.
+        kwargs["worker_id"] : int, default_value = 0
+            Worker_id, which is used as the seed of random number generator.
+
+        Returns
+        -------
+
+        """
+        AbstractPS.init(self, cs, aggregate_func=aggregate_func)
+        if "intensifier" not in kwargs or "work_id" not in kwargs:
+            raise AttributeError("Missing intensifier/work_id in kwargs!")
+        self.intensifier = kwargs["intensifier"]
+        # worker_id 初始值为0
+        if "worker_id" in kwargs:
+            self.worker_id = kwargs["worker_id"]
 
     # 处理中间过程的函数
     def run(self) -> None:
