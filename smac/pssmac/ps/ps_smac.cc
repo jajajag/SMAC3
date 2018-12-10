@@ -50,6 +50,8 @@ void ReadPython(std::vector <std::vector<Val>> &my_val) {
         stream >> num_lines >> num_config >> time_left;
         my_val[0].push_back(static_cast<Val>(num_lines));
         my_val[0].push_back(static_cast<Val>(num_config));
+        // 也存入剩余时间
+        my_val[0].push_back(static_cast<Val>(time_left));
         break;
     }
 
@@ -94,9 +96,8 @@ void WritePython(std::vector <std::vector<Val>> &my_val) {
     std::stringstream stream;
     // 需要防止seed输出为科学计数法
     stream.setf(std::ios::fixed, std::ios::floatfield);
-    // 首先输出超参组数和超参个数
-    stream << my_val[0][0] << " " << my_val[0][1] << " ";
-    stream << my_val[0][2];
+    // 首先输出超参组数和超参个数，以及时间
+    stream << my_val[0][0] << " " << my_val[0][1] << " " << my_val[0][2];
     // 输出字符串以及行分隔符
     std::cout << stream.str() << std::endl;
 
