@@ -25,6 +25,7 @@ class Worker(AbstractPS, Process):
         Process.__init__(self)
         self.intensifier = None
         self.worker_id = 0
+        self.per_run_time_limit = 3600
 
     def init(self,
              cs: ConfigurationSpace,
@@ -43,6 +44,8 @@ class Worker(AbstractPS, Process):
             the best n losses.
         kwargs["worker_id"] : int, default_value = 0
             Worker_id, which is used as the seed of random number generator.
+        kwargs["per_run_time_limit"] : int, default_value = 3600
+            Time limit of a single run of intensifier.
 
         Returns
         -------
@@ -55,6 +58,8 @@ class Worker(AbstractPS, Process):
         # worker_id 初始值为0
         if "worker_id" in kwargs:
             self.worker_id = kwargs["worker_id"]
+        if "per_run_time_limit" in kwargs:
+            self.per_run_time_limit = kwargs["per_run_time_limit"]
 
     # 处理中间过程的函数
     def run(self) -> None:
@@ -114,7 +119,7 @@ class Worker(AbstractPS, Process):
             run_history=runhistory,
             aggregate_func=self.aggregate_func,
             # 加入时间条件，防止运行过久
-            time_bound=max(self.intensifier._min_time, time_left))
+            time_bound=min(self.per_run_time_limit, time_left))
 
         return new_incumbent, runhistory
 
@@ -128,7 +133,7 @@ class Worker(AbstractPS, Process):
         """
         # 第一次运行，先随机一个Configuration，然后运行ta并存入runhistory
         # 用worker_id产生随机数
-        seed = self.cs.seed(self.worker_id)
+        self.cs.seed(self.worker_id)
         incumbent = self.cs.sample_configuration()
         incumbent.origin = 'Random initial design.'
         # 创建一个空的runhistory

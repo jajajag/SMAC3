@@ -45,7 +45,7 @@ class WorkerFacade(AbstractFacade):
             Id of each worker. This value is used as seed of initial design,
             which should be unique.
         kwargs["per_run_time_limit"] : int, default_value = 3600
-            Time limit of a single run of ta.
+            Time limit of a single run of intensifier.
 
         Returns
         -------
@@ -102,7 +102,8 @@ class WorkerFacade(AbstractFacade):
         # 对worker进行初始化
         self.facade.init(self.tae_runner.get_config_space(),
                          intensifier=intensifier,
-                         worker_id=self.worker_id)
+                         worker_id=self.worker_id,
+                         per_run_time_limit=self.per_run_time_limit)
 
         return self
 
