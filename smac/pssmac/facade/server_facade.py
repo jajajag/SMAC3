@@ -21,7 +21,7 @@ class ServerFacade(AbstractFacade):
                  tae_runner: AbstractTAE,
                  temp_folder: str = "./tmp/",
                  our_work: str = None,
-                 cutoff: int = 3600):
+                 total_time_limit: int = 24 * 3600):
         """The whole process for a SMAC server based on ps-lite.
 
         Parameters
@@ -35,14 +35,14 @@ class ServerFacade(AbstractFacade):
         our_work : str, default_value = None
             The path to the loss file in order to calculate the gradient for the
             DummyHOAG.
-        cutoff : int, default_value = 3600
+        total_time_limit : int, default_value = 24 * 3600
             Maximum runtime, after which the target algorithm is cancelled.
         """
         AbstractFacade.__init__(self, ps_args)
         self.tae_runner = tae_runner
         self.temp_folder = temp_folder
         self.our_work = our_work
-        self.cutoff = cutoff
+        self.total_time_limit = total_time_limit
 
     def init(self) -> AbstractFacade:
         """Function to create the server.
@@ -61,7 +61,8 @@ class ServerFacade(AbstractFacade):
         scenario_dict = {
             "cs": self.tae_runner.get_config_space(),
             "run_obj": "quality",
-            "cutoff_time": self.cutoff,
+            # smbo运行的总时间
+            "wallclock_limit": self.total_time_limit,
             "initial_incumbent": "RANDOM",
             "output_dir": output_dir
         }

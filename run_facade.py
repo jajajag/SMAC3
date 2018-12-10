@@ -27,6 +27,8 @@ flags.DEFINE_integer("node_port", 9600, "Port of the server.")
 flags.DEFINE_integer("id", 0, "Id of current node.")
 # 暂时还未将cutoff在worker和scheduler中实现
 flags.DEFINE_integer("cutoff", 3600, "Total time of the whole smbo process.")
+flags.DEFINE_integer("per_run_time_limit", 3600, "Time limit for one run.")
+flags.DEFINE_integer("total_time_limit", 24 * 3600, "Total time limit.")
 
 
 # 还可以将模型作为参数引入，mark下
@@ -70,7 +72,8 @@ def main(argv):
     # 按类型进行分类调用，首先是scheduler
     if FLAGS.node.upper() == "SCHEDULER":
         # scheduler不需要改变ps_args的内容
-        node = SchedulerFacade(ps_args)
+        node = SchedulerFacade(ps_args,
+                               total_time_limit=FLAGS.total_time_limit)
     # 其次是server对应的分支
     elif FLAGS.node.upper() == "SERVER":
         # 提供给ps_args的参数
@@ -85,7 +88,7 @@ def main(argv):
                             tae_runner=ta,
                             temp_folder=FLAGS.temp_dir,
                             our_work=None,
-                            cutoff=FLAGS.cutoff)
+                            total_time_limit=FLAGS.total_time_limit)
     # 最后是worker对应的分支
     elif FLAGS.node.upper() == "WORKER":
         # 读取输入文件
@@ -114,7 +117,7 @@ def main(argv):
                             tae_runner=ta,
                             temp_folder=FLAGS.temp_dir,
                             worker_id=FLAGS.id,
-                            cutoff=FLAGS.cutoff)
+                            per_run_time_limit=FLAGS.per_run_time_limit)
     else:
         raise ValueError("Please specify the node type.")
 

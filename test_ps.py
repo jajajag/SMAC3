@@ -19,7 +19,8 @@ nodes = [{
     'node_port': [6666, 23333],
     'job': ['server', 'worker'],
     'id': [0, 0],
-    'cutoff': [0, 60],
+    'per_run_time_limit': [60, 60],
+    'total_time_limit': [300, 300],
 }, {
     'ssh_host': '54.223.203.214',
     'ssh_key': 'smac/pssmac/utils/id_rsa_zhanghanping',
@@ -34,7 +35,8 @@ nodes = [{
     'node_port': [6666, 23333],
     'job': ['scheduler', 'worker'],
     'id': [0, 1],
-    'cutoff': [0, 60],
+    'per_run_time_limit': [60, 60],
+    'total_time_limit': [300, 300],
 }, {
     'ssh_host': '52.80.220.75',
     'ssh_key': 'smac/pssmac/utils/id_rsa_zhanghanping',
@@ -49,7 +51,8 @@ nodes = [{
     'node_port': [23333],
     'job': ['worker'],
     'id': [2],
-    'cutoff': [60],
+    'per_run_time_limit': [60, 60],
+    'total_time_limit': [300, 300],
 }]
 
 
@@ -100,6 +103,9 @@ def main(argv):
             flags_dict['node_port'] = node['node_port'][i]
             flags_dict['id'] = node['id'][i]
             flags_dict['cutoff'] = node['cutoff'][i]
+            # 总剩余的时间和单轮时间
+            flags_dict['per_run_time_limit'] = [60, 60]
+            flags_dict['total_time_limit'] = [300, 300]
             flags = ' '.join([('--' + key + '=' + str(val)) for (key, val) in
                               flags_dict.items()])
             # 创建output文件

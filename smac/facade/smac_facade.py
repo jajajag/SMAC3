@@ -385,11 +385,13 @@ class SMAC(object):
                     imputor=imputor)
 
             elif scenario.run_obj == 'quality':
-                runhistory2epm = RunHistory2EPM4Cost(scenario=scenario, num_params=num_params,
+                runhistory2epm = RunHistory2EPM4Cost(scenario=scenario,
+                                                     num_params=num_params,
                                                      success_states=[
                                                          StatusType.SUCCESS,
                                                          StatusType.CRASHED],
-                                                     impute_censored_data=False, impute_state=None)
+                                                     impute_censored_data=False,
+                                                     impute_state=None)
 
             else:
                 raise ValueError('Unknown run objective: %s. Should be either '

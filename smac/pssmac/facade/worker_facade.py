@@ -20,7 +20,7 @@ class WorkerFacade(AbstractFacade):
                  tae_runner: AbstractTAE,
                  temp_folder: str = "./tmp/",
                  worker_id: int = 0,
-                 cutoff: int = 3600
+                 per_run_time_limit: int = 3600
                  ):
         """Create a PS-Lite worker node.
 
@@ -42,7 +42,7 @@ class WorkerFacade(AbstractFacade):
         self.tae_runner = tae_runner
         self.temp_folder = temp_folder
         self.worker_id = worker_id
-        self.cutoff = cutoff
+        self.per_run_time_limit = per_run_time_limit
 
     def init(self) -> AbstractFacade:
         """Function to create a worker.
@@ -61,7 +61,8 @@ class WorkerFacade(AbstractFacade):
         scenario_dict = {
             "cs": self.tae_runner.get_config_space(),
             "run_obj": "quality",
-            "cutoff_time": self.cutoff,
+            # worker只保留单次运行的时间
+            "cutoff_time": self.per_run_time_limit,
             "initial_incumbent": "RANDOM",
             "output_dir": output_dir
         }

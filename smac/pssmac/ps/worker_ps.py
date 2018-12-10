@@ -5,6 +5,7 @@ from smac.optimizer.objective import average_cost
 from smac.pssmac.ps.abstract_ps import AbstractPS, ConfigHistory
 from smac.runhistory.runhistory import RunHistory
 import typing
+import time
 
 
 class Worker(AbstractPS, Process):
@@ -47,10 +48,15 @@ class Worker(AbstractPS, Process):
         # 首次处理，产生随机的config
         self.initial_run()
         print("Initialized from worker ", self.worker_id)
-        while True:
+        # 初始化剩余时间
+        time_left = float('inf')
+        # worker的主循环
+        while time_left > 0:
             # 拉取server传来的参数
             incumbent, runhistory, challengers, time_left = self.pull()
             print("Pulled from worker ", self.worker_id)
+            wall_time = time.time()
+
             # 使用intersifier进行计算
             new_incumbent, new_runhistory = self.solver(incumbent, runhistory,
                                                         challengers, time_left)
@@ -58,6 +64,8 @@ class Worker(AbstractPS, Process):
             self.push(incumbent=new_incumbent, runhistory=new_runhistory,
                       time_left=time_left)
             print("Pushed from worker ", self.worker_id)
+            # 计算新剩余的时间
+            time_left -= time.time() - wall_time
 
     def solver(self, incumbent: Configuration, runhistory: RunHistory,
                challengers: typing.List[Configuration], time_left: float) -> \
