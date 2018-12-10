@@ -49,8 +49,8 @@ class Worker(AbstractPS, Process):
 
         """
         AbstractPS.init(self, cs, aggregate_func=aggregate_func)
-        if "intensifier" not in kwargs or "work_id" not in kwargs:
-            raise AttributeError("Missing intensifier/work_id in kwargs!")
+        if "intensifier" not in kwargs:
+            raise AttributeError("Missing intensifier in kwargs!")
         self.intensifier = kwargs["intensifier"]
         # worker_id 初始值为0
         if "worker_id" in kwargs:
