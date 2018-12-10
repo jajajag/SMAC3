@@ -102,10 +102,9 @@ def main(argv):
             flags_dict['node'] = node['job'][i]
             flags_dict['node_port'] = node['node_port'][i]
             flags_dict['id'] = node['id'][i]
-            flags_dict['cutoff'] = node['cutoff'][i]
             # 总剩余的时间和单轮时间
-            flags_dict['per_run_time_limit'] = [60, 60]
-            flags_dict['total_time_limit'] = [300, 300]
+            flags_dict['per_run_time_limit'] = node['per_run_time_limit'][i]
+            flags_dict['total_time_limit'] = node['total_time_limit'][i]
             flags = ' '.join([('--' + key + '=' + str(val)) for (key, val) in
                               flags_dict.items()])
             # 创建output文件
