@@ -113,11 +113,11 @@ def main(argv):
             connection.run('touch ' + output_file)
             # 如果nohup挂不上的话，可以考虑在结尾加上 sleep 1
             # 因为session可能会提前关闭
-            flags = 'nohup ' + node['python'] + ' ' + execute + ' ' + flags \
+            flags = 'nohup ' + node['python'] + ' -u ' + execute + ' ' + flags \
                     + ' >& ' + output_file + ' &'
-            # print(flags)
+            print(flags)
             # 运行
-            connection.run(flags)
+            #connection.run(flags)
             # print(connection.run('hostname'))
 
 

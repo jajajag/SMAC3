@@ -238,7 +238,7 @@ class SMBO(object):
                 self.server.push(incumbent=self.incumbent,
                                  runhistory=self.runhistory,
                                  challengers=challengers.challengers,
-                                 time_left=time_left)
+                                 time_left=self.stats.get_remaing_time_budget())
                 # 从worker读取runhistory，并merge到self.runhistory
                 incumbent, new_runhistory = self.server.pull()
                 self.runhistory.update(new_runhistory)
