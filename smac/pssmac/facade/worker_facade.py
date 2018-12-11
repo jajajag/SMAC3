@@ -47,6 +47,8 @@ class WorkerFacade(AbstractFacade):
             which should be unique.
         kwargs["per_run_time_limit"] : int, default_value = 3600
             Time limit of a single run of intensifier.
+        kwargs["total_time_limit"] : int, default_value = 24 * 3600
+            Total time limit for the SMBO process.
 
         Returns
         -------
@@ -63,8 +65,8 @@ class WorkerFacade(AbstractFacade):
             self.worker_id = kwargs["worker_id"]
         if "per_run_time_limit" in kwargs:
             self.per_run_time_limit = kwargs["per_run_time_limit"]
-        if "per_run_time_limit" in kwargs:
-            self.per_run_time_limit = kwargs["per_run_time_limit"]
+        if "total_time_limit" in kwargs:
+            self.total_time_limit = kwargs["total_time_limit"]
 
         # 首先指定输出目录
         output_dir = self.temp_folder + "worker-output_%s" % (
@@ -106,7 +108,8 @@ class WorkerFacade(AbstractFacade):
         self.facade.init(self.tae_runner.get_config_space(),
                          intensifier=intensifier,
                          worker_id=self.worker_id,
-                         per_run_time_limit=self.per_run_time_limit)
+                         per_run_time_limit=self.per_run_time_limit,
+                         total_time_limit=self.total_time_limit)
 
         return self
 

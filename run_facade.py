@@ -119,7 +119,8 @@ def main(argv):
         node.init(tae_runner=ta,
                   temp_folder=FLAGS.temp_dir,
                   worker_id=FLAGS.id,
-                  per_run_time_limit=FLAGS.per_run_time_limit)
+                  per_run_time_limit=FLAGS.per_run_time_limit,
+                  total_time_limit=FLAGS.total_time_limit)
     else:
         raise ValueError("Please specify the node type.")
 

@@ -371,6 +371,7 @@ class SMBO(object):
             runhistory=self.runhistory, 
             stats=self.stats,
             # 初始为5000，提升速度调成500
+            # 可以考虑再调小
             num_points=500,
             random_configuration_chooser=self.random_configuration_chooser
         )
