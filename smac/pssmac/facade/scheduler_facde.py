@@ -47,5 +47,6 @@ class SchedulerFacade(AbstractFacade):
         AbstractFacade.run(self)
         # 运行1.2倍的总时间，如果不够的话，再加长之
         time.sleep(self.total_time_limit * 1.2)
+        self.facade.terminate()
         # 等待直至scheduler线程执行完毕(不等待，关闭父线程)
         # self.facade.wait()

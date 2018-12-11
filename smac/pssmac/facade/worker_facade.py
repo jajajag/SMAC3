@@ -31,6 +31,7 @@ class WorkerFacade(AbstractFacade):
         self.temp_folder = "./tmp/"
         self.worker_id = 0
         self.per_run_time_limit = 3600
+        self.total_time_limit = 24 * 3600
 
     def init(self, **kwargs) -> AbstractFacade:
         """Function to create a worker.
@@ -60,6 +61,8 @@ class WorkerFacade(AbstractFacade):
             self.temp_folder = kwargs["temp_folder"]
         if "worker_id" in kwargs:
             self.worker_id = kwargs["worker_id"]
+        if "per_run_time_limit" in kwargs:
+            self.per_run_time_limit = kwargs["per_run_time_limit"]
         if "per_run_time_limit" in kwargs:
             self.per_run_time_limit = kwargs["per_run_time_limit"]
 
@@ -110,4 +113,14 @@ class WorkerFacade(AbstractFacade):
     def run(self):
         AbstractFacade.run(self)
         self.facade.start()
-        self.facade.join()
+        start_time = time.time()
+        while time.time() - start_time < 1.2 * self.total_time_limit:
+            # 如果时间没到，但已经结束了，仅返回
+            if not self.facade.is_alive():
+                return
+            # 等待一定时间
+            time.sleep(int(self.total_time_limit / 100) + 1)
+        # 时间到了，还未结束，则强制结束
+        self.facade.end()
+        self.facade.terminate()
+        # self.facade.join()

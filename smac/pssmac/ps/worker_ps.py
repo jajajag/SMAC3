@@ -75,7 +75,7 @@ class Worker(AbstractPS, Process):
         # 初始化剩余时间
         time_left = float('inf')
         # worker的主循环
-        while time_left > 0:
+        while True:
             # 拉取server传来的参数
             incumbent, runhistory, challengers, time_left = self.pull()
             print("Pulled from worker ", self.worker_id)
@@ -90,6 +90,10 @@ class Worker(AbstractPS, Process):
             print("Pushed from worker ", self.worker_id)
             # 计算新剩余的时间
             time_left -= time.time() - wall_time
+            # 到时限了，则关闭PS-Lite子进程，并返回
+            if time_left < 0:
+                self.end()
+                return
 
     def solver(self, incumbent: Configuration, runhistory: RunHistory,
                challengers: typing.List[Configuration], time_left: float) -> \

@@ -78,13 +78,20 @@ def main(argv):
             else:
                 raise ValueError("Please specify a valid job.")
 
+    # 将connections保存在字典中
+    # 因为这一步会占用时间进行连接，嘤避免占用时间过长导致ps-lite连接断开
+    connections = []
     for node in nodes:
         # 建立fabric的连接
-        connection = Connection(node['ssh_host'],
-                                connect_kwargs={
-                                    'key_filename': node['ssh_key']},
-                                user=node['ssh_user'],
-                                port=node['ssh_port'])
+        connections.append(Connection(node['ssh_host'],
+                                      connect_kwargs={
+                                          'key_filename': node['ssh_key']},
+                                      user=node['ssh_user'],
+                                      port=node['ssh_port']))
+
+    # 依次调用connections
+    for node_id in range(len(nodes)):
+        node = nodes[node_id]
         # 所有flags大集合
         flags_dict = {}
         execute = node['smac_dir'] + 'run_facade.py'
@@ -110,15 +117,17 @@ def main(argv):
             # 创建output文件
             output_file = node['output_dir'] + node['job'][i] + str(
                 node['id'][i]) + '.txt'
-            connection.run('touch ' + output_file)
+            connections[node_id].run('touch ' + output_file)
             # 如果nohup挂不上的话，可以考虑在结尾加上 sleep 1
             # 因为session可能会提前关闭
             flags = 'nohup ' + node['python'] + ' -u ' + execute + ' ' + flags \
                     + ' >& ' + output_file + ' &'
-            print(flags)
+            #flags = 'screen -d -m ' + node['python'] + ' -u ' + execute + ' ' \
+            #        + flags + ' > ' + output_file + ' &'
+            #print(flags)
             # 运行
-            #connection.run(flags)
-            # print(connection.run('hostname'))
+            connections[node_id].run(flags)
+            # print(connections[node_id].run('hostname'))
 
 
 if __name__ == '__main__':

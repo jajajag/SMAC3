@@ -128,6 +128,7 @@ class ServerFacade(AbstractFacade):
         AbstractFacade.run(self)
         # 调用smac的optimize函数
         self.facade.optimize()
+        self.server.end()
 
     def _cal_hoag(self) -> AbstractHOAG:
         """Calculate the dummy hoag.

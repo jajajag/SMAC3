@@ -138,6 +138,12 @@ class AbstractPS(object):
         """
         raise NotImplementedError
 
+    def end(self):
+        """Terminate the process.
+
+        """
+        self.ps.terminate()
+
 
 class ConfigHistory(object):
     def __init__(self,
