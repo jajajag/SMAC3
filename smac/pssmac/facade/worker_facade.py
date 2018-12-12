@@ -102,7 +102,11 @@ class WorkerFacade(AbstractFacade):
                                   stats=stats,
                                   traj_logger=traj_logger,
                                   rng=rng,
-                                  instances=scenario.train_insts)
+                                  instances=scenario.train_insts,
+                                  # 使用Senario里的cutoff
+                                  run_obj_time=False,
+                                  # 按照smac的习惯，只跑四轮
+                                  run_limit=4)
 
         # 对worker进行初始化
         self.facade.init(self.tae_runner.get_config_space(),
