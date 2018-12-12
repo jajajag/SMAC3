@@ -278,8 +278,9 @@ class SMBO(object):
 
             self.stats.print_stats(debug_out=True)
 
-        # 结束server的子进程
-        self.server.end()
+        if self.server:
+            # 结束server的子进程
+            self.server.end()
 
         return self.incumbent
 
