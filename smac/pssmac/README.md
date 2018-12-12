@@ -117,3 +117,23 @@ Worker端接收计算出的loss，构建EPM，计算出新的Challengers，再�
 5. 如果需要对pssmac的facade进行操作，或者修改读写数据的方式，可以编辑run_facade.py文件。
 我默认对.csv结尾的文件按照csv方式读取，其他文件则全部按照libsvm格式读取。数据按照seed
 为1的情况分为2：1形式。如果需要修改，可以对这个文件进行编辑。
+
+6. smac的具体配置文件写在了WorkerFacade和ServerFacade中。尤其是WorkerFacade，
+指定了smac的具体配置，包括默认每次intensify训练4次challengers，默认使用我们指定的cutoff等。
+
+## 可改进点
+
+* 目前是scheduler和worker总体有一个1.2倍的运行时限，超出时间后强制杀掉子进程，
+同时父进程自然结束。可以考虑用其他方法来结束这些子进程，但PS-Lite并未提供scheduler
+的结束方式。cutoff(单次运行时限)已经合理设置，但wallclock_limit(总结束时间)
+可以思考如何更好地结束scheduler和worker进程。
+
+* 目前在python和PS-Lite连接的方式是管道，这点可以考虑用别的方法。管道目前来看效率足够，
+但出于开发调试的考虑，可以改成其他交互方式。
+
+* PS-Lite和Python端交互的数据结构目前为按行传输，并未考虑到丢包的情况。如果需要考虑的话，
+可以修改数据结构，并且对可能存在的丢包情况进行单独处理。
+
+* PS-Lite传输部分有针对多server的优化，因此worker到server是分片传输的。
+但我们的设计中，并不需要分片传输，可以修改部分C++代码来实现整体传输，
+而非按key的键值对传输。
