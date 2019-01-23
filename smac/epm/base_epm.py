@@ -40,16 +40,12 @@ class AbstractEPM(object):
         to var_threshold
     types : list
         If set, contains a list with feature types (cat,const) of input vector
-    unlog_y: bool
-        If the y data in the training data is log-transformed,
-        this option will undo this tranformation during predictions        
     """
 
     def __init__(self,
                  instance_features: np.ndarray=None,
-                 pca_components: float=None,
-                 unlog_y:bool=False):
-        """Constructor
+                 pca_components: float=None):
+        """Constr uctor
 
         Parameters
         ----------
@@ -60,14 +56,9 @@ class AbstractEPM(object):
             Number of components to keep when using PCA to reduce
             dimensionality of instance features. Requires to
             set n_feats (> pca_dims).
-        unlog_y: bool
-            If the y data in the training data is log-transformed,
-            this option will undo this tranformation during predictions    
         """
         self.instance_features = instance_features
         self.pca_components = pca_components
-        self.unlog_y = unlog_y
-        
         if instance_features is not None:
             self.n_feats = instance_features.shape[1]
         else:
@@ -117,7 +108,7 @@ class AbstractEPM(object):
                 # X_feats.shape[0]
                 self.types = np.array(np.hstack((self.types[:self.n_params], np.zeros((X_feats.shape[1])))),
                                       dtype=np.uint)
-        return self._train(X, Y)
+        return self._train(X, Y, **kwargs)
 
     def _train(self, X: np.ndarray, Y: np.ndarray, **kwargs):
         """Trains the random forest on X and y.
@@ -223,10 +214,9 @@ class AbstractEPM(object):
             X_ = np.hstack(
                 (np.tile(x, (n_instances, 1)), self.instance_features))
             means, vars = self.predict(X_)
-            # VAR[1/n (X_1 + ... + X_n)] = 
-            # 1/n^2 * ( VAR(X_1) + ... + VAR(X_n)) 
-            # for independent X_1 ... X_n 
-            var_x = np.sum(vars) / (len(vars)^2)
+            # use only mean of variance and not the variance of the mean here
+            # since we don't want to reason about the instance hardness distribution
+            var_x = np.mean(vars)  # + np.var(means)
             if var_x < self.var_threshold:
                 var_x = self.var_threshold
 

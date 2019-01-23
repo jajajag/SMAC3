@@ -46,8 +46,7 @@ class TrajLogger(object):
         self.logger = logging.getLogger(self.__module__ + "." + self.__class__.__name__)
 
         self.output_dir = output_dir
-        if output_dir is None or output_dir == "":
-            self.output_dir = None
+        if output_dir is None:
             self.logger.info("No output directory for trajectory logging "
                              "specified -- trajectory will not be logged.")
 
@@ -56,9 +55,9 @@ class TrajLogger(object):
                 try:
                     os.makedirs(output_dir)
                 except OSError:
-                    self.logger.debug("Could not make output directory.", exc_info=1)
-                    raise OSError("Could not make output directory: "
-                                  "{}.".format(output_dir))
+                    self.logger.error(
+                        "Could not make output directory: %s" % (output_dir))
+                    sys.exit(3)
 
             self.old_traj_fn = os.path.join(output_dir, "traj_old.csv")
             if not os.path.isfile(self.old_traj_fn):
@@ -205,7 +204,6 @@ class TrajLogger(object):
 
     @staticmethod
     def _convert_dict_to_config(config_list: typing.List[str], cs: ConfigurationSpace):
-        # CAN BE DONE IN CONFIGSPACE
         """Since we save a configurations in a dictionary str->str we have to
         try to figure out the type (int, float, str) of each parameter value
 

@@ -1,7 +1,9 @@
 # SMAC v3 Project
 
-This is forked from automl/SMAC3 of v0.8.0 for study and development purpose. 
-See Modification section for more details.
+This is a branch of automl/SMAC3 of v0.8.0 for study and development purpose. 
+The ideas are provided by Dr. Daning Cheng and implemented by myself (Hanping Zhang).
+Only raw results will be shown until the final decision of the conference come out.
+##### Please see Usage section and Modification section for more details.
 
 Copyright (C) 2016-2018  [ML4AAD Group](http://www.ml4aad.org/)
 
@@ -96,6 +98,8 @@ It supports the same parameter configuration space syntax
 (except for extended forbidden constraints) and interface to
 target algorithms.
 
+First, please make sure you setup all the required python packages of SMAC3, including swig3.
+
 # Examples
 
 See examples/
@@ -111,10 +115,6 @@ SMAC3 is developed by the [ML4AAD Group of the University of Freiburg](http://ww
 If you found a bug, please report to https://github.com/automl/SMAC3
 
 # Modification
-
-This is a branch of SMAC3 for study and development purpose. 
-The ideas are provided by Dr. Tom Cheng and implemented by myself.
-Only raw results will be shown until the paper come out.
 
 Following files have been modified:
 

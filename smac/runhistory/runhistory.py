@@ -1,13 +1,11 @@
 import collections
 from enum import Enum
 import json
-import typing
-
 import numpy as np
+import typing
 
 from smac.configspace import Configuration, ConfigurationSpace
 from smac.tae.execute_ta_run import StatusType
-from smac.utils.logging import PickableLoggerAdapter
 
 __author__ = "Marius Lindauer"
 __copyright__ = "Copyright 2015, ML4AAD"
@@ -16,14 +14,11 @@ __maintainer__ = "Marius Lindauer"
 __email__ = "lindauer@cs.uni-freiburg.de"
 __version__ = "0.0.1"
 
-
 RunKey = collections.namedtuple(
     'RunKey', ['config_id', 'instance_id', 'seed'])
 
-
 InstSeedKey = collections.namedtuple(
     'InstSeedKey', ['instance', 'seed'])
-
 
 RunValue = collections.namedtuple(
     'RunValue', ['cost', 'time', 'status', 'additional_info'])
@@ -43,20 +38,19 @@ class EnumEncoder(json.JSONEncoder):
 
 
 class DataOrigin(Enum):
-
     """
     Definition of how data in the runhistory is used.
-
-    * ``INTERNAL``: internal data which was gathered during the current
-      optimization run. It will be saved to disk, used for building EPMs and
+    
+    * ``INTERNAL``: internal data which was gathered during the current 
+      optimization run. It will be saved to disk, used for building EPMs and 
       during intensify.
     * ``EXTERNAL_SAME_INSTANCES``: external data, which was gathered by running
-       another program on the same instances as the current optimization run
-       runs on (for example pSMAC). It will not be saved to disk, but used both
+       another program on the same instances as the current optimization run 
+       runs on (for example pSMAC). It will not be saved to disk, but used both 
        for EPM building and during intensify.
     * ``EXTERNAL_DIFFERENT_INSTANCES``: external data, which was gathered on a
-       different instance set as the one currently used, but due to having the
-       same instance features can still provide useful information. Will not be
+       different instance set as the one currently used, but due to having the 
+       same instance features can still provide useful information. Will not be 
        saved to disk and only used for EPM building.
     """
     INTERNAL = 1
@@ -65,7 +59,6 @@ class DataOrigin(Enum):
 
 
 class RunHistory(object):
-
     """Container for target algorithm run information.
 
     **Note:** Guaranteed to be picklable.
@@ -87,11 +80,10 @@ class RunHistory(object):
     overwrite_existing_runs
     """
 
-    def __init__(
-        self,
-        aggregate_func: typing.Callable,
-        overwrite_existing_runs: bool=False
-    ) -> None:
+    def __init__(self,
+                 aggregate_func: typing.Callable,
+                 overwrite_existing_runs: bool = False
+                 ):
         """Constructor
 
         Parameters
@@ -103,41 +95,35 @@ class RunHistory(object):
             algorithm-instance-seed were measured
             multiple times
         """
-        self.logger = PickableLoggerAdapter(
-            self.__module__ + "." + self.__class__.__name__
-        )
-
         # By having the data in a deterministic order we can do useful tests
         # when we serialize the data and can assume it's still in the same
         # order as it was added.
-        self.data = collections.OrderedDict()  # type: typing.Dict[RunKey: RunValue]
+        self.data = collections.OrderedDict()
 
         # for fast access, we have also an unordered data structure
         # to get all instance seed pairs of a configuration
-        self._configid_to_inst_seed = {}  # type: typing.Dict[int: InstSeedKey]
+        self._configid_to_inst_seed = {}
 
-        self.config_ids = {}  # type: typing.Dict[Configuration: int]
-        self.ids_config = {}  # type: typing.Dict[int: Configuration]
+        self.config_ids = {}  # config -> id
+        self.ids_config = {}  # id -> config
         self._n_id = 0
 
-        # Stores cost for each configuration ID
-        self.cost_per_config = {}  # type: typing.Dict[int: float]
-        # runs_per_config maps the configuration ID to the number of runs for that configuration
-        # and is necessary for computing the moving average
-        self.runs_per_config = {}  # type: typing.Dict[int: int]
+        self.cost_per_config = {}  # config_id -> cost
+        # runs_per_config is necessary for computing the moving average
+        self.runs_per_config = {}  # config_id -> number of runs
 
         # Store whether a datapoint is "external", which means it was read from
         # a JSON file. Can be chosen to not be written to disk
-        self.external = {}  # type: typing.Dict[RunKey: DataOrigin]
+        self.external = {}  # RunKey -> DataOrigin
 
         self.aggregate_func = aggregate_func
         self.overwrite_existing_runs = overwrite_existing_runs
 
     def add(self, config: Configuration, cost: float, time: float,
-            status: StatusType, instance_id: str=None,
-            seed: int=None,
-            additional_info: dict=None,
-            origin: DataOrigin=DataOrigin.INTERNAL):
+            status: StatusType, instance_id: str = None,
+            seed: int = None,
+            additional_info: dict = None,
+            origin: DataOrigin = DataOrigin.INTERNAL):
         """Adds a data of a new target algorithm (TA) run;
         it will update data if the same key values are used
         (config, instance_id, seed)
@@ -177,10 +163,12 @@ class RunHistory(object):
         # the same runkey will be ignored silently if not capped.
         if self.overwrite_existing_runs or self.data.get(k) is None:
             self._add(k, v, status, origin)
-        elif status != StatusType.CAPPED and self.data[k].status == StatusType.CAPPED:
+        elif status != StatusType.CAPPED and self.data[
+            k].status == StatusType.CAPPED:
             # overwrite capped runs with uncapped runs
             self._add(k, v, status, origin)
-        elif status == StatusType.CAPPED and self.data[k].status == StatusType.CAPPED and cost > self.data[k].cost:
+        elif status == StatusType.CAPPED and self.data[
+            k].status == StatusType.CAPPED and cost > self.data[k].cost:
             # overwrite if censored with a larger cutoff
             self._add(k, v, status, origin)
 
@@ -205,7 +193,8 @@ class RunHistory(object):
 
             if not self.overwrite_existing_runs:
                 # assumes an average across runs as cost function aggregation
-                self.incremental_update_cost(self.ids_config[k.config_id], v.cost)
+                self.incremental_update_cost(self.ids_config[k.config_id],
+                                             v.cost)
             else:
                 self.update_cost(config=self.ids_config[k.config_id])
 
@@ -225,7 +214,7 @@ class RunHistory(object):
         self.cost_per_config[config_id] = perf
         self.runs_per_config[config_id] = len(inst_seeds)
 
-    def compute_all_costs(self, instances: typing.List[str]=None):
+    def compute_all_costs(self, instances: typing.List[str] = None):
         """Computes the cost of all configurations from scratch and overwrites
         self.cost_perf_config and self.runs_per_config accordingly;
 
@@ -264,7 +253,9 @@ class RunHistory(object):
         n_runs = self.runs_per_config.get(config_id, 0)
         old_cost = self.cost_per_config.get(config_id, 0.)
         self.cost_per_config[config_id] = (
-            (old_cost * n_runs) + cost) / (n_runs + 1)
+                                                  (
+                                                          old_cost * n_runs) + cost) / (
+                                                  n_runs + 1)
         self.runs_per_config[config_id] = n_runs + 1
 
     def get_cost(self, config: Configuration):
@@ -296,31 +287,6 @@ class RunHistory(object):
         """
         config_id = self.config_ids.get(config)
         return self._configid_to_inst_seed.get(config_id, [])
-    
-    def get_instance_costs_for_config(self, config: Configuration):
-        """
-            Returns the average cost per instance (across seeds) 
-            for a configuration
-            Parameters
-            ----------
-            config : Configuration from ConfigSpace
-                Parameter configuration
-
-            Returns
-            -------
-            cost_per_inst: dict<instance name<str>, cost<float>>
-        """
-        config_id = self.config_ids.get(config)
-        runs_ = self._configid_to_inst_seed.get(config_id, [])
-        cost_per_inst = {}
-        for inst, seed in runs_:
-            cost_per_inst[inst] = cost_per_inst.get(inst,[])
-            rkey = RunKey(config_id, inst, seed)
-            vkey = self.data[rkey]
-            cost_per_inst[inst].append(vkey.cost)
-        cost_per_inst = dict([(inst, np.mean(costs)) for inst, costs in cost_per_inst.items()])
-        return cost_per_inst
-        
 
     def get_all_configs(self):
         """Return all configurations in this RunHistory object
@@ -342,7 +308,8 @@ class RunHistory(object):
         """
         return len(self.data) == 0
 
-    def save_json(self, fn: str="runhistory.json", save_external: bool=False):
+    def save_json(self, fn: str = "runhistory.json",
+                  save_external: bool = False):
         """
         saves runhistory on disk
 
@@ -353,6 +320,7 @@ class RunHistory(object):
         save_external : bool
             Whether to save external data in the runhistory file.
         """
+
         data = [([int(k.config_id),
                   str(k.instance_id) if k.instance_id is not None else None,
                   int(k.seed)], list(v))
@@ -362,15 +330,10 @@ class RunHistory(object):
         configs = {id_: conf.get_dictionary()
                    for id_, conf in self.ids_config.items()
                    if id_ in config_ids_to_serialize}
-        config_origins = {id_: conf.origin
-                          for id_, conf in self.ids_config.items()
-                          if (id_ in config_ids_to_serialize and
-                              conf.origin is not None)}
 
         with open(fn, "w") as fp:
             json.dump({"data": data,
-                       "config_origins": config_origins,
-                       "configs": configs}, fp, cls=EnumEncoder, indent=2)
+                       "configs": configs}, fp, cls=EnumEncoder)
 
     def load_json(self, fn: str, cs: ConfigurationSpace):
         """Load and runhistory in json representation from disk.
@@ -384,27 +347,14 @@ class RunHistory(object):
         cs : ConfigSpace
             instance of configuration space
         """
-        try:
-            with open(fn) as fp:
-                all_data = json.load(fp, object_hook=StatusType.enum_hook)
-        except Exception as e:
-            self.logger.warning(
-                'Encountered exception %s while reading runhistory from %s. '
-                'Not adding any runs!',
-                e,
-                fn,
-            )
-            return
+        with open(fn) as fp:
+            all_data = json.load(fp, object_hook=StatusType.enum_hook)
 
-        config_origins = all_data.get("config_origins", {})
+        self.ids_config = {int(id_): Configuration(cs, values=values)
+                           for id_, values in all_data["configs"].items()}
 
-        self.ids_config = {
-            int(id_): Configuration(
-                cs, values=values, origin=config_origins.get(id_, None)
-            ) for id_, values in all_data["configs"].items()
-        }
-
-        self.config_ids = {config: id_ for id_, config in self.ids_config.items()}
+        self.config_ids = {config: id_ for id_, config in
+                           self.ids_config.items()}
 
         self._n_id = len(self.config_ids)
 
@@ -419,7 +369,7 @@ class RunHistory(object):
                      additional_info=v[3])
 
     def update_from_json(self, fn: str, cs: ConfigurationSpace,
-                         origin: DataOrigin=DataOrigin.EXTERNAL_SAME_INSTANCES):
+                         origin: DataOrigin = DataOrigin.EXTERNAL_SAME_INSTANCES):
         """Update the current runhistory by adding new runs from a json file.
 
         Parameters
@@ -436,7 +386,7 @@ class RunHistory(object):
         self.update(runhistory=new_runhistory, origin=origin)
 
     def update(self, runhistory: 'RunHistory',
-               origin: DataOrigin=DataOrigin.EXTERNAL_SAME_INSTANCES):
+               origin: DataOrigin = DataOrigin.EXTERNAL_SAME_INSTANCES):
         """Update the current runhistory by adding new runs from a RunHistory.
 
         Parameters
@@ -461,7 +411,6 @@ class RunHistory(object):
                      status=status, instance_id=instance_id,
                      seed=seed, additional_info=additional_info,
                      origin=origin)
-
 
     # 返回某个config的所有历史记录
     def get_history_for_config(self, config: Configuration) -> typing.List[

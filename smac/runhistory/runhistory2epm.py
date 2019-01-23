@@ -42,16 +42,12 @@ class AbstractRunHistory2EPM(object):
     num_params
     """
 
-    def __init__(
-        self,
-        scenario: Scenario,
-        num_params: int,
-        success_states: typing.Optional[typing.List[StatusType]]=None,
-        impute_censored_data: bool=False,
-        impute_state: typing.Optional[typing.List[StatusType]]=None,
-        imputor: typing.Optional[BaseImputor]=None,
-        rng: typing.Optional[np.random.RandomState]=None,
-    ) -> None:
+    def __init__(self, scenario: Scenario, num_params: int,
+                 success_states: typing.List[StatusType]=None,
+                 impute_censored_data: bool=False,
+                 impute_state: typing.List[StatusType]=None,
+                 imputor: BaseImputor=None,
+                 rng: np.random.RandomState=None):
         """Constructor
 
         Parameters
@@ -167,6 +163,8 @@ class AbstractRunHistory2EPM(object):
             cost values
         """
         self.logger.debug("Transform runhistory into X,y format")
+
+        assert isinstance(runhistory, RunHistory)
 
         # consider only successfully finished runs
         s_run_dict = {run: runhistory.data[run] for run in runhistory.data.keys()

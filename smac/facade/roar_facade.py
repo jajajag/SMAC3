@@ -14,7 +14,6 @@ from smac.initial_design.initial_design import InitialDesign
 from smac.intensification.intensification import Intensifier
 from smac.facade.smac_facade import SMAC
 from smac.configspace import Configuration
-from smac.utils.util_funcs import get_rng
 
 __author__ = "Marius Lindauer"
 __copyright__ = "Copyright 2016, ML4AAD"
@@ -22,8 +21,7 @@ __license__ = "3-clause BSD"
 
 
 class ROAR(SMAC):
-    """
-    Facade to use ROAR mode
+    """Facade to use ROAR mode
 
     Attributes
     ----------
@@ -32,7 +30,6 @@ class ROAR(SMAC):
     See Also
     --------
     :class:`~smac.facade.smac_facade.SMAC`
-
     """
 
     def __init__(self,
@@ -45,8 +42,7 @@ class ROAR(SMAC):
                  stats: Stats=None,
                  rng: np.random.RandomState=None,
                  run_id: int=1):
-        """
-        Constructor
+        """Constructor
 
         Parameters
         ----------
@@ -74,21 +70,20 @@ class ROAR(SMAC):
             Random number generator
         run_id: int, (default: 1)
             Run ID will be used as subfolder for output_dir.
-
         """
         self.logger = logging.getLogger(self.__module__ + "." + self.__class__.__name__)
 
         # initial random number generator
-        _, rng = get_rng(rng=rng, logger=self.logger)
+        num_run, rng = self._get_rng(rng=rng)
 
         # initial conversion of runhistory into EPM data
         # since ROAR does not really use it the converted data
         # we simply use a cheap RunHistory2EPM here
         num_params = len(scenario.cs.get_hyperparameters())
-        runhistory2epm = RunHistory2EPM4Cost(
-            scenario=scenario, num_params=num_params,
-            success_states=[StatusType.SUCCESS, ],
-            impute_censored_data=False, impute_state=None)
+        runhistory2epm = RunHistory2EPM4Cost\
+            (scenario=scenario, num_params=num_params,
+             success_states=[StatusType.SUCCESS, ],
+             impute_censored_data=False, impute_state=None)
 
         aggregate_func = average_cost
         # initialize empty runhistory

@@ -10,7 +10,6 @@ from smac.configspace import get_one_exchange_neighbourhood, \
 from smac.runhistory.runhistory import RunHistory
 from smac.stats.stats import Stats
 from smac.optimizer.acquisition import AbstractAcquisitionFunction
-from smac.optimizer.random_configuration_chooser import ChooserNoCoolDown
 from smac.utils.constants import MAXINT
 
 __author__ = "Aaron Klein, Marius Lindauer"
@@ -23,16 +22,16 @@ __version__ = "0.0.1"
 
 class AcquisitionFunctionMaximizer(object, metaclass=abc.ABCMeta):
     """Abstract class for acquisition maximization.
-
+    
     In order to use this class it has to be subclassed and the method
     ``_maximize`` must be implemented.
-
+    
     Parameters
     ----------
     acquisition_function : ~smac.optimizer.acquisition.AbstractAcquisitionFunction
-
+        
     config_space : ~smac.configspace.ConfigurationSpace
-
+    
     rng : np.random.RandomState or int, optional
     """
 
@@ -59,56 +58,50 @@ class AcquisitionFunctionMaximizer(object, metaclass=abc.ABCMeta):
             self,
             runhistory: RunHistory,
             stats: Stats,
-            num_points: int,
-            **kwargs
+            num_points: int
     ) -> Iterable[Configuration]:
         """Maximize acquisition function using ``_maximize``.
-
+        
         Parameters
         ----------
-        runhistory: ~smac.runhistory.runhistory.RunHistory
-            runhistory object
-        stats: ~smac.stats.stats.Stats
-            current stats object
-        num_points: int
-            number of points to be sampled
-        **kwargs
-
+        runhistory : ~smac.runhistory.runhistory.RunHistory
+        
+        stats : ~smac.stats.stats.Stats
+        
+        num_points : int
+        
         Returns
         -------
         iterable
             An iterable consisting of :class:`smac.configspace.Configuration`.
         """
-        return [t[1] for t in self._maximize(runhistory, stats, num_points, **kwargs)]
+        return [t[1] for t in self._maximize(runhistory, stats, num_points)]
 
     @abc.abstractmethod
     def _maximize(
             self,
             runhistory: RunHistory,
             stats: Stats,
-            num_points: int,
-            **kwargs
+            num_points: int
     ) -> Iterable[Tuple[float, Configuration]]:
         """Implements acquisition function maximization.
-
+        
         In contrast to ``maximize``, this method returns an iterable of tuples,
         consisting of the acquisition function value and the configuration. This
         allows to plug together different acquisition function maximizers.
 
         Parameters
         ----------
-        runhistory: ~smac.runhistory.runhistory.RunHistory
-            runhistory object
-        stats: ~smac.stats.stats.Stats
-            current stats object
-        num_points: int
-            number of points to be sampled
-        **kwargs
+        runhistory : ~smac.runhistory.runhistory.RunHistory
+
+        stats : ~smac.stats.stats.Stats
+
+        num_points : int
 
         Returns
         -------
         iterable
-            An iterable consistng of
+            An iterable consistng of 
             tuple(acqusition_value, :class:`smac.configspace.Configuration`).
         """
         raise NotImplementedError()
@@ -149,16 +142,16 @@ class LocalSearch(AcquisitionFunctionMaximizer):
     Parameters
     ----------
     acquisition_function : ~smac.optimizer.acquisition.AbstractAcquisitionFunction
-
+        
     config_space : ~smac.configspace.ConfigurationSpace
-
+    
     rng : np.random.RandomState or int, optional
-
-    max_steps: int
+    
+    epsilon: float
+        In order to perform a local move one of the incumbent's neighbors
+        needs at least an improvement higher than epsilon
+    max_iterations: int
         Maximum number of iterations that the local search will perform
-
-    n_steps_plateau_walk: int
-        number of steps during a plateau walk before local search terminates
 
     """
 
@@ -167,19 +160,19 @@ class LocalSearch(AcquisitionFunctionMaximizer):
             acquisition_function: AbstractAcquisitionFunction,
             config_space: ConfigurationSpace,
             rng: Union[bool, np.random.RandomState] = None,
-            max_steps: Optional[int]=None,
-            n_steps_plateau_walk: int=10,
+            epsilon: float=0.00001,
+            max_iterations: Optional[int]=None
     ):
         super().__init__(acquisition_function, config_space, rng)
-        self.max_steps = max_steps
-        self.n_steps_plateau_walk = n_steps_plateau_walk
+        self.epsilon = epsilon
+        self.max_iterations = max_iterations
 
     def _maximize(
             self,
             runhistory: RunHistory,
             stats: Stats,
             num_points: int,
-            **kwargs
+            *args
     ) -> List[Tuple[float, Configuration]]:
         """Starts a local search from the given startpoint and quits
         if either the max number of steps is reached or no neighbor
@@ -187,13 +180,9 @@ class LocalSearch(AcquisitionFunctionMaximizer):
 
         Parameters
         ----------
-        runhistory: ~smac.runhistory.runhistory.RunHistory
-            runhistory object
-        stats: ~smac.stats.stats.Stats
-            current stats object
-        num_points: int
-            number of points to be sampled
-        ***kwargs:
+        start_point:  np.array(1, D)
+            The point from where the local search starts
+        *args:
             Additional parameters that will be passed to the
             acquisition function
 
@@ -206,8 +195,8 @@ class LocalSearch(AcquisitionFunctionMaximizer):
 
         """
 
-        num_configurations_by_local_search = min(
-            len(runhistory.data), num_points,
+        num_configurations_by_local_search = self._calculate_num_points(
+            num_points, stats, runhistory
         )
         init_points = self._get_initial_points(
             num_configurations_by_local_search, runhistory)
@@ -216,7 +205,7 @@ class LocalSearch(AcquisitionFunctionMaximizer):
         # Start N local search from different random start points
         for start_point in init_points:
             acq_val, configuration = self._one_iter(
-                start_point, **kwargs)
+                start_point)
 
             configuration.origin = "Local Search"
             configs_acq.append((acq_val, configuration))
@@ -228,6 +217,22 @@ class LocalSearch(AcquisitionFunctionMaximizer):
         configs_acq.sort(reverse=True, key=lambda x: x[0])
 
         return configs_acq
+
+    def _calculate_num_points(self, num_points, stats, runhistory):
+        if stats._ema_n_configs_per_intensifiy > 0:
+            num_configurations_by_local_search = (
+                min(
+                    num_points,
+                    np.ceil(0.5 * stats._ema_n_configs_per_intensifiy) + 1
+                )
+            )
+        else:
+            num_configurations_by_local_search = num_points
+        num_configurations_by_local_search = min(
+            len(runhistory.data),
+            num_configurations_by_local_search
+        )
+        return num_configurations_by_local_search
 
     def _get_initial_points(self, num_configurations_by_local_search,
                             runhistory):
@@ -252,16 +257,15 @@ class LocalSearch(AcquisitionFunctionMaximizer):
     def _one_iter(
             self,
             start_point: Configuration,
-            **kwargs
+            *args
     ) -> Tuple[float, Configuration]:
 
         incumbent = start_point
         # Compute the acquisition value of the incumbent
-        acq_val_incumbent = self.acquisition_function([incumbent], **kwargs)[0]
+        acq_val_incumbent = self.acquisition_function([incumbent], *args)[0]
 
         local_search_steps = 0
         neighbors_looked_at = 0
-        n_no_improvements = 0
         time_n = []
         while True:
 
@@ -281,34 +285,22 @@ class LocalSearch(AcquisitionFunctionMaximizer):
             all_neighbors = get_one_exchange_neighbourhood(
                 incumbent, seed=self.rng.randint(MAXINT))
 
-            neighbors = []
             for neighbor in all_neighbors:
                 s_time = time.time()
-                acq_val = self.acquisition_function([neighbor], **kwargs)
+                acq_val = self.acquisition_function([neighbor], *args)
                 neighbors_looked_at += 1
                 time_n.append(time.time() - s_time)
 
-                if acq_val == acq_val_incumbent:
-                    neighbors.append(neighbor)
-                if acq_val > acq_val_incumbent:
+                if acq_val > acq_val_incumbent + self.epsilon:
                     self.logger.debug("Switch to one of the neighbors")
                     incumbent = neighbor
                     acq_val_incumbent = acq_val
                     changed_inc = True
                     break
 
-            if (
-                not changed_inc
-                and n_no_improvements < self.n_steps_plateau_walk
-                and len(neighbors) > 0
-            ):
-                n_no_improvements += 1
-                incumbent = neighbors[0]
-                changed_inc = True
-
             if (not changed_inc) or \
-                    (self.max_steps is not None and
-                     local_search_steps == self.max_steps):
+                    (self.max_iterations is not None and
+                     local_search_steps == self.max_iterations):
                 self.logger.debug("Local search took %d steps and looked at %d "
                                   "configurations. Computing the acquisition "
                                   "value for one configuration took %f seconds"
@@ -326,9 +318,9 @@ class RandomSearch(AcquisitionFunctionMaximizer):
     Parameters
     ----------
     acquisition_function : ~smac.optimizer.acquisition.AbstractAcquisitionFunction
-
+        
     config_space : ~smac.configspace.ConfigurationSpace
-
+    
     rng : np.random.RandomState or int, optional
     """
 
@@ -338,29 +330,8 @@ class RandomSearch(AcquisitionFunctionMaximizer):
             stats: Stats,
             num_points: int,
             _sorted: bool=False,
-            **kwargs
+            *args
     ) -> List[Tuple[float, Configuration]]:
-        """Randomly sampled configurations
-
-        Parameters
-        ----------
-        runhistory: ~smac.runhistory.runhistory.RunHistory
-            runhistory object
-        stats: ~smac.stats.stats.Stats
-            current stats object
-        num_points: int
-            number of points to be sampled
-        _sorted: bool
-            whether random configurations are sorted according to acquisition function
-        **kwargs
-            not used
-
-        Returns
-        -------
-        iterable
-            An iterable consistng of
-            tuple(acqusition_value, :class:`smac.configspace.Configuration`).
-        """
 
         if num_points > 1:
             rand_configs = self.config_space.sample_configuration(
@@ -379,48 +350,32 @@ class RandomSearch(AcquisitionFunctionMaximizer):
 
 class InterleavedLocalAndRandomSearch(AcquisitionFunctionMaximizer):
     """Implements SMAC's default acquisition function optimization.
-
-    This optimizer performs local search from the previous best points
-    according, to the acquisition function, uses the acquisition function to
-    sort randomly sampled configurations and interleaves unsorted, randomly
+    
+    This optimizer performs local search from the previous best points 
+    according, to the acquisition function, uses the acquisition function to 
+    sort randomly sampled configurations and interleaves unsorted, randomly 
     sampled configurations in between.
-
+    
     Parameters
     ----------
     acquisition_function : ~smac.optimizer.acquisition.AbstractAcquisitionFunction
-
+        
     config_space : ~smac.configspace.ConfigurationSpace
-
+    
     rng : np.random.RandomState or int, optional
-
-    max_steps: int
-        [LocalSearch] Maximum number of steps that the local search will perform
-
-    n_steps_plateau_walk: int
-        [LocalSearch] number of steps during a plateau walk before local search terminates
-
     """
     def __init__(
             self,
             acquisition_function: AbstractAcquisitionFunction,
             config_space: ConfigurationSpace,
             rng: Union[bool, np.random.RandomState] = None,
-            max_steps: Optional[int] = None,
-            n_steps_plateau_walk: int = 10
-
     ):
         super().__init__(acquisition_function, config_space, rng)
         self.random_search = RandomSearch(
-            acquisition_function=acquisition_function,
-            config_space=config_space,
-            rng=rng
+            acquisition_function, config_space, rng
         )
         self.local_search = LocalSearch(
-            acquisition_function=acquisition_function,
-            config_space=config_space,
-            rng=rng,
-            max_steps=max_steps,
-            n_steps_plateau_walk=n_steps_plateau_walk
+            acquisition_function, config_space, rng
         )
 
     def maximize(
@@ -428,36 +383,10 @@ class InterleavedLocalAndRandomSearch(AcquisitionFunctionMaximizer):
             runhistory: RunHistory,
             stats: Stats,
             num_points: int,
-            random_configuration_chooser,
-            **kwargs
+            *args
     ) -> Iterable[Configuration]:
-        """Maximize acquisition function using ``_maximize``.
-
-        Parameters
-        ----------
-        runhistory: ~smac.runhistory.runhistory.RunHistory
-            runhistory object
-        stats: ~smac.stats.stats.Stats
-            current stats object
-        num_points: int
-            number of points to be sampled
-        random_configuration_chooser: ~smac.optimizer.random_configuration_chooser.RandomConfigurationChooser
-            part of the returned ChallengerList such
-            that we can interleave random configurations
-            by a scheme defined by the random_configuration_chooser;
-            random_configuration_chooser.next_smbo_iteration()
-            is called at the end of this function
-        **kwargs
-            passed to acquisition function
-
-        Returns
-        -------
-        Iterable[Configuration]
-            to be concrete: ~smac.ei_optimization.ChallengerList
-        """
-
         next_configs_by_local_search = self.local_search._maximize(
-            runhistory, stats, 10, **kwargs
+            runhistory, stats, 10,
         )
 
         # Get configurations sorted by EI
@@ -486,21 +415,19 @@ class InterleavedLocalAndRandomSearch(AcquisitionFunctionMaximizer):
         next_configs_by_acq_value = [_[1] for _ in next_configs_by_acq_value]
 
         challengers = ChallengerList(next_configs_by_acq_value,
-                                     self.config_space,
-                                     random_configuration_chooser)
-        random_configuration_chooser.next_smbo_iteration()
+                                     self.config_space)
         return challengers
 
     def _maximize(
             self,
             runhistory: RunHistory,
             stats: Stats,
-            num_points: int,
-            **kwargs
+            num_points: int
     ) -> Iterable[Tuple[float, Configuration]]:
         raise NotImplementedError()
 
-
+        
+        
 class ChallengerList(object):
     """Helper class to interleave random configurations in a list of challengers.
 
@@ -518,25 +445,25 @@ class ChallengerList(object):
         ConfigurationSpace from which to sample new random configurations.
     """
 
-    def __init__(self, challengers, configuration_space, random_configuration_chooser=ChooserNoCoolDown(2.0)):
+    def __init__(self, challengers, configuration_space):
         self.challengers = challengers
         self.configuration_space = configuration_space
         self._index = 0
-        self._iteration = 1  # 1-based to prevent from starting with a random configuration
-        self.random_configuration_chooser = random_configuration_chooser
+        self._next_is_random = False
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self._index == len(self.challengers):
+        if self._index == len(self.challengers) and not self._next_is_random:
             raise StopIteration
+        elif self._next_is_random:
+            self._next_is_random = False
+            config = self.configuration_space.sample_configuration()
+            config.origin = 'Random Search'
+            return config
         else:
-            if self.random_configuration_chooser.check(self._iteration):
-                config = self.configuration_space.sample_configuration()
-                config.origin = 'Random Search'
-            else:
-                config = self.challengers[self._index]
-                self._index += 1
-            self._iteration += 1
+            self._next_is_random = True
+            config = self.challengers[self._index]
+            self._index += 1
             return config

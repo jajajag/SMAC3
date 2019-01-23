@@ -10,7 +10,7 @@ from smac.scenario.scenario import Scenario
 from smac.tae.execute_ta_run import StatusType
 from smac.tae.execute_ta_customized import CustomizedTA
 from smac.epm.hoag.dummy_hoag import DummyHOAG
-from smac.pssmac.ps.server_ps import Server
+#from smac.pssmac.ps_server import Server
 import numpy as np
 import typing
 
@@ -23,7 +23,7 @@ class OurSMAC(Process):
                  y_valid: np.ndarray,
                  dirs: typing.List[str],
                  smbo_id: int,
-                 server: Server = None,
+                 #server: Server = None,
                  cs: ConfigurationSpace = None,
                  our_work: bool = False):
         if smbo_id >= len(dirs):
@@ -82,13 +82,13 @@ class OurSMAC(Process):
                 hoag=hoag,
                 runhistory2epm=runhistory2epm,
                 runhistory=runhistory,
-                server=server
+                #server=server
             )
         else:
             self.smac = SMAC(scenario=scenario, tae_runner=ta,
                              runhistory2epm=runhistory2epm,
-                             runhistory=runhistory,
-                             server=server)
+                             runhistory=runhistory)
+                             #server=server)
 
     # 进程类固定名字run
     def run(self):

@@ -2,22 +2,16 @@ import os
 import logging
 import numpy as np
 import time
-import typing
+import sys
 
 from smac.configspace import Configuration
 from smac.epm.base_epm import AbstractEPM
-from smac.epm.bayes_opt.bayesian_optimization import BayesianOptimization
-from smac.epm.hoag.lr_hoag import AbstractHOAG
-from smac.epm.rf_with_instances import RandomForestWithInstances
 from smac.initial_design.initial_design import InitialDesign
 from smac.intensification.intensification import Intensifier
 from smac.optimizer import pSMAC
 from smac.optimizer.acquisition import AbstractAcquisitionFunction
-from smac.optimizer.random_configuration_chooser import ChooserNoCoolDown, \
-    ChooserLinearCoolDown
 from smac.optimizer.ei_optimization import AcquisitionFunctionMaximizer, \
-    RandomSearch
-from smac.pssmac.ps.server_ps import Server
+    RandomSearch, ChallengerList
 from smac.runhistory.runhistory import RunHistory
 from smac.runhistory.runhistory2epm import AbstractRunHistory2EPM
 from smac.scenario.scenario import Scenario
@@ -26,8 +20,9 @@ from smac.tae.execute_ta_run import FirstRunCrashedException
 from smac.utils.io.traj_logging import TrajLogger
 from smac.utils.util_funcs import remove_same_values
 from smac.utils.validate import Validator
-
-
+from smac.epm.hoag.lr_hoag import AbstractHOAG
+#from smac.pssmac.ps_server import Server
+from smac.epm.bayes_opt.bayesian_optimization import BayesianOptimization
 
 __author__ = "Aaron Klein, Marius Lindauer, Matthias Feurer"
 __copyright__ = "Copyright 2015, ML4AAD"
@@ -35,7 +30,6 @@ __license__ = "3-clause BSD"
 
 
 class SMBO(object):
-
     """Interface that contains the main Bayesian optimization loop
 
     Attributes
@@ -55,7 +49,6 @@ class SMBO(object):
     acq_optimizer
     acquisition_func
     rng
-    random_configuration_chooser
     """
 
     def __init__(self,
@@ -71,14 +64,11 @@ class SMBO(object):
                  acq_optimizer: AcquisitionFunctionMaximizer,
                  acquisition_func: AbstractAcquisitionFunction,
                  rng: np.random.RandomState,
-                 restore_incumbent: Configuration=None,
-                 random_configuration_chooser: typing.Union[
-                     ChooserNoCoolDown,
-                     ChooserLinearCoolDown]=ChooserNoCoolDown(2.0),
+                 restore_incumbent: Configuration = None,
                  # 强行在smbo中加入训练集和验证集
                  hoag: AbstractHOAG = None,
-                 # 参数服务器Server的class
-                 server: Server = None,
+                 # 参数服务器worker的脚本文件路径
+                 #server: Server = None,
                  bayesian_optimization: bool = False):
         """
         Interface that contains the main Bayesian optimization loop
@@ -105,7 +95,8 @@ class SMBO(object):
         num_run: int
             id of this run (used for pSMAC)
         model: AbstractEPM
-            empirical performance model (right now, we support only AbstractEPM)
+            empirical performance model (right now, we support only
+            AbstractEPM)
         acq_optimizer: AcquisitionFunctionMaximizer
             Optimizer of acquisition function.
         acquisition_function : AcquisitionFunction
@@ -115,18 +106,6 @@ class SMBO(object):
             incumbent to be used from the start. ONLY used to restore states.
         rng: np.random.RandomState
             Random number generator
-        random_configuration_chooser
-            Chooser for random configuration -- one of
-            * ChooserNoCoolDown(modulus)
-            * ChooserLinearCoolDown(start_modulus, modulus_increment, end_modulus)
-        hoag : AbstractHOAG, defualt_value = None,
-            An AbstractHOAG class. Use this value to calculate gradients of
-            the loss function.
-        server: Server, default_value = None
-            Server node for PS-Lite. Set this value to None if you do not
-            want to use PS_SMAC. Otherwise, it should be set to a Server object.
-        bayesian_optimization : bool, default_value = False
-            Flag to determine whether to use bayesian optimization (GPR).
         """
 
         self.logger = logging.getLogger(
@@ -146,11 +125,11 @@ class SMBO(object):
         self.acq_optimizer = acq_optimizer
         self.acquisition_func = acquisition_func
         self.rng = rng
-        self.random_configuration_chooser = random_configuration_chooser
         # hoag的类，直接使用hoag的fit，predict等
         self.hoag = hoag
         # 保存server端进程
-        self.server = server
+        #self.server = server
+        self.server = None
         self.bayesian_optimization = bayesian_optimization
 
         self._random_search = RandomSearch(
@@ -164,17 +143,21 @@ class SMBO(object):
         self.stats.start_timing()
         # Initialization, depends on input
         if self.stats.ta_runs == 0 and self.incumbent is None:
-            if self.server is None:
-                self.incumbent = self.initial_design.run()
-            else:
-                # 由worker自己产生第一个incumbent，然后由server接收其中的一个
-                self.incumbent, new_runhistory = self.server.pull()
-                self.runhistory.update(new_runhistory)
-
+            try:
+                if self.server is None:
+                    self.incumbent = self.initial_design.run()
+                else:
+                    # 由worker自己产生第一个incumbent，然后由server接收其中的一个
+                    self.incumbent, new_runhistory = self.server.pull()
+                    self.runhistory.update(new_runhistory)
+            except FirstRunCrashedException as err:
+                if self.scenario.abort_on_first_run_crash:
+                    raise
         elif self.stats.ta_runs > 0 and self.incumbent is None:
-            raise ValueError("According to stats there have been runs performed, "
-                             "but the optimizer cannot detect an incumbent. Did "
-                             "you set the incumbent (e.g. after restoring state)?")
+            raise ValueError(
+                "According to stats there have been runs performed, "
+                "but the optimizer cannot detect an incumbent. Did "
+                "you set the incumbent (e.g. after restoring state)?")
         elif self.stats.ta_runs == 0 and self.incumbent is not None:
             raise ValueError("An incumbent is specified, but there are no runs "
                              "recorded in the Stats-object. If you're restoring "
@@ -185,10 +168,6 @@ class SMBO(object):
                              "incumbent %s", self.incumbent)
             self.logger.info("State restored with following budget:")
             self.stats.print_stats()
-
-        # To be on the safe side -> never return "None" as incumbent
-        if not self.incumbent:
-            self.incumbent = self.scenario.cs.get_default_configuration()
 
     def run(self):
         """Runs the Bayesian optimization loop
@@ -235,10 +214,11 @@ class SMBO(object):
                     time_bound=max(self.intensifier._min_time, time_left))
             else:
                 # 从worker读取loss，加入history再运行新的challengers
+                print(time_left)
                 self.server.push(incumbent=self.incumbent,
                                  runhistory=self.runhistory,
                                  challengers=challengers.challengers,
-                                 time_left=self.stats.get_remaing_time_budget())
+                                 time_left=time_left)
                 # 从worker读取runhistory，并merge到self.runhistory
                 incumbent, new_runhistory = self.server.pull()
                 self.runhistory.update(new_runhistory)
@@ -264,23 +244,18 @@ class SMBO(object):
 
             if self.scenario.shared_model:
                 pSMAC.write(run_history=self.runhistory,
-                            output_directory=self.scenario.output_dir_for_this_run,
-                            logger=self.logger)
+                            output_directory=self.scenario.output_dir_for_this_run)
 
-            logging.debug("Remaining budget: %f (wallclock), %f (ta costs), %f (target runs)" % (
-                self.stats.get_remaing_time_budget(),
-                self.stats.get_remaining_ta_budget(),
-                self.stats.get_remaining_ta_runs()))
+            logging.debug(
+                "Remaining budget: %f (wallclock), %f (ta costs), %f (target runs)" % (
+                    self.stats.get_remaing_time_budget(),
+                    self.stats.get_remaining_ta_budget(),
+                    self.stats.get_remaining_ta_runs()))
 
             if self.stats.is_budget_exhausted():
-                # 让它自己结束
                 break
 
             self.stats.print_stats(debug_out=True)
-
-        if self.server:
-            # 结束server的子进程
-            self.server.end()
 
         return self.incumbent
 
@@ -372,12 +347,8 @@ class SMBO(object):
         self.acquisition_func.update(model=self.model, eta=incumbent_value)
 
         challengers = self.acq_optimizer.maximize(
-            runhistory=self.runhistory, 
-            stats=self.stats,
             # 初始为5000，提升速度调成500
-            # 可以考虑再调小
-            num_points=500,
-            random_configuration_chooser=self.random_configuration_chooser
+            self.runhistory, self.stats, 500
         )
         return challengers
 
@@ -409,15 +380,12 @@ class SMBO(object):
         runhistory: RunHistory
             runhistory containing all specified runs
         """
-        if isinstance(config_mode, str):
-            traj_fn = os.path.join(self.scenario.output_dir_for_this_run, "traj_aclib2.json")
-            trajectory = TrajLogger.read_traj_aclib_format(fn=traj_fn, cs=self.scenario.cs)
-        else:
-            trajectory = None
-        if self.scenario.output_dir_for_this_run:
-            new_rh_path = os.path.join(self.scenario.output_dir_for_this_run, "validated_runhistory.json")
-        else:
-            new_rh_path = None
+        traj_fn = os.path.join(self.scenario.output_dir_for_this_run,
+                               "traj_aclib2.json")
+        trajectory = TrajLogger.read_traj_aclib_format(fn=traj_fn,
+                                                       cs=self.scenario.cs)
+        new_rh_path = os.path.join(self.scenario.output_dir_for_this_run,
+                                   "validated_runhistory.json")
 
         validator = Validator(self.scenario, trajectory, self.rng)
         if use_epm:
@@ -425,12 +393,12 @@ class SMBO(object):
                                             instance_mode=instance_mode,
                                             repetitions=repetitions,
                                             runhistory=self.runhistory,
-                                            output_fn=new_rh_path)
+                                            output=new_rh_path)
         else:
             new_rh = validator.validate(config_mode, instance_mode, repetitions,
                                         n_jobs, backend, self.runhistory,
                                         self.intensifier.tae_runner,
-                                        output_fn=new_rh_path)
+                                        output=new_rh_path)
         return new_rh
 
     def _get_timebound_for_intensification(self, time_spent):
@@ -457,5 +425,6 @@ class SMBO(object):
         self.logger.debug("Total time: %.4f, time spent on choosing next "
                           "configurations: %.4f (%.2f), time left for "
                           "intensification: %.4f (%.2f)" %
-                          (total_time, time_spent, (1 - frac_intensify), time_left, frac_intensify))
+                          (total_time, time_spent, (1 - frac_intensify),
+                           time_left, frac_intensify))
         return time_left

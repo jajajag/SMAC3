@@ -1,0 +1,2348 @@
+History:  (1, 1)
+History:  (1, 1)
+History:  (1, 1)
+History:  (1, 1)
+SMAC 1: 0.2154978347707129
+History:  (5, 1)
+SMAC 1: 0.21571996950121944
+History:  (5, 1)
+SMAC 2: 0.21549783477071288
+History:  (9, 1)
+SMAC 1: 0.217251385740287
+History:  (8, 1)
+SMAC 1: 0.217251385740287
+History:  (8, 1)
+SMAC 2: 0.21571996950121947
+History:  (9, 1)
+SMAC 3: 0.21549783477071285
+History:  (13, 1)
+SMAC 2: 0.21725138574028696
+History:  (12, 1)
+SMAC 2: 0.21725138574028696
+History:  (12, 1)
+SMAC 3: 0.2157199695012195
+History:  (13, 1)
+SMAC 3: 0.21725138574028693
+History:  (16, 1)
+SMAC 3: 0.21725138574028693
+History:  (16, 1)
+SMAC 4: 0.2157199695012195
+History:  (17, 1)
+SMAC 4: 0.21725138574028693
+History:  (20, 1)
+SMAC 5: 0.21571996950121947
+History:  (21, 1)
+SMAC 4: 0.21513433558785364
+History:  (24, 1)
+SMAC 5: 0.21725138574028693
+History:  (24, 1)
+SMAC 5: 0.2151343355878536
+History:  (28, 1)
+SMAC 4: 0.21513433558785364
+History:  (27, 1)
+SMAC 6: 0.21725138574028693
+History:  (28, 1)
+SMAC 5: 0.2151343355878536
+History:  (31, 1)
+SMAC 6: 0.21441320342716705
+History:  (36, 1)
+SMAC 6: 0.21508148238254868
+History:  (43, 1)
+SMAC 7: 0.21489241614469
+History:  (45, 1)
+SMAC 6: 0.21508148238254868
+History:  (46, 1)
+SMAC 7: 0.21508148238254868
+History:  (47, 1)
+SMAC 8: 0.21489241614469
+History:  (49, 1)
+SMAC 7: 0.21508148238254868
+History:  (50, 1)
+SMAC 9: 0.21489241614469004
+SMAC 7: 0.21270875802460532
+History:  (53, 1)
+History:  (53, 1)
+SMAC 8: 0.21508148238254868
+History:  (54, 1)
+SMAC 8: 0.21270875802460532
+History:  (57, 1)
+SMAC 9: 0.2150814823825487
+History:  (58, 1)
+SMAC 9: 0.21270875802460532
+History:  (61, 1)
+SMAC 8: 0.21434702374844494
+History:  (66, 1)
+SMAC 10: 0.2127087580246053
+History:  (65, 1)
+SMAC 9: 0.21434702374844497
+History:  (70, 1)
+SMAC 11: 0.21270875802460526
+History:  (69, 1)
+SMAC 12: 0.21270875802460523
+History:  (73, 1)
+SMAC 10: 0.21284386716648482
+History:  (76, 1)
+SMAC 13: 0.2127087580246052
+History:  (77, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 10: 0.21323159486315552
+SMAC 14: 0.2127087580246052
+History:  (82, 1)
+History:  (81, 1)
+SMAC 11: 0.21323159486315554
+History:  (86, 1)
+SMAC 15: 0.21270875802460518
+History:  (85, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 12: 0.21323159486315554
+SMAC 16: 0.21270875802460518
+History:  (90, 1)
+History:  (89, 1)
+SMAC 10: 0.21323159486315552
+History:  (94, 1)
+SMAC 13: 0.21323159486315554
+History:  (94, 1)
+SMAC 17: 0.21270875802460515
+History:  (93, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 11: 0.21323159486315554
+History:  (98, 1)
+SMAC 14: 0.21323159486315554
+History:  (98, 1)
+SMAC 18: 0.21270875802460515
+History:  (97, 1)
+SMAC 12: 0.21323159486315554
+History:  (102, 1)
+SMAC 15: 0.21323159486315554
+SMAC 11: 0.21190260394976485
+History:  (102, 1)
+History:  (101, 1)
+SMAC 19: 0.21270875802460518
+History:  (101, 1)
+SMAC 13: 0.21323159486315554
+History:  (106, 1)
+SMAC 12: 0.21190260394976487
+History:  (105, 1)
+SMAC 20: 0.21270875802460523
+SMAC 14: 0.21323159486315554
+History:  (105, 1)
+History:  (110, 1)
+SMAC 13: 0.2119026039497649
+History:  (109, 1)
+SMAC 21: 0.21270875802460526
+History:  (109, 1)
+SMAC 15: 0.21323159486315554
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (114, 1)
+SMAC 14: 0.2119026039497649
+History:  (113, 1)
+SMAC 22: 0.2127087580246053
+History:  (113, 1)
+SMAC 16: 0.21323159486315554
+History:  (118, 1)
+SMAC 15: 0.21190260394976493
+History:  (117, 1)
+SMAC 23: 0.21270875802460532
+SMAC 17: 0.21323159486315554
+History:  (117, 1)
+History:  (122, 1)
+SMAC 16: 0.21190260394976493
+History:  (121, 1)
+SMAC 24: 0.21270875802460532
+SMAC 18: 0.21323159486315554
+History:  (121, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (126, 1)
+SMAC 25: 0.21270875802460534
+SMAC 17: 0.21190260394976496
+History:  (125, 1)
+History:  (125, 1)
+SMAC 19: 0.21323159486315552
+History:  (130, 1)
+SMAC 18: 0.21190260394976496
+SMAC 26: 0.21270875802460537
+History:  (129, 1)
+History:  (129, 1)
+SMAC 20: 0.21323159486315546
+History:  (134, 1)
+SMAC 16: 0.21203098997814157
+History:  (137, 1)
+SMAC 27: 0.2127087580246054
+SMAC 19: 0.21190260394976493
+History:  (133, 1)
+History:  (133, 1)
+SMAC 21: 0.21323159486315543
+History:  (138, 1)
+SMAC 17: 0.21203098997814157
+History:  (141, 1)
+SMAC 20: 0.21190260394976496
+SMAC 28: 0.2127087580246054
+History:  (137, 1)
+History:  (137, 1)
+SMAC 22: 0.2132315948631554
+History:  (142, 1)
+SMAC 18: 0.21203098997814157
+History:  (145, 1)
+SMAC 21: 0.21190260394976496
+SMAC 29: 0.21270875802460543
+History:  (141, 1)
+History:  (141, 1)
+SMAC 23: 0.21323159486315538
+History:  (146, 1)
+SMAC 19: 0.21203098997814157
+History:  (149, 1)
+SMAC 30: 0.21270875802460543
+SMAC 22: 0.21190260394976496
+History:  (145, 1)
+History:  (145, 1)
+SMAC 24: 0.21323159486315535
+History:  (150, 1)
+SMAC 20: 0.21203098997814152
+History:  (153, 1)
+SMAC 31: 0.21270875802460545
+History:  (149, 1)
+SMAC 23: 0.21190260394976498
+SMAC 25: 0.21323159486315532
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (154, 1)
+History:  (149, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 21: 0.2120309899781415
+History:  (157, 1)
+SMAC 26: 0.2132315948631553
+SMAC 32: 0.21270875802460545
+History:  (158, 1)
+History:  (153, 1)
+SMAC 24: 0.21190260394976498
+History:  (153, 1)
+SMAC 22: 0.21203098997814146
+History:  (161, 1)
+SMAC 27: 0.21323159486315527
+History:  (162, 1)
+SMAC 33: 0.21270875802460548
+History:  (157, 1)
+SMAC 25: 0.21190260394976498
+History:  (157, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 23: 0.21203098997814143
+History:  (165, 1)
+SMAC 28: 0.21323159486315524
+History:  (166, 1)
+SMAC 26: 0.21190260394976498
+SMAC 34: 0.21270875802460548
+History:  (161, 1)
+History:  (161, 1)
+SMAC 24: 0.2120309899781414
+History:  (169, 1)
+SMAC 29: 0.21323159486315524
+History:  (170, 1)
+SMAC 27: 0.21190260394976498
+SMAC 35: 0.21270875802460548
+History:  (165, 1)
+History:  (165, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 25: 0.21203098997814138
+History:  (173, 1)
+SMAC 30: 0.2132315948631552
+History:  (174, 1)
+SMAC 36: 0.21270875802460548
+SMAC 28: 0.211902603949765
+History:  (169, 1)
+History:  (169, 1)
+SMAC 26: 0.21203098997814135
+History:  (177, 1)
+SMAC 31: 0.21323159486315518
+History:  (178, 1)
+SMAC 37: 0.21270875802460548
+SMAC 29: 0.211902603949765
+History:  (173, 1)
+History:  (173, 1)
+SMAC 27: 0.21203098997814132
+History:  (181, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 32: 0.21323159486315518
+History:  (182, 1)
+SMAC 38: 0.21270875802460548
+SMAC 30: 0.211902603949765
+History:  (177, 1)
+History:  (177, 1)
+SMAC 28: 0.2120309899781413
+History:  (185, 1)
+SMAC 33: 0.21323159486315515
+History:  (186, 1)
+SMAC 39: 0.21270875802460545
+SMAC 31: 0.211902603949765
+History:  (181, 1)
+History:  (181, 1)
+SMAC 29: 0.2120309899781413
+History:  (189, 1)
+SMAC 34: 0.21323159486315515
+History:  (190, 1)
+SMAC 32: 0.211902603949765
+SMAC 40: 0.2127087580246054
+History:  (185, 1)
+History:  (185, 1)
+SMAC 30: 0.21203098997814127
+History:  (193, 1)
+SMAC 35: 0.21323159486315513
+History:  (194, 1)
+SMAC 33: 0.211902603949765
+History:  (189, 1)
+SMAC 41: 0.21270875802460537
+History:  (189, 1)
+SMAC 31: 0.21203098997814124
+History:  (197, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 36: 0.21323159486315513
+History:  (198, 1)
+SMAC 34: 0.211902603949765
+History:  (193, 1)
+SMAC 42: 0.21270875802460534
+History:  (193, 1)
+SMAC 32: 0.21203098997814124
+History:  (201, 1)
+SMAC 37: 0.2132315948631551
+History:  (202, 1)
+SMAC 35: 0.211902603949765
+History:  (197, 1)
+SMAC 43: 0.21270875802460532
+SMAC 33: 0.2120309899781412
+History:  (197, 1)
+History:  (205, 1)
+SMAC 38: 0.21323159486315513
+History:  (206, 1)
+SMAC 36: 0.211902603949765
+History:  (201, 1)
+SMAC 34: 0.2120309899781412
+SMAC 44: 0.2127087580246053
+History:  (201, 1)
+History:  (209, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 39: 0.21323159486315515
+History:  (210, 1)
+SMAC 37: 0.211902603949765
+History:  (205, 1)
+SMAC 45: 0.21270875802460526
+SMAC 35: 0.21203098997814118
+History:  (205, 1)
+History:  (213, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 40: 0.21323159486315518
+History:  (214, 1)
+SMAC 38: 0.21190260394976496
+History:  (209, 1)
+SMAC 36: 0.21203098997814118
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 46: 0.21270875802460523
+History:  (217, 1)
+History:  (209, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 41: 0.2132315948631552
+History:  (218, 1)
+SMAC 37: 0.21203098997814115
+History:  (221, 1)
+SMAC 39: 0.21190260394976493
+SMAC 47: 0.2127087580246052
+History:  (213, 1)
+History:  (213, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 42: 0.21323159486315524
+History:  (222, 1)
+SMAC 38: 0.21203098997814118
+History:  (225, 1)
+SMAC 40: 0.21190260394976487
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (217, 1)
+SMAC 48: 0.2127087580246052
+History:  (217, 1)
+SMAC 43: 0.21323159486315527
+History:  (226, 1)
+SMAC 39: 0.2120309899781412
+History:  (229, 1)
+SMAC 41: 0.21190260394976485
+History:  (221, 1)
+SMAC 44: 0.2132315948631553
+History:  (230, 1)
+SMAC 40: 0.21203098997814124
+History:  (233, 1)
+SMAC 42: 0.21190260394976482
+History:  (225, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 45: 0.21323159486315532
+History:  (234, 1)
+SMAC 41: 0.21203098997814127
+History:  (237, 1)
+SMAC 43: 0.21190260394976476
+SMAC 46: 0.21323159486315535
+History:  (229, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (238, 1)
+SMAC 42: 0.2120309899781413
+History:  (241, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 44: 0.21190260394976473
+SMAC 47: 0.21323159486315538
+History:  (233, 1)
+History:  (242, 1)
+SMAC 43: 0.21203098997814132
+History:  (245, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 45: 0.2119026039497647
+SMAC 48: 0.2132315948631554
+History:  (237, 1)
+History:  (246, 1)
+SMAC 44: 0.21203098997814135
+History:  (249, 1)
+SMAC 46: 0.21190260394976468
+History:  (241, 1)
+SMAC 45: 0.21203098997814138
+History:  (253, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 47: 0.21190260394976465
+History:  (245, 1)
+SMAC 46: 0.2120309899781414
+History:  (257, 1)
+SMAC 48: 0.21190260394976462
+History:  (249, 1)
+SMAC 47: 0.21203098997814143
+History:  (261, 1)
+SMAC 49: 0.2119026039497646
+History:  (253, 1)
+SMAC 48: 0.21203098997814146
+History:  (265, 1)
+SMAC 50: 0.21190260394976457
+History:  (257, 1)
+SMAC 49: 0.2120309899781415
+SMAC 51: 0.21190260394976454
+History:  (269, 1)
+History:  (261, 1)
+SMAC 50: 0.2120309899781415
+SMAC 52: 0.21190260394976454
+History:  (273, 1)
+History:  (265, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 51: 0.21203098997814152
+SMAC 53: 0.2119026039497645
+History:  (277, 1)
+History:  (269, 1)
+SMAC 52: 0.21203098997814154
+SMAC 54: 0.21190260394976448
+History:  (281, 1)
+History:  (273, 1)
+SMAC 53: 0.21203098997814154
+History:  (285, 1)
+SMAC 55: 0.21190260394976446
+History:  (277, 1)
+SMAC 56: 0.21190260394976446
+History:  (281, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 57: 0.21190260394976443
+History:  (285, 1)
+SMAC 58: 0.2119026039497644
+History:  (289, 1)
+SMAC 59: 0.2119026039497644
+History:  (293, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 60: 0.21190260394976437
+History:  (297, 1)
+SMAC 49: 0.2126827165835956
+SMAC 61: 0.21190260394976435
+History:  (319, 1)
+History:  (301, 1)
+SMAC 50: 0.21268271658359564
+SMAC 62: 0.21190260394976435
+History:  (323, 1)
+History:  (305, 1)
+SMAC 51: 0.21268271658359567
+SMAC 63: 0.21190260394976432
+History:  (327, 1)
+History:  (309, 1)
+SMAC 52: 0.2126827165835957
+SMAC 64: 0.21190260394976432
+History:  (313, 1)
+History:  (331, 1)
+SMAC 65: 0.2119026039497643
+SMAC 53: 0.21268271658359572
+History:  (317, 1)
+History:  (335, 1)
+SMAC 49: 0.2126827165835956
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (348, 1)
+SMAC 66: 0.2119026039497643
+SMAC 54: 0.21268271658359575
+History:  (321, 1)
+SMAC 50: 0.21268271658359564
+History:  (339, 1)
+History:  (352, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 67: 0.21190260394976426
+SMAC 55: 0.21268271658359575
+History:  (325, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 51: 0.21268271658359567
+History:  (343, 1)
+History:  (356, 1)
+SMAC 68: 0.21190260394976426
+SMAC 56: 0.21268271658359578
+History:  (329, 1)
+History:  (347, 1)
+SMAC 52: 0.2126827165835957
+SMAC 69: 0.2119026039497642
+History:  (360, 1)
+History:  (333, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 57: 0.2126827165835958
+History:  (351, 1)
+SMAC 53: 0.21268271658359572
+SMAC 70: 0.2119026039497642
+History:  (364, 1)
+History:  (337, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 58: 0.21268271658359583
+SMAC 54: 0.21268271658359575
+SMAC 71: 0.21190260394976418
+History:  (355, 1)
+History:  (368, 1)
+History:  (341, 1)
+SMAC 59: 0.21268271658359583
+SMAC 72: 0.21190260394976418
+SMAC 55: 0.21268271658359575
+History:  (359, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (345, 1)
+History:  (372, 1)
+SMAC 60: 0.21268271658359586
+SMAC 73: 0.21190260394976418
+SMAC 56: 0.21268271658359578
+History:  (363, 1)
+History:  (349, 1)
+History:  (376, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 74: 0.21190260394976415
+SMAC 61: 0.21268271658359586
+History:  (353, 1)
+SMAC 57: 0.2126827165835958
+History:  (367, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (380, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 75: 0.21190260394976415
+SMAC 62: 0.2126827165835959
+History:  (357, 1)
+SMAC 58: 0.21268271658359583
+SMAC 54: 0.21105937566639005
+History:  (371, 1)
+History:  (384, 1)
+History:  (396, 1)
+SMAC 76: 0.21190260394976415
+History:  (361, 1)
+SMAC 63: 0.21268271658359592
+SMAC 59: 0.21268271658359583
+SMAC 55: 0.21105937566639008
+History:  (375, 1)
+History:  (388, 1)
+History:  (400, 1)
+SMAC 77: 0.2119026039497642
+History:  (365, 1)
+SMAC 64: 0.21268271658359592
+SMAC 60: 0.21268271658359586
+SMAC 56: 0.21105937566639008
+History:  (379, 1)
+History:  (392, 1)
+History:  (404, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 78: 0.21190260394976423
+History:  (369, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 65: 0.21268271658359594
+SMAC 61: 0.21268271658359586
+SMAC 57: 0.2110593756663901
+History:  (383, 1)
+History:  (396, 1)
+SMAC 79: 0.21190260394976426
+History:  (408, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (373, 1)
+SMAC 66: 0.21268271658359594
+SMAC 58: 0.2110593756663901
+History:  (387, 1)
+SMAC 62: 0.2126827165835959
+SMAC 80: 0.2119026039497643
+History:  (412, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (400, 1)
+History:  (377, 1)
+SMAC 67: 0.21268271658359597
+SMAC 63: 0.21268271658359592
+SMAC 81: 0.21190260394976432
+SMAC 59: 0.21105937566639013
+History:  (391, 1)
+History:  (381, 1)
+History:  (404, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (416, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 68: 0.21268271658359597
+SMAC 82: 0.21190260394976435
+SMAC 64: 0.21268271658359592
+SMAC 60: 0.21105937566639013
+History:  (395, 1)
+History:  (385, 1)
+History:  (408, 1)
+History:  (420, 1)
+SMAC 69: 0.212682716583596
+SMAC 83: 0.2119026039497644
+SMAC 65: 0.21268271658359594
+History:  (389, 1)
+SMAC 61: 0.21105937566639016
+History:  (399, 1)
+History:  (412, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (424, 1)
+SMAC 70: 0.212682716583596
+SMAC 84: 0.21190260394976443
+SMAC 66: 0.21268271658359594
+History:  (393, 1)
+History:  (403, 1)
+SMAC 62: 0.21105937566639016
+History:  (416, 1)
+History:  (428, 1)
+SMAC 85: 0.21190260394976446
+SMAC 71: 0.21268271658359603
+History:  (397, 1)
+SMAC 67: 0.21268271658359597
+SMAC 63: 0.2110593756663902
+History:  (407, 1)
+History:  (420, 1)
+History:  (432, 1)
+SMAC 86: 0.21190260394976448
+SMAC 72: 0.21268271658359603
+SMAC 68: 0.21268271658359597
+History:  (401, 1)
+SMAC 64: 0.2110593756663902
+History:  (424, 1)
+History:  (411, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (436, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 87: 0.2119026039497645
+History:  (405, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 69: 0.212682716583596
+SMAC 73: 0.21268271658359608
+SMAC 65: 0.21105937566639021
+History:  (428, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (415, 1)
+History:  (440, 1)
+SMAC 88: 0.21190260394976454
+History:  (409, 1)
+SMAC 70: 0.212682716583596
+SMAC 74: 0.21268271658359608
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 66: 0.21105937566639021
+History:  (432, 1)
+History:  (419, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (444, 1)
+SMAC 89: 0.21190260394976457
+SMAC 75: 0.21268271658359608
+SMAC 71: 0.21268271658359603
+History:  (413, 1)
+History:  (423, 1)
+History:  (436, 1)
+SMAC 67: 0.21105937566639024
+History:  (448, 1)
+SMAC 90: 0.2119026039497646
+SMAC 76: 0.21268271658359603
+History:  (417, 1)
+SMAC 72: 0.21268271658359603
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 68: 0.21105937566639027
+History:  (427, 1)
+History:  (440, 1)
+History:  (452, 1)
+SMAC 91: 0.2119026039497646
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (421, 1)
+SMAC 77: 0.212682716583596
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 73: 0.21268271658359608
+History:  (431, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 69: 0.21105937566639027
+History:  (444, 1)
+SMAC 92: 0.21190260394976462
+History:  (456, 1)
+History:  (425, 1)
+SMAC 78: 0.21268271658359597
+SMAC 74: 0.21268271658359608
+History:  (435, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 70: 0.2110593756663903
+SMAC 93: 0.21190260394976465
+History:  (448, 1)
+History:  (429, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (460, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 79: 0.21268271658359594
+SMAC 75: 0.21268271658359608
+History:  (439, 1)
+SMAC 94: 0.21190260394976468
+SMAC 71: 0.2110593756663903
+History:  (452, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (433, 1)
+History:  (464, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 80: 0.21268271658359592
+SMAC 76: 0.21268271658359603
+History:  (443, 1)
+SMAC 95: 0.2119026039497647
+SMAC 72: 0.2110593756663903
+History:  (456, 1)
+History:  (437, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (468, 1)
+SMAC 81: 0.2126827165835959
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 96: 0.21190260394976473
+SMAC 77: 0.212682716583596
+History:  (447, 1)
+History:  (441, 1)
+SMAC 73: 0.2110593756663903
+History:  (460, 1)
+History:  (472, 1)
+SMAC 82: 0.21268271658359583
+SMAC 97: 0.21190260394976476
+SMAC 78: 0.21268271658359597
+History:  (445, 1)
+History:  (451, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 74: 0.2110593756663903
+History:  (464, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (476, 1)
+SMAC 98: 0.21190260394976476
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 83: 0.2126827165835958
+SMAC 79: 0.21268271658359594
+History:  (449, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (455, 1)
+History:  (468, 1)
+SMAC 75: 0.2110593756663903
+SMAC 99: 0.2119026039497648
+SMAC 84: 0.21268271658359578
+History:  (480, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 80: 0.21268271658359592
+History:  (453, 1)
+History:  (459, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (472, 1)
+SMAC 76: 0.21105937566639027
+SMAC 100: 0.21190260394976482
+History:  (484, 1)
+SMAC 85: 0.21268271658359575
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 81: 0.2126827165835959
+History:  (457, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (463, 1)
+History:  (476, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 77: 0.21105937566639024
+SMAC 101: 0.21190260394976485
+History:  (488, 1)
+SMAC 86: 0.21268271658359572
+History:  (461, 1)
+SMAC 82: 0.21268271658359583
+History:  (467, 1)
+History:  (480, 1)
+SMAC 78: 0.2110593756663902
+SMAC 102: 0.21190260394976485
+History:  (465, 1)
+SMAC 87: 0.2126827165835957
+History:  (492, 1)
+SMAC 83: 0.2126827165835958
+SMAC 103: 0.21190260394976487
+History:  (471, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (484, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (469, 1)
+SMAC 79: 0.21105937566639016
+SMAC 88: 0.21268271658359567
+SMAC 104: 0.2119026039497649
+History:  (498, 1)
+SMAC 84: 0.21268271658359578
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (475, 1)
+History:  (473, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (488, 1)
+SMAC 80: 0.2110593756663901
+SMAC 89: 0.21268271658359567
+SMAC 105: 0.2119026039497649
+History:  (502, 1)
+SMAC 85: 0.21268271658359575
+History:  (479, 1)
+History:  (477, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (492, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 81: 0.21105937566639008
+SMAC 90: 0.21268271658359564
+SMAC 106: 0.21190260394976493
+History:  (506, 1)
+SMAC 86: 0.21268271658359572
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (481, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (483, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (496, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 82: 0.21105937566639005
+SMAC 107: 0.21190260394976496
+SMAC 87: 0.2126827165835957
+History:  (510, 1)
+SMAC 91: 0.2126827165835956
+History:  (500, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (485, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (487, 1)
+SMAC 83: 0.21105937566639002
+SMAC 108: 0.21190260394976496
+SMAC 88: 0.21268271658359567
+History:  (514, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (489, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (504, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 92: 0.21268271658359555
+SMAC 84: 0.21105937566639
+SMAC 109: 0.21190260394976498
+History:  (493, 1)
+SMAC 89: 0.21268271658359567
+History:  (518, 1)
+History:  (493, 1)
+History:  (508, 1)
+SMAC 93: 0.21268271658359555
+SMAC 85: 0.21105937566638996
+SMAC 110: 0.211902603949765
+History:  (497, 1)
+SMAC 90: 0.21268271658359564
+History:  (497, 1)
+History:  (522, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (512, 1)
+SMAC 94: 0.21268271658359553
+SMAC 111: 0.211902603949765
+SMAC 86: 0.21105937566638994
+History:  (501, 1)
+History:  (501, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 91: 0.2126827165835956
+History:  (526, 1)
+History:  (516, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 95: 0.2126827165835955
+SMAC 112: 0.21190260394976504
+SMAC 87: 0.2110593756663899
+History:  (505, 1)
+History:  (505, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 92: 0.21268271658359558
+History:  (530, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 113: 0.21190260394976504
+History:  (520, 1)
+SMAC 96: 0.21268271658359547
+SMAC 88: 0.21105937566638988
+History:  (509, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (509, 1)
+SMAC 93: 0.21268271658359555
+History:  (534, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 114: 0.21190260394976507
+History:  (524, 1)
+History:  (513, 1)
+SMAC 97: 0.21268271658359544
+SMAC 89: 0.21105937566638985
+History:  (513, 1)
+SMAC 94: 0.21268271658359553
+History:  (538, 1)
+SMAC 115: 0.2119026039497651
+History:  (528, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (517, 1)
+SMAC 90: 0.21105937566638983
+SMAC 98: 0.21268271658359544
+History:  (542, 1)
+SMAC 95: 0.2126827165835955
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (517, 1)
+SMAC 116: 0.2119026039497651
+History:  (521, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (532, 1)
+SMAC 91: 0.2110593756663898
+SMAC 99: 0.21268271658359542
+History:  (546, 1)
+SMAC 117: 0.21190260394976512
+SMAC 96: 0.2126827165835955
+History:  (521, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (525, 1)
+History:  (536, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 92: 0.21105937566638977
+SMAC 100: 0.2126827165835954
+SMAC 118: 0.21190260394976512
+History:  (550, 1)
+SMAC 97: 0.21268271658359547
+History:  (525, 1)
+History:  (529, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (540, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 93: 0.21105937566638974
+SMAC 101: 0.2126827165835954
+History:  (554, 1)
+SMAC 119: 0.21190260394976515
+SMAC 98: 0.21268271658359544
+History:  (529, 1)
+History:  (533, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (544, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 94: 0.21105937566638971
+SMAC 102: 0.21268271658359536
+SMAC 120: 0.21190260394976515
+History:  (558, 1)
+SMAC 99: 0.21268271658359542
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (533, 1)
+History:  (537, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (548, 1)
+SMAC 95: 0.2110593756663897
+SMAC 103: 0.21268271658359533
+SMAC 121: 0.21190260394976518
+SMAC 100: 0.21268271658359542
+History:  (562, 1)
+History:  (537, 1)
+History:  (541, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (552, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 96: 0.21105937566638966
+SMAC 122: 0.21190260394976518
+SMAC 104: 0.2126827165835953
+SMAC 101: 0.2126827165835954
+History:  (566, 1)
+History:  (545, 1)
+History:  (541, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (556, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 97: 0.21105937566638966
+SMAC 123: 0.2119026039497652
+SMAC 105: 0.2126827165835953
+History:  (549, 1)
+History:  (570, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 102: 0.21268271658359536
+History:  (545, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 124: 0.2119026039497652
+History:  (560, 1)
+SMAC 98: 0.21105937566638963
+History:  (553, 1)
+SMAC 106: 0.21268271658359528
+History:  (574, 1)
+SMAC 103: 0.21268271658359533
+History:  (549, 1)
+SMAC 125: 0.21190260394976523
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 99: 0.2110593756663896
+History:  (566, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (557, 1)
+History:  (578, 1)
+SMAC 107: 0.21268271658359525
+SMAC 104: 0.2126827165835953
+SMAC 126: 0.21190260394976523
+SMAC 100: 0.21105937566638958
+History:  (561, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (555, 1)
+History:  (570, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (582, 1)
+SMAC 105: 0.2126827165835953
+SMAC 108: 0.21268271658359525
+SMAC 127: 0.21190260394976526
+History:  (565, 1)
+SMAC 101: 0.21105937566638958
+History:  (574, 1)
+History:  (559, 1)
+History:  (586, 1)
+SMAC 128: 0.21190260394976526
+SMAC 106: 0.21268271658359528
+SMAC 109: 0.21268271658359522
+History:  (569, 1)
+History:  (578, 1)
+SMAC 102: 0.21105937566638955
+History:  (563, 1)
+History:  (590, 1)
+SMAC 129: 0.2119026039497653
+SMAC 107: 0.21268271658359528
+SMAC 110: 0.2126827165835952
+History:  (573, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (582, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 103: 0.21105937566638952
+History:  (567, 1)
+SMAC 130: 0.2119026039497653
+History:  (594, 1)
+SMAC 108: 0.21268271658359525
+History:  (577, 1)
+SMAC 111: 0.2126827165835952
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (586, 1)
+SMAC 104: 0.2110593756663895
+SMAC 131: 0.21190260394976532
+History:  (571, 1)
+SMAC 109: 0.21268271658359522
+History:  (581, 1)
+History:  (600, 1)
+SMAC 112: 0.21268271658359517
+History:  (590, 1)
+SMAC 132: 0.21190260394976532
+SMAC 105: 0.21105937566638946
+History:  (575, 1)
+SMAC 110: 0.21268271658359522
+History:  (585, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (604, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (594, 1)
+SMAC 133: 0.21190260394976532
+SMAC 113: 0.21268271658359514
+SMAC 106: 0.21105937566638946
+History:  (589, 1)
+SMAC 111: 0.2126827165835952
+History:  (581, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (608, 1)
+SMAC 134: 0.21190260394976534
+History:  (598, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 114: 0.21268271658359514
+SMAC 107: 0.21105937566638944
+History:  (593, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 112: 0.2126827165835952
+History:  (585, 1)
+History:  (612, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 135: 0.21190260394976534
+History:  (602, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 108: 0.2110593756663894
+SMAC 115: 0.2126827165835951
+History:  (597, 1)
+History:  (616, 1)
+SMAC 113: 0.21268271658359517
+History:  (589, 1)
+SMAC 136: 0.21190260394976534
+SMAC 109: 0.2110593756663894
+History:  (608, 1)
+History:  (601, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 116: 0.2126827165835951
+History:  (620, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 137: 0.21190260394976534
+History:  (593, 1)
+SMAC 114: 0.21268271658359514
+SMAC 110: 0.21105937566638938
+History:  (605, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (614, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (624, 1)
+SMAC 117: 0.21268271658359508
+SMAC 138: 0.21190260394976537
+SMAC 115: 0.2126827165835951
+SMAC 111: 0.21105937566638935
+History:  (599, 1)
+History:  (609, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (618, 1)
+History:  (628, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 139: 0.21190260394976537
+SMAC 118: 0.21268271658359508
+SMAC 116: 0.2126827165835951
+SMAC 112: 0.21105937566638935
+History:  (613, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (603, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (622, 1)
+History:  (632, 1)
+SMAC 140: 0.21190260394976537
+SMAC 119: 0.21268271658359506
+SMAC 117: 0.21268271658359508
+SMAC 113: 0.21105937566638933
+History:  (617, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (607, 1)
+History:  (626, 1)
+History:  (636, 1)
+SMAC 141: 0.21190260394976543
+SMAC 118: 0.21268271658359508
+SMAC 120: 0.21268271658359506
+SMAC 114: 0.21105937566638933
+History:  (621, 1)
+History:  (630, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (611, 1)
+History:  (640, 1)
+SMAC 142: 0.21190260394976543
+SMAC 119: 0.21268271658359506
+SMAC 121: 0.21268271658359503
+SMAC 115: 0.2110593756663893
+History:  (625, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (634, 1)
+History:  (615, 1)
+History:  (644, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 143: 0.21190260394976546
+SMAC 120: 0.21268271658359506
+SMAC 122: 0.21268271658359503
+SMAC 116: 0.21105937566638927
+History:  (631, 1)
+History:  (638, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (619, 1)
+History:  (648, 1)
+SMAC 144: 0.21190260394976548
+SMAC 121: 0.21268271658359503
+SMAC 123: 0.212682716583595
+History:  (635, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (642, 1)
+SMAC 117: 0.21105937566638927
+History:  (623, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 145: 0.21190260394976548
+SMAC 122: 0.21268271658359503
+History:  (654, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 124: 0.212682716583595
+History:  (639, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (646, 1)
+History:  (627, 1)
+SMAC 146: 0.21190260394976548
+SMAC 118: 0.21105937566638924
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (643, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 123: 0.212682716583595
+SMAC 125: 0.21268271658359497
+History:  (660, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 147: 0.21190260394976548
+History:  (652, 1)
+History:  (631, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (647, 1)
+SMAC 119: 0.21105937566638922
+SMAC 124: 0.212682716583595
+SMAC 126: 0.21268271658359497
+SMAC 148: 0.21190260394976548
+History:  (666, 1)
+History:  (656, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (635, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (651, 1)
+SMAC 120: 0.2110593756663892
+SMAC 125: 0.21268271658359497
+SMAC 127: 0.21268271658359494
+SMAC 149: 0.21190260394976548
+History:  (670, 1)
+History:  (660, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (655, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (639, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 121: 0.2110593756663892
+SMAC 126: 0.21268271658359497
+SMAC 150: 0.21190260394976548
+SMAC 128: 0.21268271658359494
+History:  (674, 1)
+History:  (664, 1)
+History:  (659, 1)
+History:  (643, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 122: 0.21105937566638916
+SMAC 151: 0.21190260394976548
+SMAC 129: 0.21268271658359492
+History:  (680, 1)
+History:  (663, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (649, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 152: 0.2119026039497655
+SMAC 123: 0.21105937566638913
+SMAC 130: 0.21268271658359492
+History:  (667, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (686, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (653, 1)
+SMAC 153: 0.2119026039497655
+History:  (671, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 124: 0.21105937566638913
+SMAC 131: 0.2126827165835949
+SMAC 154: 0.2119026039497655
+History:  (692, 1)
+History:  (659, 1)
+History:  (675, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 125: 0.2110593756663891
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 155: 0.21190260394976554
+SMAC 132: 0.2126827165835949
+History:  (698, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (679, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (665, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 156: 0.21190260394976554
+SMAC 126: 0.21105937566638908
+History:  (683, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 133: 0.21268271658359486
+History:  (704, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 157: 0.21190260394976554
+History:  (671, 1)
+History:  (687, 1)
+SMAC 127: 0.21105937566638908
+SMAC 134: 0.21268271658359483
+SMAC 158: 0.21190260394976557
+History:  (710, 1)
+History:  (691, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (677, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 128: 0.21105937566638902
+SMAC 159: 0.21190260394976557
+SMAC 135: 0.2126827165835948
+History:  (695, 1)
+History:  (716, 1)
+SMAC 160: 0.21190260394976557
+History:  (683, 1)
+SMAC 129: 0.211059375666389
+History:  (699, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (722, 1)
+SMAC 136: 0.21268271658359478
+SMAC 161: 0.2119026039497656
+History:  (703, 1)
+History:  (689, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 130: 0.211059375666389
+SMAC 162: 0.2119026039497656
+History:  (728, 1)
+SMAC 137: 0.21268271658359475
+History:  (707, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (695, 1)
+SMAC 131: 0.21105937566638897
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 163: 0.2119026039497656
+History:  (734, 1)
+History:  (713, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 138: 0.21268271658359475
+SMAC 132: 0.21105937566638897
+SMAC 164: 0.21190260394976562
+History:  (703, 1)
+History:  (717, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (738, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 165: 0.21190260394976562
+SMAC 133: 0.2110593756663889
+SMAC 139: 0.21268271658359475
+History:  (723, 1)
+History:  (744, 1)
+History:  (711, 1)
+SMAC 166: 0.21190260394976562
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 134: 0.2110593756663889
+SMAC 140: 0.21268271658359472
+History:  (729, 1)
+History:  (750, 1)
+History:  (717, 1)
+SMAC 167: 0.21190260394976565
+SMAC 135: 0.21105937566638885
+History:  (735, 1)
+SMAC 141: 0.21268271658359472
+History:  (756, 1)
+History:  (723, 1)
+SMAC 168: 0.21190260394976565
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 136: 0.21105937566638885
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (739, 1)
+SMAC 142: 0.2126827165835948
+History:  (762, 1)
+SMAC 169: 0.21190260394976565
+History:  (729, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (745, 1)
+SMAC 137: 0.21105937566638885
+SMAC 143: 0.21268271658359486
+SMAC 170: 0.21190260394976568
+History:  (768, 1)
+History:  (735, 1)
+History:  (751, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 138: 0.21105937566638885
+SMAC 144: 0.21268271658359492
+SMAC 171: 0.21190260394976568
+History:  (774, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (755, 1)
+History:  (741, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 139: 0.21105937566638885
+SMAC 172: 0.21190260394976568
+SMAC 145: 0.21268271658359494
+History:  (761, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (780, 1)
+History:  (747, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 173: 0.2119026039497657
+SMAC 140: 0.21105937566638885
+History:  (765, 1)
+SMAC 146: 0.21268271658359503
+History:  (786, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 174: 0.2119026039497657
+History:  (755, 1)
+SMAC 141: 0.2110593756663889
+History:  (771, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (792, 1)
+SMAC 147: 0.21268271658359508
+SMAC 175: 0.2119026039497657
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 142: 0.21105937566638897
+History:  (777, 1)
+History:  (763, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (798, 1)
+SMAC 148: 0.21268271658359514
+SMAC 176: 0.21190260394976573
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 143: 0.211059375666389
+History:  (783, 1)
+History:  (769, 1)
+History:  (804, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 177: 0.21190260394976573
+SMAC 149: 0.21268271658359522
+SMAC 144: 0.21105937566638905
+History:  (789, 1)
+History:  (777, 1)
+History:  (810, 1)
+SMAC 178: 0.21190260394976573
+SMAC 127: 0.21171852935205288
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 150: 0.21268271658359525
+SMAC 145: 0.2110593756663891
+History:  (795, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (926, 1)
+History:  (783, 1)
+History:  (816, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 179: 0.21190260394976576
+SMAC 151: 0.2126827165835953
+History:  (801, 1)
+SMAC 146: 0.21105937566638916
+SMAC 128: 0.2117185293520529
+History:  (822, 1)
+History:  (789, 1)
+SMAC 180: 0.21190260394976576
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (807, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (936, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 152: 0.21268271658359536
+SMAC 147: 0.21105937566638922
+SMAC 181: 0.21190260394976576
+History:  (828, 1)
+History:  (811, 1)
+History:  (795, 1)
+SMAC 129: 0.21171852935205296
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 182: 0.2119026039497658
+SMAC 148: 0.21105937566638927
+SMAC 153: 0.21268271658359542
+History:  (946, 1)
+History:  (815, 1)
+History:  (834, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (803, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 183: 0.2119026039497658
+SMAC 149: 0.2110593756663893
+SMAC 130: 0.211718529352053
+History:  (821, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (840, 1)
+SMAC 154: 0.21268271658359547
+History:  (956, 1)
+SMAC 184: 0.2119026039497658
+SMAC 150: 0.21105937566638935
+History:  (811, 1)
+History:  (827, 1)
+History:  (846, 1)
+SMAC 131: 0.21171852935205301
+SMAC 185: 0.21190260394976582
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 155: 0.21268271658359553
+SMAC 151: 0.2110593756663894
+History:  (833, 1)
+History:  (966, 1)
+History:  (819, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (852, 1)
+SMAC 186: 0.21190260394976582
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 152: 0.21105937566638944
+History:  (839, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 132: 0.21171852935205304
+History:  (858, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 187: 0.21190260394976582
+History:  (976, 1)
+History:  (845, 1)
+SMAC 153: 0.2110593756663895
+SMAC 188: 0.21190260394976582
+SMAC 133: 0.2117185293520531
+History:  (866, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (851, 1)
+SMAC 154: 0.21105937566638958
+History:  (986, 1)
+SMAC 189: 0.21190260394976584
+History:  (874, 1)
+History:  (857, 1)
+SMAC 134: 0.2117185293520531
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 155: 0.2110593756663896
+SMAC 190: 0.21190260394976584
+History:  (996, 1)
+History:  (863, 1)
+History:  (880, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 191: 0.21190260394976584
+SMAC 156: 0.21105937566638966
+SMAC 135: 0.2117185293520531
+History:  (869, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (886, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 192: 0.21190260394976587
+History:  (1006, 1)
+SMAC 157: 0.21105937566638971
+History:  (875, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (894, 1)
+SMAC 136: 0.21171852935205315
+SMAC 193: 0.21190260394976587
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (881, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 158: 0.21105937566638977
+History:  (1016, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 194: 0.21190260394976587
+History:  (904, 1)
+History:  (887, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 137: 0.21171852935205318
+SMAC 159: 0.21105937566638983
+SMAC 195: 0.21190260394976587
+History:  (1026, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (912, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (895, 1)
+SMAC 196: 0.2119026039497659
+SMAC 160: 0.21105937566638985
+SMAC 138: 0.2117185293520532
+History:  (901, 1)
+History:  (918, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 197: 0.2119026039497659
+History:  (1038, 1)
+SMAC 161: 0.2110593756663899
+History:  (909, 1)
+History:  (926, 1)
+SMAC 198: 0.2119026039497659
+SMAC 139: 0.21171852935205324
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 162: 0.21105937566638996
+History:  (915, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1050, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (934, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 199: 0.21190260394976593
+History:  (921, 1)
+SMAC 140: 0.21171852935205326
+SMAC 163: 0.21105937566639
+History:  (942, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 200: 0.21190260394976593
+History:  (1060, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (931, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 164: 0.21105937566639005
+SMAC 141: 0.2117185293520533
+History:  (950, 1)
+SMAC 201: 0.21190260394976593
+History:  (939, 1)
+SMAC 165: 0.2110593756663901
+History:  (1072, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 202: 0.21190260394976596
+History:  (958, 1)
+SMAC 142: 0.21171852935205332
+History:  (947, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 166: 0.21105937566639016
+SMAC 203: 0.21190260394976596
+History:  (1084, 1)
+History:  (968, 1)
+History:  (955, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 167: 0.2110593756663902
+SMAC 143: 0.21171852935205335
+SMAC 204: 0.21190260394976596
+History:  (976, 1)
+History:  (963, 1)
+History:  (1094, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 168: 0.21105937566639024
+SMAC 205: 0.21190260394976596
+SMAC 144: 0.21171852935205338
+History:  (984, 1)
+History:  (969, 1)
+SMAC 206: 0.21190260394976598
+SMAC 169: 0.2110593756663903
+History:  (1104, 1)
+History:  (975, 1)
+History:  (992, 1)
+SMAC 207: 0.21190260394976598
+SMAC 145: 0.2117185293520534
+SMAC 170: 0.21105937566639033
+History:  (981, 1)
+History:  (1118, 1)
+History:  (1000, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 208: 0.21190260394976598
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 171: 0.21105937566639035
+History:  (989, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 146: 0.21171852935205343
+SMAC 209: 0.21190260394976598
+History:  (1008, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1128, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (997, 1)
+SMAC 172: 0.2110593756663904
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 210: 0.211902603949766
+SMAC 147: 0.21171852935205346
+History:  (1018, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1005, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 173: 0.21105937566639046
+History:  (1140, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 211: 0.211902603949766
+History:  (1028, 1)
+History:  (1013, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 156: 0.21230148734080997
+SMAC 148: 0.21171852935205349
+SMAC 212: 0.211902603949766
+SMAC 174: 0.2110593756663905
+History:  (1019, 1)
+History:  (1036, 1)
+History:  (1154, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1176, 1)
+SMAC 213: 0.211902603949766
+SMAC 175: 0.21105937566639055
+History:  (1027, 1)
+SMAC 149: 0.2117185293520535
+History:  (1044, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 214: 0.21190260394976604
+SMAC 157: 0.21230148734080995
+History:  (1166, 1)
+SMAC 176: 0.21105937566639058
+History:  (1035, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1054, 1)
+SMAC 215: 0.21190260394976604
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1194, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 150: 0.21171852935205354
+History:  (1043, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 177: 0.21105937566639063
+SMAC 216: 0.21190260394976604
+History:  (1180, 1)
+SMAC 158: 0.21230148734080995
+History:  (1064, 1)
+History:  (1051, 1)
+SMAC 178: 0.2110593756663907
+SMAC 151: 0.21171852935205354
+SMAC 217: 0.21190260394976604
+History:  (1210, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1074, 1)
+History:  (1059, 1)
+History:  (1194, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 218: 0.21190260394976607
+SMAC 179: 0.21105937566639071
+SMAC 159: 0.21230148734080995
+History:  (1067, 1)
+History:  (1084, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 152: 0.21171852935205357
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 219: 0.21190260394976607
+History:  (1226, 1)
+SMAC 180: 0.21105937566639077
+History:  (1208, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1075, 1)
+History:  (1094, 1)
+SMAC 220: 0.21190260394976607
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 160: 0.21230148734080992
+SMAC 153: 0.2117185293520536
+SMAC 181: 0.2110593756663908
+History:  (1083, 1)
+History:  (1220, 1)
+History:  (1104, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1242, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 182: 0.21105937566639082
+SMAC 154: 0.21171852935205362
+History:  (1112, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1232, 1)
+SMAC 183: 0.21105937566639088
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1122, 1)
+SMAC 155: 0.21171852935205365
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 184: 0.2110593756663909
+History:  (1246, 1)
+History:  (1132, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 156: 0.21171852935205365
+SMAC 185: 0.21105937566639094
+History:  (1142, 1)
+History:  (1260, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 186: 0.211059375666391
+SMAC 157: 0.21171852935205368
+History:  (1156, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1276, 1)
+SMAC 187: 0.21105937566639105
+History:  (1166, 1)
+SMAC 158: 0.2117185293520537
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 188: 0.21105937566639107
+History:  (1290, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1178, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 159: 0.21171852935205374
+SMAC 189: 0.21105937566639113
+History:  (1190, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1304, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 190: 0.21105937566639116
+SMAC 160: 0.21171852935205374
+History:  (1200, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1320, 1)
+SMAC 191: 0.21105937566639119
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1214, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 161: 0.21171852935205376
+SMAC 192: 0.21105937566639124
+History:  (1336, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1226, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 162: 0.2117185293520538
+SMAC 193: 0.21105937566639127
+History:  (1238, 1)
+History:  (1352, 1)
+SMAC 194: 0.2110593756663913
+SMAC 163: 0.2117185293520538
+History:  (1248, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1368, 1)
+SMAC 195: 0.21105937566639135
+History:  (1262, 1)
+SMAC 164: 0.21171852935205382
+SMAC 196: 0.21105937566639138
+History:  (1384, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1276, 1)
+SMAC 165: 0.21171852935205385
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 197: 0.21105937566639144
+History:  (1402, 1)
+History:  (1290, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 161: 0.21226862709663438
+SMAC 198: 0.21105937566639146
+SMAC 166: 0.21171852935205385
+History:  (1302, 1)
+History:  (1418, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 199: 0.2110593756663915
+History:  (1635, 1)
+SMAC 167: 0.21171852935205387
+History:  (1314, 1)
+History:  (1434, 1)
+SMAC 200: 0.21105937566639152
+SMAC 162: 0.21226862709663435
+History:  (1328, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 168: 0.2117185293520539
+SMAC 201: 0.21105937566639155
+History:  (1661, 1)
+History:  (1338, 1)
+History:  (1454, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 202: 0.2110593756663916
+SMAC 163: 0.21226862709663435
+SMAC 169: 0.2117185293520539
+History:  (1352, 1)
+History:  (1472, 1)
+SMAC 203: 0.2110593756663916
+History:  (1689, 1)
+SMAC 221: 0.210539166112053
+History:  (1366, 1)
+SMAC 170: 0.2117185293520539
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 204: 0.21105937566639169
+History:  (1608, 1)
+History:  (1492, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1382, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 171: 0.2117185293520539
+SMAC 222: 0.2105391661120531
+SMAC 205: 0.21105937566639169
+History:  (1394, 1)
+History:  (1510, 1)
+History:  (1630, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 206: 0.2110593756663917
+SMAC 172: 0.2117185293520539
+History:  (1408, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 223: 0.21053916611205314
+History:  (1528, 1)
+SMAC 207: 0.21105937566639177
+History:  (1652, 1)
+History:  (1424, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 173: 0.2117185293520539
+SMAC 208: 0.2110593756663918
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1550, 1)
+SMAC 224: 0.21053916611205323
+History:  (1440, 1)
+SMAC 174: 0.2117185293520539
+SMAC 209: 0.21105937566639182
+History:  (1680, 1)
+History:  (1454, 1)
+History:  (1572, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 225: 0.21053916611205328
+SMAC 210: 0.21105937566639185
+SMAC 175: 0.2117185293520539
+History:  (1468, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1702, 1)
+SMAC 211: 0.21105937566639188
+History:  (1592, 1)
+SMAC 226: 0.21053916611205337
+History:  (1482, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 176: 0.2117185293520539
+SMAC 212: 0.2110593756663919
+History:  (1726, 1)
+History:  (1498, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1616, 1)
+SMAC 213: 0.21105937566639194
+SMAC 227: 0.21053916611205342
+SMAC 177: 0.2117185293520539
+History:  (1512, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1636, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1750, 1)
+SMAC 214: 0.211059375666392
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 178: 0.21171852935205393
+History:  (1530, 1)
+SMAC 228: 0.2105391661120535
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 215: 0.21105937566639202
+History:  (1656, 1)
+History:  (1774, 1)
+History:  (1548, 1)
+SMAC 216: 0.21105937566639205
+SMAC 229: 0.21053916611205353
+History:  (1564, 1)
+History:  (1800, 1)
+SMAC 217: 0.21105937566639207
+History:  (1580, 1)
+SMAC 164: 0.21210420328993465
+SMAC 230: 0.21053916611205362
+SMAC 218: 0.2110593756663921
+History:  (1598, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1828, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2148, 1)
+SMAC 219: 0.21105937566639213
+SMAC 231: 0.21053916611205367
+History:  (1614, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 165: 0.21210420328993487
+SMAC 220: 0.21105937566639216
+History:  (1854, 1)
+History:  (1632, 1)
+History:  (2184, 1)
+SMAC 232: 0.21053916611205373
+SMAC 221: 0.21105937566639218
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1650, 1)
+History:  (1882, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 166: 0.21210420328993507
+SMAC 222: 0.2110593756663922
+SMAC 233: 0.21053916611205378
+History:  (1668, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2224, 1)
+SMAC 223: 0.21105937566639224
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1912, 1)
+History:  (1686, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 234: 0.21053916611205384
+SMAC 224: 0.21105937566639227
+History:  (1704, 1)
+History:  (1940, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 225: 0.2110593756663923
+History:  (1724, 1)
+SMAC 235: 0.2105391661120539
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 226: 0.21105937566639232
+History:  (1972, 1)
+History:  (1744, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 227: 0.21105937566639235
+SMAC 236: 0.21053916611205395
+History:  (1764, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 228: 0.21105937566639238
+History:  (2004, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1786, 1)
+SMAC 237: 0.210539166112054
+SMAC 229: 0.2110593756663924
+History:  (1808, 1)
+History:  (2036, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 230: 0.21105937566639243
+SMAC 238: 0.21053916611205406
+History:  (1828, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 231: 0.21105937566639246
+History:  (2072, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1852, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 232: 0.2110593756663925
+SMAC 239: 0.21053916611205412
+SMAC 179: 0.21156571675934108
+History:  (1876, 1)
+History:  (2106, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 233: 0.21105937566639252
+History:  (2306, 1)
+History:  (1900, 1)
+SMAC 240: 0.21053916611205414
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 234: 0.21105937566639255
+SMAC 180: 0.211565716759341
+History:  (2142, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1922, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 235: 0.21105937566639257
+History:  (2348, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 241: 0.2105391661120542
+History:  (1944, 1)
+SMAC 167: 0.2112685778734446
+SMAC 236: 0.2110593756663926
+History:  (2180, 1)
+SMAC 181: 0.21156571675934088
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1968, 1)
+History:  (2748, 1)
+SMAC 242: 0.21053916611205425
+SMAC 237: 0.21105937566639263
+History:  (2394, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (1992, 1)
+History:  (2218, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 168: 0.21126857787344436
+SMAC 182: 0.2115657167593408
+SMAC 238: 0.21105937566639266
+History:  (2016, 1)
+SMAC 243: 0.2105391661120543
+History:  (2436, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2802, 1)
+SMAC 239: 0.21105937566639268
+History:  (2266, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2044, 1)
+SMAC 183: 0.21156571675934074
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 169: 0.21126857787344414
+SMAC 240: 0.2110593756663927
+SMAC 244: 0.21053916611205437
+History:  (2070, 1)
+History:  (2482, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2304, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 241: 0.21105937566639274
+History:  (2858, 1)
+History:  (2098, 1)
+SMAC 184: 0.21156571675934066
+SMAC 245: 0.2105391661120544
+SMAC 242: 0.21105937566639277
+SMAC 170: 0.21126857787344394
+History:  (2124, 1)
+History:  (2530, 1)
+History:  (2342, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 243: 0.2110593756663928
+History:  (2908, 1)
+SMAC 246: 0.21053916611205445
+SMAC 185: 0.21156571675934058
+History:  (2150, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 244: 0.21105937566639282
+History:  (2386, 1)
+SMAC 171: 0.2112685778734438
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2574, 1)
+History:  (2180, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 245: 0.21105937566639282
+SMAC 247: 0.2105391661120545
+SMAC 186: 0.21156571675934052
+History:  (2206, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2976, 1)
+History:  (2430, 1)
+SMAC 246: 0.21105937566639285
+History:  (2628, 1)
+History:  (2238, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 172: 0.2112685778734442
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 248: 0.21053916611205453
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 247: 0.21105937566639288
+SMAC 187: 0.21156571675934044
+History:  (2268, 1)
+History:  (2472, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (3038, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 248: 0.21105937566639293
+SMAC 249: 0.2105391661120546
+History:  (2298, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2686, 1)
+SMAC 173: 0.21126857787344466
+SMAC 249: 0.21105937566639296
+History:  (2522, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2328, 1)
+SMAC 188: 0.21156571675934036
+History:  (3102, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 250: 0.21105937566639296
+SMAC 250: 0.21053916611205464
+History:  (2746, 1)
+History:  (2360, 1)
+SMAC 251: 0.21105937566639296
+History:  (2574, 1)
+SMAC 174: 0.21126857787344516
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 189: 0.2115657167593403
+History:  (2390, 1)
+SMAC 251: 0.21053916611205467
+History:  (3170, 1)
+SMAC 252: 0.21105937566639296
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2800, 1)
+History:  (2428, 1)
+History:  (2636, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 175: 0.21126857787344558
+SMAC 253: 0.21105937566639296
+SMAC 190: 0.21156571675934024
+SMAC 252: 0.21053916611205475
+History:  (2460, 1)
+History:  (2858, 1)
+History:  (3236, 1)
+SMAC 254: 0.21105937566639296
+History:  (2686, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2494, 1)
+SMAC 191: 0.2115657167593402
+SMAC 253: 0.21053916611205478
+SMAC 176: 0.21126857787344594
+SMAC 255: 0.21105937566639296
+History:  (2734, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2910, 1)
+History:  (2536, 1)
+History:  (3300, 1)
+SMAC 256: 0.21105937566639296
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 254: 0.21053916611205478
+SMAC 192: 0.21156571675934013
+History:  (2568, 1)
+SMAC 177: 0.2112685778734463
+History:  (2786, 1)
+SMAC 257: 0.2110593756663929
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2968, 1)
+SMAC 255: 0.21053916611205478
+History:  (2610, 1)
+History:  (3368, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 193: 0.21156571675934008
+SMAC 258: 0.2110593756663925
+History:  (2846, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2648, 1)
+SMAC 178: 0.21126857787344666
+History:  (3030, 1)
+SMAC 259: 0.21105937566639207
+SMAC 256: 0.21053916611205478
+History:  (3442, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2688, 1)
+SMAC 194: 0.21156571675934002
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2916, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 260: 0.21105937566639166
+SMAC 179: 0.211268577873447
+History:  (3100, 1)
+History:  (2730, 1)
+SMAC 257: 0.21053916611205478
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 261: 0.2110593756663912
+History:  (3516, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2980, 1)
+SMAC 195: 0.2115657167593399
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2774, 1)
+SMAC 262: 0.21105937566639082
+SMAC 258: 0.2105391661120543
+SMAC 180: 0.21126857787344733
+History:  (3178, 1)
+History:  (2816, 1)
+History:  (3046, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (3598, 1)
+SMAC 263: 0.2110593756663904
+SMAC 196: 0.2115657167593399
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2860, 1)
+SMAC 259: 0.21053916611205364
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 181: 0.21126857787344763
+History:  (3258, 1)
+SMAC 264: 0.21105937566638994
+History:  (3112, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (2912, 1)
+History:  (3678, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 197: 0.2115657167593399
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 265: 0.21105937566638958
+SMAC 260: 0.21053916611205292
+History:  (2954, 1)
+SMAC 182: 0.21126857787344794
+History:  (3340, 1)
+History:  (3184, 1)
+SMAC 266: 0.21105937566638922
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (3000, 1)
+SMAC 198: 0.2115657167593399
+SMAC 261: 0.21053916611205223
+History:  (3772, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 267: 0.21105937566638874
+History:  (3418, 1)
+History:  (3258, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 183: 0.21126857787344824
+History:  (3056, 1)
+SMAC 268: 0.21105937566638838
+SMAC 262: 0.21053916611205156
+SMAC 199: 0.21156571675934033
+History:  (3866, 1)
+History:  (3104, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (3334, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (3500, 1)
+SMAC 269: 0.21105937566638802
+SMAC 184: 0.21126857787344844
+History:  (3154, 1)
+SMAC 263: 0.2105391661120509
+SMAC 200: 0.21156571675934124
+SMAC 270: 0.21105937566638758
+History:  (3958, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (3416, 1)
+History:  (3214, 1)
+History:  (3590, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 185: 0.21126857787344866
+SMAC 271: 0.21105937566638724
+SMAC 264: 0.21053916611205029
+SMAC 201: 0.21156571675934205
+History:  (3262, 1)
+History:  (4052, 1)
+History:  (3492, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 272: 0.21105937566638686
+History:  (3672, 1)
+History:  (3320, 1)
+SMAC 265: 0.21053916611204967
+SMAC 186: 0.2112685778734488
+SMAC 273: 0.21105937566638644
+History:  (3574, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (4142, 1)
+History:  (3384, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 274: 0.21105937566638608
+SMAC 266: 0.2105391661120491
+SMAC 187: 0.21126857787344894
+History:  (3440, 1)
+History:  (3656, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 275: 0.2110593756663857
+History:  (4234, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 267: 0.2105391661120485
+History:  (3506, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 188: 0.21126857787344916
+SMAC 276: 0.21105937566638525
+History:  (3746, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (3582, 1)
+History:  (4342, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 268: 0.21053916611204793
+SMAC 277: 0.2110593756663849
+SMAC 189: 0.21126857787344938
+History:  (3644, 1)
+History:  (3838, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 278: 0.21105937566638452
+History:  (4452, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 269: 0.21053916611204726
+History:  (3716, 1)
+SMAC 190: 0.21126857787344958
+SMAC 279: 0.21105937566638414
+History:  (3950, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (3792, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (4564, 1)
+SMAC 270: 0.21053916611204662
+SMAC 280: 0.21105937566638378
+History:  (3870, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (4066, 1)
+SMAC 191: 0.2112685778734498
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 281: 0.2110593756663834
+SMAC 271: 0.21053916611204596
+History:  (4694, 1)
+SMAC 202: 0.21049105218900682
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (3950, 1)
+History:  (4194, 1)
+SMAC 282: 0.211059375666383
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (5023, 1)
+History:  (4040, 1)
+SMAC 272: 0.21053916611204537
+SMAC 283: 0.21105937566638264
+History:  (4316, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (4122, 1)
+SMAC 203: 0.21049105218900724
+SMAC 284: 0.21105937566638241
+SMAC 273: 0.2105391661120448
+History:  (4215, 1)
+History:  (5209, 1)
+History:  (4448, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 285: 0.21105937566638241
+SMAC 204: 0.21049105218900763
+History:  (4307, 1)
+SMAC 274: 0.21053916611204426
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 286: 0.21105937566638241
+History:  (4579, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (5399, 1)
+History:  (4443, 1)
+SMAC 287: 0.21105937566638241
+SMAC 205: 0.21049105218900796
+History:  (4557, 1)
+History:  (5599, 1)
+SMAC 288: 0.21105937566638241
+SMAC 192: 0.21081042814092132
+History:  (4703, 1)
+SMAC 206: 0.21049105218900835
+SMAC 289: 0.21105937566638241
+History:  (6339, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (5849, 1)
+History:  (4881, 1)
+SMAC 193: 0.21081042814092096
+SMAC 290: 0.21105937566638241
+SMAC 207: 0.21049105218900865
+History:  (5061, 1)
+History:  (6617, 1)
+History:  (6079, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+SMAC 291: 0.21105937566638241
+SMAC 208: 0.21049105218900896
+SMAC 194: 0.21081042814092063
+History:  (5252, 1)
+SMAC 275: 0.2104024858877026
+History:  (6323, 1)
+WARNING:smac.intensification.intensification.Intensifier:Challenger was the same as the current incumbent; Skipping challenger
+History:  (6897, 1)

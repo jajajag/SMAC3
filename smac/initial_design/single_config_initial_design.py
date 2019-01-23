@@ -92,7 +92,7 @@ class SingleConfigInitialDesign(InitialDesign):
                 if self.scenario.run_obj == "quality":
                     cost = self.scenario.cost_for_crash
                 else:
-                    cost = self.scenario.cutoff * scenario.par_factor
+                    cost = self.scenario.cutoff * self.scenario.par_factor
                 runtime = 0
                 additional_info = {}
 

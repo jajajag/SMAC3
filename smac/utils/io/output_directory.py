@@ -1,5 +1,4 @@
 from logging import Logger
-import typing
 
 import os
 import shutil
@@ -8,7 +7,7 @@ from smac.scenario.scenario import Scenario
 
 
 def create_output_directory(
-        scenario: typing.Type[Scenario],
+        scenario: Scenario,
         run_id: int,
         logger: Logger=None,
 ):
@@ -29,7 +28,10 @@ def create_output_directory(
             "run_%d" % (run_id),
         )
     else:
-        return ""
+        output_dir = os.path.join(
+            os.path.abspath('.'),
+            "run_%d" % (run_id),
+        )
     if os.path.exists(output_dir):
         move_to = output_dir + ".OLD"
         while (os.path.exists(move_to)):
@@ -41,4 +43,3 @@ def create_output_directory(
                            output_dir, move_to)
     scenario.output_dir_for_this_run = output_dir
     return output_dir
-
