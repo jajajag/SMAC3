@@ -3,7 +3,7 @@
 This is a branch of automl/SMAC3 of v0.8.0 for study and development purpose. 
 The ideas are provided by Dr. Daning Cheng and implemented by myself (Hanping Zhang).
 Only raw results will be shown until the final decision of the conference come out.
-#### Please see Usage section and Modification section for more details.
+### Please see Usage section and Modification section for more details.
 
 Copyright (C) 2016-2018  [ML4AAD Group](http://www.ml4aad.org/)
 
@@ -173,6 +173,9 @@ Comparison of hyperboloid fitting of normal GPR and gradient-based GPR.
 
 * smac_comparison/ <br>
 A simple comparison between normal SMAC with RF and our gradient-based GPR.
+
+* raw_results/ <br>
+Original results of our experiment, which are used to draw the plots.
 
 ### smac/epm/
 
