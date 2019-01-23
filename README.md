@@ -3,7 +3,7 @@
 This is a branch of automl/SMAC3 of v0.8.0 for study and development purpose. 
 The ideas are provided by Dr. Daning Cheng and implemented by myself (Hanping Zhang).
 Only raw results will be shown until the final decision of the conference come out.
-##### Please see Usage section and Modification section for more details.
+#### Please see Usage section and Modification section for more details.
 
 Copyright (C) 2016-2018  [ML4AAD Group](http://www.ml4aad.org/)
 
@@ -98,7 +98,35 @@ It supports the same parameter configuration space syntax
 (except for extended forbidden constraints) and interface to
 target algorithms.
 
-First, please make sure you setup all the required python packages of SMAC3, including swig3.
+First, please make sure you have already setup all the required packages for SMAC3,
+including python pacakges and swig3. Because we have further development of the SMAC with parameter server,
+to make life easier, I upload a simplified version of the code. You do not need to call ps_smac module.
+
+Second, call ```python3 test_oursmac.py data_file``` to show the result. The result will be 
+shown on the standard output. You may want to use ```nohup python3 test_oursmac.py data_file > output &```
+to redirect the output to the file and put the program into the background.
+
+For example, if you want to see the result of the original SMAC, you can do
+```
+python3 test_oursmac.py ./data/libsvm_real-sim
+```
+
+If you want to see our gradient based SMAC, you can set our_work flag to the loss file.
+```
+python3 test_oursmac.py ./data/libsvm_real-sim --our_work=./loss/realsim_loss.txt
+```
+We pre-calculated 1000 losses of the dataset to calculate the gradient ONLY because 
+the HOAG uses a different version of log loss rather than the common version (Range from 0 to 1). To make the
+calculation easier, we use the loss file to calculate the gradient instead. If you want to
+use standard HOAG to calculate the gradient, you can modify the formula in his
+[paper](http://www.cs.ubc.ca/labs/beta/Projects/SMAC/).
+
+If you want to evoke the positive direction, you may want to modify code in
+smac/tae/execute_ta_customized.py. You can choose whether to break or not. You can also DIY the threshold of 0.8 or 1.0.
+We currently provide logistic regression and 3 datasets,
+including pc4, rcv1 and real-sim. If you want to add more, please modify code in execute_ta_customized.py and
+test_oursmac.py. We see dataset as csv format if the name ends up with .csv. Otherwise, we see the file
+as libsvm format.
 
 # Examples
 
@@ -121,7 +149,19 @@ Following files have been modified:
 ### data/
 
 * dataset_1049_pc4.csv <br>
+* libsvm_rcv1_train <br>
+* libsvm_real-sim <br>
 We use pc4, real-sim and rcv1 for testing.
+The dataset should be in csv format if it ends with .csv.
+Otherwise, we will see it as a libsvm format.
+
+### loss/
+
+* pc4_loss.txt <br>
+* rcv1_loss.txt <br>
+* realsim_loss.txt <br>
+The loss file of each dataset. The loss file will be used to
+calculate the gradient.
 
 ### results/
 

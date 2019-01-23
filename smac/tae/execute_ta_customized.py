@@ -78,5 +78,20 @@ class CustomizedTA(object):
             y_pred = lr.predict_proba(self.X_valid)
             loss = self.metric(self.y_valid, y_pred)
 
+        ''' 
+        for ratio in [2, 1.5, 1.25]:
+            C *= ratio                                                          
+            lr = LogisticRegression(C=C, solver="liblinear", fit_intercept=False)
+            lr.fit(self.X_train, self.y_train)
+            # 对loss进行预测
+            y_pred = lr.predict_proba(self.X_valid)
+            new_loss = self.metric(self.y_valid, y_pred)
+            if new_loss < 1.0 * loss:
+            #if new_loss < 0.8 * loss:
+                loss = new_loss
+                # You can choose whether to break or not
+                #break
+        '''
+
         # ta函数只返回loss
         return loss
